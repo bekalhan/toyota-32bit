@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import TerminalList from "./components/terminal/TerminalList";
+import Login from "./components/entrance/Login";
+import {BrowserRouter,Routes,Route,Link,NavLink} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <Routes>
+          <Route path="cvqsterminal">
+            <Route path="terminals" element={<TerminalList/>} />
+            <Route path="terminal/:depcode/:filtercode" element={<Login />} />
+          </Route>
+       </Routes>
+    </BrowserRouter>
   );
 }
 
