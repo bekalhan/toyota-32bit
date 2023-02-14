@@ -3,7 +3,7 @@ import {
     Badge,
     Box,Grid, Typography,Stack
   } from '@mui/material';
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function TerminalGrid({terminalList}) {

@@ -1,9 +1,6 @@
 import React from 'react';
 import { Box,Stack,FormControl,InputLabel,MenuItem,Select, Typography } from '@mui/material';
 
-
-
-
 function Shift({formik,shiftList}) {
  
   return (
@@ -44,4 +41,4 @@ function Shift({formik,shiftList}) {
   )
 }
 
-export default Shift
+export default Shift;
