@@ -1,6 +1,9 @@
+import { height } from '@mui/system';
 import React, { useRef, useState, useEffect } from 'react';
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import "../../../index.css";
+
 
 
 
@@ -22,7 +25,6 @@ function KeyboardTr({inputName,formik,setInputs,inputs,keyboard}) {
   }
 
   const onChangeAll = (inputs) => {
-    console.log("inputs : ",inputs);
     setInputs({...inputs});
     if(inputName=="sicil_no"){
       formik.setFieldValue("sicil_no",inputs.sicil_no);
@@ -38,8 +40,6 @@ function KeyboardTr({inputName,formik,setInputs,inputs,keyboard}) {
     setLayoutName(newLayoutName);
   };
 
-  console.log("geeelen :",inputs);
-
   const onKeyPress = (button) => {
     
     if (button === "{shift}" || button === "{lock}") handleShift();
@@ -53,6 +53,7 @@ function KeyboardTr({inputName,formik,setInputs,inputs,keyboard}) {
     layoutName={layoutName}
     onChangeAll={onChangeAll}
     onKeyPress={onKeyPress}
+    theme={"hg-theme-default myTheme1"}
     layout={{
         default: [
             '" 1 2 3 4 5 6 7 8 9 0 * - # {bksp}',

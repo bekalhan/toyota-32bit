@@ -247,15 +247,14 @@ function Login() {
                              {/* montaj no end */}
                              {/* date and shift */}
                             <Grid container sx={{marginTop:'1em',display:'flex'}}>
-                                <Grid lg={1.5} md={1.5} sm={1.5} xs={0.3}></Grid>
-                                <Grid lg={8.2} md={8.2} sm={9}>
+                                <Grid item lg={1.5} md={1.5} sm={1.5} xs={0.3}></Grid>
+                                <Grid item lg={8.2} md={8.2} sm={9}>
                                     <Grid container
                                     backgroundColor={()=>shifts?.data?.Response?.data?.map((el)=>(
-                                        console.log("şuan burada : ",el.shiftCode),
                                         el?.shiftCode == formik?.values?.vardiya ? el.rgbColor : 'none'
                                     ))}
                                     sx={{height:'80px',borderRadius:'12px',width:{lg:'790px',md:'600px',sm:'560px',xs:'510px'}}}>
-                                        <Grid item lg={3.5} md={3.5} sm={3.5} xs={3.5}>
+                                        <Grid item lg={3.5} md={3.5} sm={3.5} xs={3.5} sx={{display:'flex',justifyContent:'flex-start'}}>
                                             <Typography sx={{fontWeight:'bold',marginTop:{lg:'0.6em',md:'0.6em'},marginTop:'1.5em',paddingLeft:{lg:'0.3em'}}}>Tarih</Typography>
                                         </Grid>
                                         <Grid item lg={8} md={8} sm={7} xs={7}>
@@ -264,19 +263,19 @@ function Login() {
                                                   <Shift formik={formik} shiftList={shifts?.data?.Response?.data} />
                                             </Stack>
                                         </Grid>
-                                        <Grid lg={0.5} md={0.5} sm={1.5} xs={1.5}></Grid>
+                                        <Grid item lg={0.5} md={0.5} sm={1.5} xs={1.5}></Grid>
                                     </Grid>
                                 </Grid>
-                                <Grid lg={2} md={2} sm={2}></Grid>
+                                <Grid item lg={2} md={2} sm={2}></Grid>
                             </Grid>
                             {/* end */}
                             <Grid container sx={{marginTop:{lg:'1em',md:'1em',sm:'1em',xs:'1em'},height:{lg:'60px',md:'60px'}}}>
-                                <Grid lg={1} md={1.6} sm={1.6} xs={0.6}></Grid>
+                                <Grid item lg={1} md={1.6} sm={1.6} xs={0.6}></Grid>
                                 <Grid item lg={4} md={3.6} sm={4.4} xs={5}>
                                   <Button variant="contained" type='submit' sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:'#000000',marginLeft:{lg:'3em'}}}>GİRİŞ YAP</Button>
                                 </Grid>
                                 <Grid item lg={1} md={0.4} sm={0.3} xs={0.2}></Grid>
-                                <Grid lg={4} md={3.5} sm={4.4} xs={5}>
+                                <Grid item lg={4} md={3.5} sm={4.4} xs={5}>
                                   <Button
                                    variant="contained"
                                     sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:'#d31823'}}
@@ -286,7 +285,7 @@ function Login() {
                                 </Button>
                                 </Grid>
                             </Grid>
-                            <Grid container sx={{marginTop:'1rem',width:'100%',height:'200px',backgroundColor:'#eaeaea'}}>
+                            <Grid container sx={{marginTop:{lg:'1em',md:'1em',sm:'1em',xs:'1em'},width:'100%',height:'200px',backgroundColor:'#eaeaea'}}>
                                 <Grid item lg={12} md={12} sm={12} xs={12}>
                                     <VirtualKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard}  />
                                 </Grid>

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Badge,
     Box,Grid, Typography,Stack
   } from '@mui/material';
 import { useNavigate } from "react-router-dom";
@@ -32,7 +31,7 @@ function TerminalGrid({terminalList}) {
            </Grid>
        </Grid>
        {terminalList?.map((terminal)=>(
-            <Grid item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}}>
+            <Grid item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}} key={terminal.depName}>
                 <Grid container sx={{marginTop:'0.2px'}}>
                     <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:'2px solid #b7ecba',padding:0.5}}>
                     <Box sx={{display:'flex',justifyContent:'center'}}>
@@ -62,7 +61,6 @@ function TerminalGrid({terminalList}) {
                         </Grid>
                     </Grid>
                 </Grid>
-            
             </Grid>
        ))}
     </Grid>
@@ -70,4 +68,4 @@ function TerminalGrid({terminalList}) {
   )
 }
 
-export default TerminalGrid
+export default TerminalGrid;

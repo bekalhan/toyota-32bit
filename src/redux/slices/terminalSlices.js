@@ -13,7 +13,6 @@ export const getTerminalList =  createAsyncThunk("/terminal-list",async ()=>{
 export const getSpeTerminal = createAsyncThunk("/spe-terminal",async (info)=>{
   try{
     const data = await axios.get(`/${info.depcode}/${info.filtercode}`);
-    console.log("dataaa :",data);
     return data;
   }catch(error){
     if(!error.response) throw error;

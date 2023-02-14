@@ -4,7 +4,6 @@ import axios from "axios";
 export const getShifts = createAsyncThunk("/shifts",async () =>{
     try{
         const data = await axios.get(`/shifts`);
-        console.log("hemen");
         return data;
     }catch(error){
         if(!error.response) throw error;

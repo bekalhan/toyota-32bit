@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Box,Stack,FormControl,InputLabel,MenuItem,Select,NativeSelect } from '@mui/material';
+import { Box,Stack,FormControl,MenuItem,Select } from '@mui/material';
 import { useEffect } from 'react';
 
 
@@ -76,7 +76,7 @@ function Date({formik}) {
                         onBlur={formik.handleBlur("gun")}
                         >
                     {day?.map((el)=>(
-                        <MenuItem value={el}>{el}</MenuItem>
+                        <MenuItem value={el} key={el}>{el}</MenuItem>
                     ))}
                         </Select>
                 </FormControl>
@@ -90,7 +90,7 @@ function Date({formik}) {
                         size="small"
                         >
                     {day?.map((el)=>(
-                        <MenuItem value={el}>{el}</MenuItem>
+                        <MenuItem value={el} key={el}>{el}</MenuItem>
                     ))}
                         </Select>
                 </FormControl>
@@ -105,7 +105,7 @@ function Date({formik}) {
                         onBlur={formik.handleBlur("ay")}
                         >
                         {months?.map((month)=>(
-                          <MenuItem value={month}>{month}</MenuItem>
+                          <MenuItem value={month} key={month}>{month}</MenuItem>
                         ))}
                         </Select>
                 </FormControl>
@@ -119,7 +119,7 @@ function Date({formik}) {
                         size="small"
                         >
                         {months?.map((month)=>(
-                          <MenuItem value={month}>{month}</MenuItem>
+                          <MenuItem value={month} key={month}>{month}</MenuItem>
                         ))}
                         </Select>
                 </FormControl>
@@ -134,12 +134,12 @@ function Date({formik}) {
                               onBlur={formik.handleBlur("yil")}
                               >
                               {year?.map((year)=>(
-                                <MenuItem value={year}>{year}</MenuItem>
+                                <MenuItem value={year} key={year}>{year}</MenuItem>
                               ))}
 
                               </Select>
                       </FormControl>
-                      <FormControl sx={{width:{},height:{lg:'80px'},marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em',xs:'0.7em'},marginLeft:{lg:'1em',md:'1em',sm:'0.3em',xs:'0.2em'},display:{lg:'none',md:'none',sm:'block',xs:'block'}}}>
+                      <FormControl sx={{width:{},height:{lg:'80px'},marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em',xs:'0.7em'},marginLeft:{lg:'1em',md:'1em',sm:'0.3em',xs:'0.2em'},display:{lg:'none',md:'none',sm:'block',xs:'block'}}}> 
                               <Select
                               labelId="demo-simple-select-label"
                               id="demo-simple-select"
@@ -149,7 +149,7 @@ function Date({formik}) {
                               size="small"
                               >
                               {year?.map((year)=>(
-                                <MenuItem value={year}>{year}</MenuItem>
+                                <MenuItem value={year} key={year}>{year}</MenuItem>
                               ))}
 
                               </Select>
