@@ -1,7 +1,11 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Box,Stack,FormControl,InputLabel,MenuItem,Select, Typography } from '@mui/material';
 
-function Shift({formik,shiftList}) { 
+
+function Shift({formik,shifts}) { 
+
+
+
   return (
     <Stack direction='row'>
         <Box>
@@ -16,7 +20,7 @@ function Shift({formik,shiftList}) {
                     onChange={formik.handleChange("vardiya")}
                     onBlur={formik.handleBlur("vardiya")}
                     >
-                      {shiftList?.map((shift)=>(
+                      {shifts?.map((shift)=>(
                         <MenuItem value={shift.shiftCode} key={shift.shiftId}>{shift.shiftCode}</MenuItem>
                       ))}
                     </Select>
@@ -30,7 +34,7 @@ function Shift({formik,shiftList}) {
                     onBlur={formik.handleBlur("vardiya")}
                     size="small"
                     >
-                      {shiftList?.map((shift)=>(
+                      {shifts?.map((shift)=>(
                         <MenuItem value={shift.shiftCode} key={shift.shiftId}>{shift.shiftCode}</MenuItem>
                       ))}
                     </Select>
