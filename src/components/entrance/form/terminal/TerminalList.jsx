@@ -11,9 +11,6 @@ import {useParams} from 'react-router-dom';
 import { getShifts } from "../../../../redux/slices/loginSlices";
 import { getSpeTerminal } from "../../../../redux/slices/terminalSlices";
 
-
-
-
 function TerminalList() {
     const [personName, setPersonName] = useState([]);
     const [defaultName, setDefaultName] = useState('');
@@ -92,4 +89,4 @@ function TerminalList() {
   )
 }
 
-export default TerminalList
+export default TerminalList;

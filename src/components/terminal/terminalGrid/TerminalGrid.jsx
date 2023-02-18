@@ -33,7 +33,7 @@ function TerminalGrid({terminalList}) {
        {terminalList?.map((terminal)=>(
             <Grid item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}} key={terminal.depName}>
                 <Grid container sx={{marginTop:'0.2px'}}>
-                    <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:'2px solid #b7ecba',padding:0.5}}>
+                    <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:'2px solid #b7ecba'}}>
                     <Box sx={{display:'flex',justifyContent:'center'}}>
                         <Typography sx={{color:'#d34555',fontSize:{lg:'15px'},marginTop:{lg:'1.5em',md:'0.7em',sm:'0'}}}>{terminal?.depName}</Typography>
                     </Box>

@@ -4,7 +4,7 @@ import KeyboardFr from '../../../utils/keyboard/fr/KeyboardFr';
 import KeyboardAe from '../../../utils/keyboard/ae/KeyboardAe';
 import KeyboardEn from '../../../utils/keyboard/en/KeyboardEn';
 import {Grid} from '@mui/material';
-import GridFormatter from '../../../utils/GridFormatter';
+import GridFormatter from '../../../utils/GridHelper/GridFormatter';
 
 function VirtualKeyboard({inputName,formik,setInputs,inputs,keyboard}) {
 

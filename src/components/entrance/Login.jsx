@@ -1,12 +1,13 @@
-import React from 'react';
-import { Box, Grid, Typography,Divider,Stack,Button} from '@mui/material';
+import React,{useRef,useState} from 'react';
+import { Box, Grid, Typography,Divider,Stack,Button , TextField} from '@mui/material';
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import moment from 'moment';
 import VirtualKeyboard from './keyboard/VirtualKeyboard';
 import { useNavigate } from "react-router-dom";
 import DateShift from './dateShift/DateShift';
-import Form from './form/Form';
+import ValidationMessages from '../../utils/ValidationMessages';
+import TerminalList from './form/terminal/TerminalList';
 
 
 
@@ -22,8 +23,15 @@ const formSchema = Yup.object({
   });
 
 function Login() {
+    //use state
+    const [inputName, setInputName] = useState("");
+    const [inputs, setInputs] = useState({});
     //useNavigate
     const navigate = useNavigate();
+
+    //use ref
+    const keyboard = useRef();
+
 
     //moment
     let current = moment().format('L').split('/'); 
@@ -37,7 +45,7 @@ function Login() {
         gun:parseInt(current[1]),
         ay:parseInt(current[0]),
         yil:parseInt(current[2]),
-        vardiya:"M"
+        vardiya:"M",
         },
         onSubmit: values => {
             console.log("gelen değerler :",values);
@@ -46,6 +54,22 @@ function Login() {
         },
         validationSchema: formSchema,
     });
+
+
+    const onChangeInput = (event) => {
+        const inputVal = event.target.value;
+    
+        setInputs({
+          ...inputs,
+          [inputName]: inputVal
+        });  
+        formik?.setFieldValue("setInputs",{
+            ...inputs,
+            [inputName]: inputVal
+          })
+       keyboard.current.setInput(inputVal);
+    };
+
   
     return (
     <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'1500px'}}>
@@ -58,10 +82,82 @@ function Login() {
                     <Divider />
                     <Box sx={{padding:2}}>
                         <Stack direction='column'>
-                        <form onSubmit={formik.handleSubmit}>
-                            <Form formik={formik} />
-                            <DateShift formik={formik} />
-                            <Grid container sx={{marginTop:{lg:'1em',md:'1em',sm:'1em',xs:'1em'},height:{lg:'60px',md:'60px'}}}>
+                    <form onSubmit={formik.handleSubmit}>
+                        <TerminalList />
+                        <Grid container sx={{marginTop:'1rem'}}>
+                                   <Grid item lg={1.6} md={1.6} sm={1.5} xs={0.5}></Grid>
+                                    <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
+                                        <Typography sx={{fontWeight:'bold',marginTop:'0.6rem'}}>Sicil No</Typography>
+                                    </Grid>
+                                    <Grid item lg={7.5} md={7.5} sx={{display:{lg:'block',md:'block',sm:'none',xs:'none'}}}>
+                                         <TextField
+                                         value={formik.values.sicil_no}
+                                         onBlur={formik.handleBlur("sicil_no")}
+                                         onChange={onChangeInput}
+                                         onFocus={() => setInputName("sicil_no")}
+                                         id="outlined-basic" variant="outlined" sx={{width:{lg:'550px',md:'400px'},backgroundColor:'#e8f0fd'}} />
+                                    </Grid>
+                                    <Grid item sm={7.5} xs={7.5} sx={{display:{lg:'none',md:'none',sm:'block',xs:'block'}}}>
+                                         <TextField
+                                         value={formik.values.sicil_no}
+                                         onBlur={formik.handleBlur("sicil_no")}
+                                         onChange={onChangeInput}
+                                         onFocus={() => setInputName("sicil_no")}
+                                         size="small"
+                                         id="outlined-basic" variant="outlined" sx={{width:{sm:'360px',xs:'320px'},backgroundColor:'#e8f0fd'}} />
+                                    </Grid>
+                       </Grid>
+                       <ValidationMessages formik={formik} name="sicil_no" />
+                        <Grid container sx={{marginTop:'1rem'}}>
+                                   <Grid item lg={1.6} md={1.6} sm={1.5} xs={0.5}></Grid>
+                                    <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
+                                        <Typography sx={{fontWeight:'bold',marginTop:'0.6rem'}}>Şifre</Typography>
+                                    </Grid>
+                                    <Grid item lg={7.5} md={7.5} sx={{display:{lg:'block',md:'block',sm:'none',xs:'none'}}}>
+                                         <TextField
+                                        value={formik.values.sifre}
+                                        onChange={onChangeInput}
+                                        onBlur={formik.handleBlur("sifre")}
+                                         onFocus={() => setInputName("sicil_no")}
+                                        id="outlined-basic" variant="outlined" sx={{width:{lg:'550px',md:'400px'},backgroundColor:'#e8f0fd'}} />
+                                    </Grid>
+                                    <Grid item sm={7.5} xs={7.5} sx={{display:{lg:'none',md:'none',sm:'block',xs:'block'}}}>
+                                         <TextField
+                                        value={formik.values.sifre}
+                                        onChange={onChangeInput}
+                                        onBlur={formik.handleBlur("sifre")}
+                                        onFocus={() => setInputName("sicil_no")}
+                                        size="small"
+                                         id="outlined-basic" variant="outlined" sx={{width:{sm:'360px',xs:'320px'},backgroundColor:'#e8f0fd'}} />
+                                    </Grid>
+                        </Grid>
+                       <ValidationMessages formik={formik} name="sifre" />
+                         <Grid container sx={{marginTop:'1rem'}}>
+                                   <Grid item lg={1.6} md={1.6} sm={1.5} xs={0.5}></Grid>
+                                    <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
+                                        <Typography sx={{fontWeight:'bold',marginTop:'0.6rem'}}>Montaj No</Typography>
+                                    </Grid>
+                                    <Grid item lg={8} md={8} sx={{display:{lg:'block',md:'block',sm:'none',xs:'none'}}}>
+                                         <TextField
+                                        value={formik.values.montaj_no}
+                                        onChange={onChangeInput}
+                                        onBlur={formik.handleBlur("montaj_no")}
+                                        onFocus={() => setInputName("montaj_no")}
+                                        id="outlined-basic" variant="outlined" sx={{width:{lg:'550px',md:'400px'},backgroundColor:'white'}} />
+                                    </Grid>
+                                    <Grid item sm={7.5} xs={7.5} sx={{display:{lg:'none',md:'none',sm:'block',xs:'block'}}}>
+                                         <TextField
+                                        value={formik.values.montaj_no}
+                                        onChange={onChangeInput}
+                                        onBlur={formik.handleBlur("montaj_no")}
+                                        onFocus={() => setInputName("montaj_no")}
+                                        size="small"
+                                         id="outlined-basic" variant="outlined" sx={{width:{sm:'360px',xs:'320px'},backgroundColor:'white'}} />
+                                    </Grid>
+                         </Grid>
+                         <ValidationMessages formik={formik} name="montaj_no" />
+                         <DateShift formik={formik} />
+                            <Grid container sx={{marginTop:'1em',height:{lg:'60px',md:'60px'}}}>
                                 <Grid item lg={1} md={1.6} sm={1.6} xs={0.6}></Grid>
                                 <Grid item lg={4} md={3.6} sm={4.4} xs={5}>
                                   <Button variant="contained" type='submit' sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:'#000000',marginLeft:{lg:'3em'}}}>GİRİŞ YAP</Button>
@@ -77,8 +173,8 @@ function Login() {
                                 </Button>
                                 </Grid>
                             </Grid>
-                            {/* <VirtualKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard}  /> */}
-                        </form>
+                        <VirtualKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard}  />
+                    </form>
                         </Stack>
                     </Box>
                 </Stack>
