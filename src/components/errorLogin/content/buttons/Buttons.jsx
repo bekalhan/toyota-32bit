@@ -6,7 +6,7 @@ import Search from './search/Search';
 
 function Buttons() {
   return (
-   <Grid item lg={2.5} md={2.7} sm={12} xs={12}>
+   <Grid item lg={2.5} md={12} sm={12} xs={12}>
      <Grid container>
         <Grid item lg={12} md={12} sm={12} xs={12} sx={{display:'flex',justifyContent:'center'}}>
             <Stack direction='row'>
