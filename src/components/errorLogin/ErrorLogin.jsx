@@ -1,25 +1,22 @@
 import React from 'react';
-import { useEffect } from 'react';
 import {
-    Grid , Box, Typography , Stack, Avatar , Button ,TextField , Checkbox ,FormGroup , FormControlLabel
+    Box,Grid
 } from '@mui/material';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import car from '../../img/car.png';
-import Header from './header/Header';
-import Model from './content/model/Model';
-import Buttons from './content/buttons/Buttons';
+import HeaderData from './headerdata/HeaderData';
 
 
 function ErrorLogin() {
-
   return (
     <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'1800px'}}>
         <Grid container sx={{display:'flex',justifyContent:'center'}}>
-            <Grid item lg={10} md={12} sm={12} xs={12} sx={{borderRadius:'12px',display:'flex',height:'850px'}}>
-                <Grid container sx={{display:'flex',justifyContent:'center'}}>
-                     <Header />
-                    <Model  />
-                    <Buttons />
+            <Grid item lg={8} md={10} sm={12} xs={12} sx={{border:'2px solid #b7ecba',borderRadius:'10px'}}>
+                <Grid container>
+                    <Grid item lg={12} md={12} sm={12} xs={12}>
+                        <HeaderData />
+                    </Grid>
+                    <Grid item lg={12}>
+                        
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
