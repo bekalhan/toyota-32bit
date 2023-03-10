@@ -19,6 +19,7 @@ function Shift({formik,shifts}) {
                     value={formik.values.vardiya}
                     onChange={formik.handleChange("vardiya")}
                     onBlur={formik.handleBlur("vardiya")}
+                    sx={{width:{lg:'100px',md:'80px'}}}
                     >
                       {shifts?.map((shift)=>(
                         <MenuItem value={shift.shiftCode} key={shift.shiftId}>{shift.shiftCode}</MenuItem>

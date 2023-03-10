@@ -20,11 +20,9 @@ function DateShift({formik}) {
         dispatch(getShifts());
     },[]);
 
-    console.log('shifts : :',shifts?.data?.Response?.data);
-
 
   return (
-    <Grid container sx={{marginTop:'1em',display:'flex'}}>
+    <Grid container sx={{marginTop:'1em',display:'flex',marginLeft:{lg:'0',md:'0',sm:'0',xs:'1em'}}}>
     <Grid item lg={1.5} md={1.5} sm={1.5} xs={0.3}></Grid>
         {shifts?.data?.Response?.data.length > 2 ? (
                     <Grid item lg={8.2} md={8.2} sm={9} xs={12}>
@@ -34,11 +32,10 @@ function DateShift({formik}) {
                             formik?.values?.vardiya=="M" ? '#12a6eb' : formik?.values?.vardiya == "K" ? '#ff0000' : formik?.values?.vardiya == "B" ? '#ffffff' : 'none'
                         )
                     ))}
-                    sx={{height:'80px',borderRadius:'12px',width:{lg:'790px',md:'600px',sm:'560px',xs:'510px'}}}>
-                        <GridFormatter format="3.5" content={
-                            <Typography sx={{fontWeight:'bold',marginTop:{lg:'0.6em',md:'0.6em'},marginTop:'1.5em',paddingLeft:{lg:'0.3em'}}}>Tarih</Typography>
-                        }>
-                        </GridFormatter>
+                    sx={{height:'80px',borderRadius:'12px',width:{lg:'790px',md:'600px',sm:'560px',xs:'450px'}}}>
+                        <Grid item lg={3.5} md={3.5} sm={3.5} xs={2.4}>
+                             <Typography sx={{fontWeight:'bold',marginTop:{lg:'0.6em',md:'0.6em'},marginTop:'1.5em',paddingLeft:{lg:'0.3em'}}}>Tarih</Typography>
+                        </Grid>
                         <Grid item lg={8} md={8} sm={7} xs={7}>
                             <Stack direction='row'>
                                 <Date formik={formik} />

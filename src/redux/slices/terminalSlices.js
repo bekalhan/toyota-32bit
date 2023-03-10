@@ -3,9 +3,12 @@ import axios from "axios";
 
 export const getTerminalList =  createAsyncThunk("/terminal-list",async ()=>{
     try{
+      console.log("girdiii");
         const data = await axios.get(`/terminal-list`);
+        console.log("data :",data);
         return data;
     }catch(error){
+      console.log(error);
         if (!error?.response) throw error;
     }
 });

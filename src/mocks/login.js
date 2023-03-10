@@ -47,4 +47,43 @@ export const login = [
           })
         )
       }),
+    rest.get('/login/:sicil/:sifre/:montaj',(req,res,ctx)=>{
+      const {sicil,sifre,montaj} = req.params;
+      let data = {
+        "data":[
+          {
+            "sicilNo":"99619",
+            "sifre":"123",
+            "montajNo":"222"
+          }
+        ]
+      };
+      let isUserExist = data?.data?.map((element)=>{
+        if(element.sicilNo === sicil && element.sifre === sifre && element.montajNo === montaj){
+          return element;
+        }
+      });
+      
+      if(isUserExist[0]===undefined){
+        return res(
+          ctx.json({
+            Response:{
+              type:'Error'
+            }
+          })
+        );
+      }else{
+        return res(
+          ctx.json({
+            Response:{
+              type:"Success",
+              data:{
+                user:isUserExist
+              }
+            }
+          })
+        )
+      }
+
+    })
 ]

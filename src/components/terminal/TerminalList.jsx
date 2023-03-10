@@ -15,6 +15,8 @@ function TerminalList() {
     useEffect(()=>{
         dispatch(getTerminalList());
     },[]);
+
+    console.log("eee:",terminalList);
     
   return (
     <>

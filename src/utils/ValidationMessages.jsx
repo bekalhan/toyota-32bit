@@ -20,6 +20,11 @@ function ValidationMessages({formik,name}) {
                     <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.montaj_no && formik.errors.montaj_no}</Typography>
                 )
                 break;
+            case 'invalid_credentials':
+                return(
+                    <Typography sx={{color:'red',marginBottom:'2em'}}>Lütfen girdiğiniz bilgileri kontrol edip tekrar giriş yapmayı deneyiniz</Typography>
+                )
+                break;
         }
     }
   return (
