@@ -2,7 +2,6 @@ import TerminalList from "./components/terminal/TerminalList";
 import Login from "./components/entrance/Login";
 import ErrorLogin from "./components/errorLogin/ErrorLogin";
 import NotFound from "./utils/notfound/NotFound";
-import ErrorLogin2 from "./components/errorLogin/ErrorLogin";
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 
 
