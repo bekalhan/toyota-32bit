@@ -4,7 +4,6 @@ import ErrorLogin from "./components/errorLogin/ErrorLogin";
 import NotFound from "./utils/notfound/NotFound";
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 
-
 function App() {
   return (
     <BrowserRouter>

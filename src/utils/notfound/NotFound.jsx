@@ -7,7 +7,7 @@ import notfound from '../../img/notfound.png'
 export default class NotFound extends Component {
   render() {
     return (
-        <Box sx={{display:"flex",justifyContent:"center"}}>
+      <Box sx={{display:"flex",justifyContent:"center"}}>
         <NavLink to="/cvqsterminal/terminals" sx={{display:"flex",justifyContent:"center",backgroundColor:"red"}}>
         <Box sx={{display:"flex",justifyContent:"center",alignItems:"center"}}>
                 <Avatar

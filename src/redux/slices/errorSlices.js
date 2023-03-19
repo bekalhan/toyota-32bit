@@ -20,11 +20,14 @@ export const getErrors = createAsyncThunk("/errors",async () =>{
 });
 
 
+
+
 const errorSlice = createSlice({
     name:'error',
     initialState:{
         errorData : '',
-        errors : []
+        errors : [],
+        choosedError : undefined
     },
     extraReducers: builder =>{
     //get error data

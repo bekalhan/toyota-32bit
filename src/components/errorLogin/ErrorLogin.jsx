@@ -3,7 +3,7 @@ import {
     Box,Grid
 } from '@mui/material';
 import HeaderData from './headerdata/HeaderData';
-import Model from './display/model/Model';
+import Model from './display/content/Model';
 import Buttons from './display/buttons/Buttons';
 import ButtomButtons from './buttomButtons/ButtomButtons';
 
@@ -28,6 +28,13 @@ function ErrorLogin() {
                     </Grid>
                     <Grid item lg={9.3} md={9.5} sm={12} xs={12}>
                         <ButtomButtons />
+                    </Grid>
+                </Grid>
+                <Grid item lg={12} md={12} sm={12} xs={12}>
+                    <Grid container>
+                        <Grid item lg={2} md={2}>
+                            
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>

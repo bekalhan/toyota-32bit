@@ -1,11 +1,11 @@
-import { Avatar,Box,Typography } from '@mui/material'
+import { Avatar,Box,Typography,Select,OutlinedInput,MenuItem } from '@mui/material'
 import React, { useState } from 'react';
 import car from '../../../../img/car4.jpg';
 import { useDispatch , useSelector} from "react-redux";
 import { useEffect } from 'react';
 import {getErrors} from '../../../../redux/slices/errorSlices';
 import Loading from '../../../../utils/loading/Loading';
-import ChoosedError from './ChoosedError';
+import ChoosedError from './clickedError/ChoosedError';
 
 function Model() {
   //react useState
@@ -28,11 +28,11 @@ function Model() {
     }
   }
 
-  console.log("error information :",clickedError);
+  console.log("aaa :",errors?.data?.Response?.data[0].partDefects)
 
   return (
     loading ? <Loading />: 
-    click ? <ChoosedError error={clickedError} /> :
+    click ? <ChoosedError error={clickedError} defects={errors?.data?.Response?.data[0].partDefects} /> :
     <Box sx={{overflowX:'scroll',width:'100%',height:'600px',position:'relative'}}>
      <Avatar
      variant='square'
