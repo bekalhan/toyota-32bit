@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react';
 import {
-    Avatar,Box,Typography
+    Avatar,Box,Typography,Stack,Button
 } from '@mui/material';
 import car from '../../../../../img/car10.jpeg';
 import { Line } from 'react-lineto';
+import MenuItems from './MenuItems';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import MenuItems from './MenuItems';
 
 
 function ChoosedError({error,defects}) {
@@ -20,17 +20,26 @@ function ChoosedError({error,defects}) {
   const open = Boolean(anchorEl);
 
 
+  console.log("error :",error);
+
+
   const handleMove = (e) =>{
+    e.preventDefault();
     if(!control){
         setMove({x:e.nativeEvent.offsetX,y:e.nativeEvent.offsetY});
     }
+    console.log("e client y:",e.clientY," ve offset y: ",e.nativeEvent.offsetY);
     let corX = e.clientX - e.nativeEvent.offsetX;
     let corY = e.clientY - e.nativeEvent.offsetY;
+    if(corY < 0){
+      corY = e.clientY - e.nativeEvent.offsetY;
+    }
     setLine({x:corX,y:corY});
     handleError();
   }
 
   const handleMoveAllScreen = (e) =>{
+    e.preventDefault();
     if(!control){
       let corX = e.clientX - e.nativeEvent.offsetX;
       let corY = e.clientY - e.nativeEvent.offsetY;
@@ -58,7 +67,7 @@ function ChoosedError({error,defects}) {
   //useEffect
   useEffect(()=>{
     handleError();
-  },[control]);
+  },[control,line]);
 
   const handleError = () => {
     let corX = line.x + error.boxX + (error.boxWidth/2);
@@ -67,8 +76,11 @@ function ChoosedError({error,defects}) {
     setSpace({x:error.boxX,y:error.boxY});
   }
 
+  console.log("line y :",line.y);
+
   return (
-  <Box sx={{overflowX:'scroll',width:'100%',height:'600px',position:'relative'}}>
+  <Box sx={{overflowX:'scroll',width:'100%',height:'600px',position:'relative'}} onMouseMove={(e)=>handleMoveAllScreen(e)}  
+  >
     <Avatar
      variant='square'
      src={car}
@@ -80,7 +92,7 @@ function ChoosedError({error,defects}) {
      />
      {/* added line in the screen */}
     {control?(
-     <Box>
+     <Box sx={{position:'fixed'}}>
          <Line x0={err.x} y0={err.y} x1={line.x+move.x} y1={line.y+move.y} />
      </Box>
     ):null}
@@ -103,13 +115,17 @@ function ChoosedError({error,defects}) {
            <Typography sx={{maxWidth:'100%',backgroundColor:'white',color:'red',fontSize:'11px',display:'flex',justifyContent:'center'}}>{error.labelText}</Typography>
      </Box>
      {/* menu items  */}
+     <Box sx={{zIndex:3,position:'absolute'}}>
       <MenuItems
-       defectSc={defectsSc}
-       anchorEl={anchorEl}
-       defects={defects} space={space}
-       handleClose={handleClose}
-       />
+        defectSc={defectsSc}
+        anchorEl={anchorEl}
+        defects={defects} space={space}
+        handleClose={handleClose}
+        />
+        
      </Box>
+
+   </Box>
   )
 }
 
