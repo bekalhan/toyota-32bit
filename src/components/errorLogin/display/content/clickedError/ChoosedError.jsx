@@ -1,12 +1,11 @@
 import React,{useState,useEffect} from 'react';
 import {
-    Avatar,Box,Typography,Stack,Button
+    Avatar,Box,Typography
 } from '@mui/material';
 import car from '../../../../../img/car10.jpeg';
 import { Line } from 'react-lineto';
 import MenuItems from './MenuItems';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+
 
 
 function ChoosedError({error,defects}) {
@@ -19,21 +18,13 @@ function ChoosedError({error,defects}) {
   const [space,setSpace] = useState({"x":0,"y":0});
   const open = Boolean(anchorEl);
 
-
-  console.log("error :",error);
-
-
   const handleMove = (e) =>{
     e.preventDefault();
     if(!control){
         setMove({x:e.nativeEvent.offsetX,y:e.nativeEvent.offsetY});
     }
-    console.log("e client y:",e.clientY," ve offset y: ",e.nativeEvent.offsetY);
     let corX = e.clientX - e.nativeEvent.offsetX;
     let corY = e.clientY - e.nativeEvent.offsetY;
-    if(corY < 0){
-      corY = e.clientY - e.nativeEvent.offsetY;
-    }
     setLine({x:corX,y:corY});
     handleError();
   }
@@ -51,7 +42,7 @@ function ChoosedError({error,defects}) {
   const handleClick = (event) => {
     setControl(true);
     setDefectsSc(true);
-    setAnchorEl(event.currentTarget);
+    //setAnchorEl(event.currentTarget);
   }
 
   const handleMenuClick = (event) => {
@@ -64,6 +55,8 @@ function ChoosedError({error,defects}) {
     setAnchorEl(null);
   };
 
+  console.log("y : ",error);
+
   //useEffect
   useEffect(()=>{
     handleError();
@@ -75,8 +68,6 @@ function ChoosedError({error,defects}) {
     setErr({x:corX+15,y:corY+10});
     setSpace({x:error.boxX,y:error.boxY});
   }
-
-  console.log("line y :",line.y);
 
   return (
   <Box sx={{overflowX:'scroll',width:'100%',height:'600px',position:'relative'}} onMouseMove={(e)=>handleMoveAllScreen(e)}  
@@ -115,15 +106,12 @@ function ChoosedError({error,defects}) {
            <Typography sx={{maxWidth:'100%',backgroundColor:'white',color:'red',fontSize:'11px',display:'flex',justifyContent:'center'}}>{error.labelText}</Typography>
      </Box>
      {/* menu items  */}
-     <Box sx={{zIndex:3,position:'absolute'}}>
       <MenuItems
         defectSc={defectsSc}
         anchorEl={anchorEl}
-        defects={defects} space={space}
-        handleClose={handleClose}
+        defects={defects} 
+        error={error}
         />
-        
-     </Box>
 
    </Box>
   )

@@ -28,11 +28,13 @@ function Model() {
     }
   }
 
-  console.log("aaa :",errors?.data?.Response?.data[0].partDefects)
-
   return (
     loading ? <Loading />: 
-    click ? <ChoosedError error={clickedError} defects={errors?.data?.Response?.data[0].partDefects} /> :
+    click ?
+    <>
+        <ChoosedError error={clickedError} defects={errors?.data?.Response?.data[0].partDefects} /> 
+    </> 
+:
     <Box sx={{overflowX:'scroll',width:'100%',height:'600px',position:'relative'}}>
      <Avatar
      variant='square'
