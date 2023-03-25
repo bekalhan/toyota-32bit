@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import './index.css';
+import '../../../../../index.css';
 
 
 function MenuItems({defectSc,anchorEl,defects,error}) {
@@ -22,12 +22,14 @@ function MenuItems({defectSc,anchorEl,defects,error}) {
     }
     
   return (
-        <Box sx={{position:'absolute',zIndex:3}}>
+        <Box>
         {defectSc && open ? (
-          <Stack sx={{position:'absolute',zIndex:4}}>
+          <Stack>
             <Box sx={{
               marginLeft:`${error?.boxX+20}px`,
-              marginTop:`${error?.boxY+error?.boxHeight+10}px`
+              marginTop:`-${600-(error?.boxY+error?.boxHeight+10)}px`,
+              position:'absolute',
+              zIndex:3
             }}>
                 <div className='scrollDiv' id='scrollDiv'>
                     <div className='content'>
@@ -42,7 +44,8 @@ function MenuItems({defectSc,anchorEl,defects,error}) {
             <Box 
               sx={{
                 marginLeft:`${error?.boxX+300}px`,
-                position:'relative',
+                marginTop:`-${600-(error?.boxY+90)}px`,
+                position:'absolute',
                 zIndex:4
               }}
               >

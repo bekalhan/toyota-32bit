@@ -70,13 +70,14 @@ function ChoosedError({error,defects}) {
   }
 
   return (
-  <Box sx={{overflowX:'scroll',width:'100%',height:'600px',position:'relative'}} onMouseMove={(e)=>handleMoveAllScreen(e)}  
-  >
+    <>
+      <Box sx={{overflow:'auto',width:'100%',height:'600px',position:'relative'}} onMouseMove={(e)=>handleMoveAllScreen(e)}  
+      >
     <Avatar
      variant='square'
      src={car}
      sx={{width:'915px',height:'700px',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed'
-     ,backgroundPosition:'center',backgroundSize:'cover',zIndex:1,position:'absolute'   
+     ,backgroundPosition:'center',backgroundSize:'cover',position:'absolute'
     }}
     onMouseMove={(e)=>handleMove(e)}  
     onClick={()=>handleClick()}
@@ -93,7 +94,6 @@ function ChoosedError({error,defects}) {
             justifyContent:'center',
             cursor:'pointer',
             overflowX:'scroll',
-            zIndex:2
             }}
             height={error.boxHeight}
             width={error.boxWidth}
@@ -105,15 +105,15 @@ function ChoosedError({error,defects}) {
             >
            <Typography sx={{maxWidth:'100%',backgroundColor:'white',color:'red',fontSize:'11px',display:'flex',justifyContent:'center'}}>{error.labelText}</Typography>
      </Box>
-     {/* menu items  */}
-      <MenuItems
+   </Box>
+    {/* menu items  */}
+   <MenuItems
         defectSc={defectsSc}
         anchorEl={anchorEl}
         defects={defects} 
         error={error}
         />
-
-   </Box>
+    </>
   )
 }
 

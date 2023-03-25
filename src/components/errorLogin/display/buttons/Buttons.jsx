@@ -8,7 +8,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 function Buttons() {
   return (
-    <Stack direction="column">
+    <Stack direction="column" sx={{position:'absolute'}}>
         <Box sx={{display:'flex'}}>
             <Stack direction="row" sx={{justifyContent:'center',width:'100%'}}>
             <FormControlLabel
