@@ -6,7 +6,7 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 function ButtomButtons() {
   return (
-    <Grid container sx={{marginLeft:{lg:'0.4em',md:'0.4em',sm:'1em',xs:'1em'},marginRight:{lg:'0.4em',md:'0.4em',sm:'1em',xs:'1em'},display:'flex',marginTop:'0.5em',cursor:'Pointer'}}>
+    <Grid container sx={{marginLeft:{lg:'0.4em',md:'0.4em',sm:'1em',xs:'1em'},marginRight:{lg:'0.4em',md:'0.4em',sm:'1em',xs:'1em'},display:'flex',marginTop:'0.5em',cursor:'Pointer',marginTop:'1em'}}>
         <Grid item lg={1.9} md={1.9} sm={3.7} xs={3.5} sx={{border:'1.5px solid #364737',borderRadius:'7px',justifyContent:'center',height:'60px',marginLeft:'0.3em'}}>
             <Typography sx={{display:'flex',justifyContent:'center',marginTop:'0.8em',fontWeight:'bold',fontSize:{lg:'16px'}}}>Çıkış</Typography>
         </Grid>
@@ -25,7 +25,7 @@ function ButtomButtons() {
         <Grid item lg={1.9} md={1.9} sm={5.6} xs={5.3} sx={{border:'1.5px solid #364737',borderRadius:'7px',justifyContent:'center',height:'60px',marginLeft:'0.3em',marginTop:{lg:'0',md:'0',sm:'0.3em',xs:'0.3em'}}}>
             <Typography sx={{display:'flex',justifyContent:'center',marginTop:'0.8em',fontWeight:'bold'}}>TEMİZLE</Typography>
         </Grid>
-        <Grid item lg={1.9} md={1.9} sm={11.4} xs={10.8} sx={{border:'1.5px solid #364737',borderRadius:'7px',justifyContent:'center',height:'60px',marginLeft:'0.3em',marginTop:{lg:'0',md:'0',sm:'0.3em',xs:'0.3em'}}}>
+        <Grid item lg={1.9} md={1.9} sm={11.3} xs={10.8} sx={{border:'1.5px solid #364737',borderRadius:'7px',justifyContent:'center',height:'60px',marginLeft:'0.3em',marginTop:{lg:'0',md:'0',sm:'0.3em',xs:'0.3em'}}}>
             <Typography sx={{display:'flex',justifyContent:'center',marginTop:'0.8em',fontWeight:'bold'}}>BÜYÜK FONT</Typography>
         </Grid>
     </Grid>
