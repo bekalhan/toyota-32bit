@@ -63,6 +63,10 @@ Menu ıtems css
   font-size: 16px;
 }
 
+.element:hover{
+  cursor:pointer;
+}
+
 .direction{
   width: 110px;
   background-color: #c5ffc4;

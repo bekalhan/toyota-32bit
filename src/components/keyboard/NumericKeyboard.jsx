@@ -3,7 +3,7 @@ import { height } from '@mui/system';
 import React, { useRef, useState, useEffect } from 'react';
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
-import "../../../index.css";
+import "../../index.css";
 
 function NumericKeyboard({inputName,formik,setInputs,inputs,keyboard}) {
   const [layoutName, setLayoutName] = useState("default");

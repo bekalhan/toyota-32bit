@@ -1,17 +1,22 @@
 import React from 'react';
 import {
-    Box,Stack
+    Box,Stack,Avatar
 } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import { useDispatch , useSelector} from "react-redux";
+import {
+  changeError
+} from '../../../../../redux/slices/errorSlices';
 import '../../../../../index.css';
+import indication from '../../../../../img/ind.gif';
+
 
 
 function MenuItems({defectSc,anchorEl,defects,error}) {
     const open = Boolean(anchorEl);
 
     const scrollTopToBottom = () =>{
-      console.log("burada");
       const element = document.getElementById("scrollDiv");
       element.scrollTop += 30;
     }
@@ -20,10 +25,21 @@ function MenuItems({defectSc,anchorEl,defects,error}) {
       const element = document.getElementById("scrollDiv");
       element.scrollTop -= 30;
     }
+
+  //redux
+  const store = useSelector(store=>store?.error);
+  const {choosedError} = store;
+  const dispatch = useDispatch();
+
+  const handleClickError = (errorName) => {
+    dispatch(changeError(errorName));
+  }
+
+  console.log("error :",choosedError)
     
   return (
         <Box>
-        {defectSc && open ? (
+        {defectSc && open && choosedError===undefined ? (
           <Stack>
             <Box sx={{
               marginLeft:`${error?.boxX+20}px`,
@@ -34,7 +50,10 @@ function MenuItems({defectSc,anchorEl,defects,error}) {
                 <div className='scrollDiv' id='scrollDiv'>
                     <div className='content'>
                         {defects?.map((el,key)=>(
-                         <div className='element' key={key}>
+                         <div className='element'
+                          key={key}
+                          onClick={()=>handleClickError(el?.defectName)}
+                          >
                             {el?.defectName}
                         </div>
                         ))}
@@ -67,7 +86,13 @@ function MenuItems({defectSc,anchorEl,defects,error}) {
                 </div>
             </Box>
           </Stack>
-        ):null}
+        ):(
+          <Avatar
+          variant='square'
+          src={indication}
+          sx={{border:'transparent',transform:'rotate(-45deg)',border:'2px transparent #000',marginLeft:'100px',position:'absolute',marginBottom:'4rem',zIndex:3}}
+          />
+        )}
         </Box>
   )
 }

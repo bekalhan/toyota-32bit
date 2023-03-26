@@ -3,14 +3,14 @@ import { Box, Grid, Typography,Divider,Stack,Button , TextField} from '@mui/mate
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import moment from 'moment';
-import VirtualKeyboard from './keyboard/VirtualKeyboard';
+import VirtualKeyboard from '../../components/keyboard/VirtualKeyboard';
 import { useNavigate } from "react-router-dom";
 import DateShift from './dateShift/DateShift';
 import ValidationMessages from '../../utils/ValidationMessages';
 import TerminalList from './form/terminal/TerminalList';
 import { userLogin } from "../../redux/slices/loginSlices";
 import { useDispatch , useSelector} from "react-redux";
-import NumericKeyboard from './keyboard/NumericKeyboard';
+import NumericKeyboard from '../../components/keyboard/NumericKeyboard';
 
 //Form schema
 const formSchema = Yup.object({

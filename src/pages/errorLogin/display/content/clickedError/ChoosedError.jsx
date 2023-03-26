@@ -5,8 +5,7 @@ import {
 import car from '../../../../../img/car10.jpeg';
 import { Line } from 'react-lineto';
 import MenuItems from './MenuItems';
-
-
+import { useSelector} from "react-redux";
 
 function ChoosedError({error,defects}) {
   const [control,setControl] = useState(false);
@@ -15,7 +14,6 @@ function ChoosedError({error,defects}) {
   const [err,setErr] = useState({"x":0,"y":0});
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [defectsSc,setDefectsSc] = useState(false);
-  const [space,setSpace] = useState({"x":0,"y":0});
   const open = Boolean(anchorEl);
 
   const handleMove = (e) =>{
@@ -42,7 +40,6 @@ function ChoosedError({error,defects}) {
   const handleClick = (event) => {
     setControl(true);
     setDefectsSc(true);
-    //setAnchorEl(event.currentTarget);
   }
 
   const handleMenuClick = (event) => {
@@ -50,12 +47,6 @@ function ChoosedError({error,defects}) {
       setAnchorEl(event.currentTarget);
     }
   }
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  console.log("y : ",error);
 
   //useEffect
   useEffect(()=>{
@@ -66,8 +57,11 @@ function ChoosedError({error,defects}) {
     let corX = line.x + error.boxX + (error.boxWidth/2);
     let corY = line.y + error.boxY + (error.boxHeight/2);
     setErr({x:corX+15,y:corY+10});
-    setSpace({x:error.boxX,y:error.boxY});
   }
+
+  //redux
+  const store = useSelector(store => store?.error);
+  const {choosedError} = store;
 
   return (
     <>
@@ -83,7 +77,7 @@ function ChoosedError({error,defects}) {
     onClick={()=>handleClick()}
      />
      {/* added line in the screen */}
-    {control?(
+    {control && choosedError===undefined ? (
      <Box sx={{position:'fixed'}}>
          <Line x0={err.x} y0={err.y} x1={line.x+move.x} y1={line.y+move.y} />
      </Box>
@@ -112,6 +106,8 @@ function ChoosedError({error,defects}) {
         anchorEl={anchorEl}
         defects={defects} 
         error={error}
+        setAnchor={setAnchorEl}
+        setControl={setControl}
         />
     </>
   )
