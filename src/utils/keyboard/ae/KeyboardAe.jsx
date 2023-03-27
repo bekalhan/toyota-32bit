@@ -20,6 +20,10 @@ function KeyboardFr({inputName,formik,setInputs,inputs,keyboard}) {
       formik.setFieldValue("sifre",inputs.sifre);
     }else if(inputName=="montaj_no"){
       formik.setFieldValue("montaj_no",inputs.montaj_no);
+    }else if(inputName=="aciklama"){
+      formik.setFieldValue("aciklama",inputs.aciklama);
+    }else if(inputName=="yapilanIslem"){
+      formik.setFieldValue("yapilanIslem",inputs.yapilanIslem);
     }
   }
 
@@ -32,6 +36,10 @@ function KeyboardFr({inputName,formik,setInputs,inputs,keyboard}) {
       formik.setFieldValue("sifre",inputs.sifre);
     }else if(inputName=="montaj_no"){
       formik.setFieldValue("montaj_no",inputs.montaj_no);
+    }else if(inputName=="aciklama"){
+      formik.setFieldValue("aciklama",inputs.aciklama);
+    }else if(inputName=="yapilanIslem"){
+      formik.setFieldValue("yapilanIslem",inputs.yapilanIslem);
     }
   };
 

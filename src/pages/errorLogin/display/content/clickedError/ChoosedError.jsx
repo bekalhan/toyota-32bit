@@ -3,6 +3,7 @@ import {
     Avatar,Box,Typography
 } from '@mui/material';
 import car from '../../../../../img/car10.jpeg';
+import errlocat from '../../../../../img/errlocat.gif';
 import { Line } from 'react-lineto';
 import MenuItems from './MenuItems';
 import { useSelector} from "react-redux";
@@ -99,6 +100,17 @@ function ChoosedError({error,defects}) {
             >
            <Typography sx={{maxWidth:'100%',backgroundColor:'white',color:'red',fontSize:'11px',display:'flex',justifyContent:'center'}}>{error.labelText}</Typography>
      </Box>
+    {/* error locat indication  */}
+    {choosedError !== undefined ? (
+        <Avatar
+        src={errlocat}
+        sx={{
+          position: 'absolute',
+          marginLeft:`${move.x-10}px`,
+          marginTop:`${move.y-10}px`
+        }}
+        /> 
+    ):null}
    </Box>
     {/* menu items  */}
    <MenuItems

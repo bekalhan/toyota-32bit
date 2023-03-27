@@ -24,7 +24,15 @@ function ValidationMessages({formik,name}) {
                 return(
                     <Typography sx={{color:'red',marginBottom:'2em'}}>Lütfen girdiğiniz bilgileri kontrol edip tekrar giriş yapmayı deneyiniz</Typography>
                 )
-                break;
+            case 'aciklama':
+                return(
+                    <Typography sx={{color:'red',marginBottom:'2em'}}>{formik.touched.aciklama && formik.errors.aciklama}</Typography>
+                )
+            case 'yapilanIslem':
+                return(
+                    <Typography sx={{color:'red',marginBottom:'2em'}}>{formik.touched.yapilanIslem && formik.errors.yapilanIslem}</Typography>
+                )
+            break;
         }
     }
   return (

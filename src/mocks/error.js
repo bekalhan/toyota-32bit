@@ -1476,5 +1476,340 @@ export const error = [
                   }
             )
         )
-    })    
+    }),
+    rest.get('/error-button',(req,res,ctx)=>{
+      return res(
+        ctx.json(
+          {Response:{
+            "type":'Success',
+            "data":[
+              {
+                "models": [
+                  {
+                    "modelId": 23638,
+                    "modelCode": "CHR",
+                    "modelName": "CHR"
+                  },
+                  {
+                    "modelId": 29695,
+                    "modelCode": "COR",
+                    "modelName": "COROLLA"
+                  },
+                  {
+                    "modelId": 1115757,
+                    "modelCode": "New CHR",
+                    "modelName": "New CHR"
+                  }
+                ],
+                "requiredFieldsByInspectionDTOList": [
+                  {
+                    "dataItemId": 22,
+                    "userName": "Exit Department",
+                    "fieldName": "EXIT_DEP_ID",
+                    "fieldType": "I",
+                    "controlType": "CMB",
+                    "dataTable": "TR_DEP_EXITDEP",
+                    "required": "N",
+                    "definitionTable": "TD_DEPARTMENT",
+                    "relationTable": "TR_DEP_EXITDEP",
+                    "relationField": "EXIT_DEP_ID",
+                    "definitionField": "DEP_ID",
+                    "definitionShowField": "DEP_NAME",
+                    "filterField": "DEP_ID",
+                    "englishUserName": "Exit Department",
+                    "errDetailComboBoxValueDTOList": [
+                      {
+                        "dataCode": "24481",
+                        "dataValue": "ASSEMBLY"
+                      },
+                      {
+                        "dataCode": "98",
+                        "dataValue": "Assembly Repair"
+                      },
+                      {
+                        "dataCode": "24576",
+                        "dataValue": "Assembly Repair Kritik"
+                      },
+                      {
+                        "dataCode": "84",
+                        "dataValue": "ASSEMBLY QS"
+                      },
+                      {
+                        "dataCode": "80",
+                        "dataValue": "Assembly Inspection"
+                      }
+                    ]
+                  },
+                  {
+                    "dataItemId": 1,
+                    "userName": "Açıklama",
+                    "fieldName": "DESCRIPTION",
+                    "fieldType": "V",
+                    "controlType": "TXA",
+                    "required": "N",
+                    "englishUserName": "Explanation"
+                  },
+                  {
+                    "dataItemId": 14,
+                    "userName": "Yapılan İşlem",
+                    "fieldName": "DEFECT_ACTION",
+                    "fieldType": "V",
+                    "controlType": "TXA",
+                    "required": "Y",
+                    "englishUserName": "Applied Operation"
+                  },
+                  {
+                    "dataItemId": 19,
+                    "userName": "Alt Sorumlu",
+                    "fieldName": "DEFRESP_ID2",
+                    "fieldType": "I",
+                    "controlType": "CMB",
+                    "dataTable": "TR_DEP_DEFRESP2",
+                    "required": "Y",
+                    "definitionTable": "TD_DEFECT_RESPONSIBLE",
+                    "relationTable": "TR_DEP_DEFRESP2",
+                    "relationField": "DEFRESP_ID",
+                    "definitionField": "DEFRESP_ID",
+                    "definitionShowField": "DEFRESP_NAME",
+                    "filterField": "DEP_ID",
+                    "englishUserName": "Sub Responsible"
+                  },
+                  {
+                    "controlType": "CMB",
+                    "englishUserName": "Defect Class",
+                    "errDetailComboBoxValueDTOList": [
+                      {
+                        "dataCode": "1234",
+                        "dataValue": "NORMAL"
+                      },
+                      {
+                        "dataCode": "1237",
+                        "dataValue": "SAFETY"
+                      },
+                      {
+                        "dataCode": "1239",
+                        "dataValue": "EMISYON"
+                      },
+                      {
+                        "dataCode": "1236",
+                        "dataValue": "REGÜLASYON"
+                      },
+                      {
+                        "dataCode": "997156",
+                        "dataValue": "A RANK"
+                      }
+                    ]
+                  },
+                  {
+                    "controlType": "CMB",
+                    "englishUserName": "Defect Responsibles",
+                    "errDetailComboBoxValueDTOList": [
+                      {
+                        "dataCode": "1213",
+                        "dataValue": "BODY FITTING"
+                      },
+                      {
+                        "dataCode": "1160",
+                        "dataValue": "PAINT"
+                      },
+                      {
+                        "dataCode": "1216",
+                        "dataValue": "ASSY"
+                      },
+                      {
+                        "dataCode": "1158",
+                        "dataValue": "PART"
+                      },
+                      {
+                        "dataCode": "1168",
+                        "dataValue": "PRESS"
+                      },
+                      {
+                        "dataCode": "1214",
+                        "dataValue": "PCD"
+                      },
+                      {
+                        "dataCode": "1207",
+                        "dataValue": "QA ANL"
+                      },
+                      {
+                        "dataCode": "1184",
+                        "dataValue": "PLASTICS"
+                      },
+                      {
+                        "dataCode": "1206",
+                        "dataValue": "OTHER"
+                      },
+                      {
+                        "dataCode": "15460",
+                        "dataValue": "ECI"
+                      },
+                      {
+                        "dataCode": "15459",
+                        "dataValue": "AI KONTROL"
+                      },
+                      {
+                        "dataCode": "204869",
+                        "dataValue": "ABS HATTI"
+                      },
+                      {
+                        "dataCode": "22510",
+                        "dataValue": "AI"
+                      }
+                    ]
+                  }
+                ],
+                "subResponsiblesByDefrespId": [
+                  {
+                    "defrespId": 1213,
+                    "subResponsibles": []
+                  },
+                  {
+                    "defrespId": 1160,
+                    "subResponsibles": [
+                      {
+                        "dataCode": "1179",
+                        "dataValue": "PRIMER INSPECTION"
+                      },
+                      {
+                        "dataCode": "1178",
+                        "dataValue": "TOP COAT"
+                      },
+                      {
+                        "dataCode": "23408",
+                        "dataValue": "TOSO FINAL"
+                      }
+                    ]
+                  },
+                  {
+                    "defrespId": 1216,
+                    "subResponsibles": []
+                  },
+                  {
+                    "defrespId": 1158,
+                    "subResponsibles": []
+                  },
+                  {
+                    "defrespId": 1168,
+                    "subResponsibles": []
+                  },
+                  {
+                    "defrespId": 1214,
+                    "subResponsibles": []
+                  },
+                  {
+                    "defrespId": 1207,
+                    "subResponsibles": [
+                      {
+                        "dataCode": "29909",
+                        "dataValue": "ANALİZ DEVAM EDİYOR"
+                      }
+                    ]
+                  },
+                  {
+                    "defrespId": 1184,
+                    "subResponsibles": []
+                  },
+                  {
+                    "defrespId": 1206,
+                    "subResponsibles": [
+                      {
+                        "dataCode": "1206",
+                        "dataValue": "OTHER"
+                      }
+                    ]
+                  },
+                  {
+                    "defrespId": 15460,
+                    "subResponsibles": []
+                  },
+                  {
+                    "defrespId": 15459,
+                    "subResponsibles": []
+                  },
+                  {
+                    "defrespId": 204869,
+                    "subResponsibles": []
+                  },
+                  {
+                    "defrespId": 22510,
+                    "subResponsibles": []
+                  }
+                ],
+                "defrespName": " "
+              }
+              
+            ]
+          }}
+        )
+      )
+    }),
+    rest.get('/error-button2',(req,res,ctx)=>{
+      return res(
+        ctx.json(
+          {Response:{
+            "type" :'Success',
+            "data":[
+              [
+                {
+                  "nrId": 104671,
+                  "nrReasonAbb": "HOLD ARACI",
+                  "nrReasonDetail": "HOLD ARACI",
+                  "displayOrder": 0
+                },
+                {
+                  "nrId": 104668,
+                  "nrReasonAbb": "BALANS",
+                  "nrReasonDetail": "BALANS",
+                  "displayOrder": 1
+                },
+                {
+                  "nrId": 104663,
+                  "nrReasonAbb": "ANALİZ OK",
+                  "nrReasonDetail": "ANALİZ OK",
+                  "displayOrder": 5
+                },
+                {
+                  "nrId": 107699,
+                  "nrReasonAbb": "MQE OK",
+                  "nrReasonDetail": "MQE KARARI OK",
+                  "displayOrder": 10
+                },
+                {
+                  "nrId": 127238,
+                  "nrReasonAbb": "RENK ÖLÇÜM",
+                  "nrReasonDetail": "RENK ÖLÇÜM ARACI",
+                  "displayOrder": 10
+                },
+                {
+                  "nrId": 104662,
+                  "nrReasonAbb": "SİMÜLASYON",
+                  "nrReasonDetail": "SİMÜLASYON",
+                  "displayOrder": 10
+                },
+                {
+                  "nrId": 104670,
+                  "nrReasonAbb": "KONFİRME",
+                  "nrReasonDetail": "KONFİRME",
+                  "displayOrder": 15
+                },
+                {
+                  "nrId": 127087,
+                  "nrReasonAbb": "Y AUDIT",
+                  "nrReasonDetail": "YAZAN AUDIT",
+                  "displayOrder": 15
+                },
+                {
+                  "nrId": 104664,
+                  "nrReasonAbb": "Y.ELEMAN",
+                  "nrReasonDetail": "YENİ ELEMAN OK",
+                  "displayOrder": 15
+                }
+              ]
+              
+            ]
+          }}
+        )
+      )
+    })
 ]

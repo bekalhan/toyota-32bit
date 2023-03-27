@@ -19,11 +19,31 @@ export const getErrors = createAsyncThunk("/errors",async () =>{
     }
 });
 
+export const getErrorButtonData = createAsyncThunk("/error-button",async ()=>{
+  try{
+    const data = await axios.get('/error-button');
+    return data;
+  }catch(error){
+    if(!error.response) throw error;
+  }
+});
+
+export const getErrorButtonData2 = createAsyncThunk("/error-button2",async ()=>{
+  try{
+    const data = await axios.get('/error-button2');
+    return data;
+  }catch(error){
+    if(!error.response) throw error;
+  }
+});
+
 const errorSlice = createSlice({
     name:'error',
     initialState:{
         errorData : '',
         errors : [],
+        errorButtonData : [],
+        errorButtonData2 : [],
         choosedError : undefined,
     },
     reducers:{
@@ -62,6 +82,36 @@ const errorSlice = createSlice({
         state.appErr = action?.payload?.message;
         state.serverErr = action?.error?.message;
       });
+    //get button data
+    builder.addCase(getErrorButtonData.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(getErrorButtonData.fulfilled, (state, action) => {
+      state.errorButtonData = action?.payload;
+      state.loading = false;
+      state.appErr = undefined;
+      state.serverErr = undefined;
+    });
+    builder.addCase(getErrorButtonData.rejected, (state, action) => {
+      state.loading = false;
+      state.appErr = action?.payload?.message;
+      state.serverErr = action?.error?.message;
+    });
+        //get button data2
+        builder.addCase(getErrorButtonData2.pending, (state, action) => {
+          state.loading = true;
+        });
+        builder.addCase(getErrorButtonData2.fulfilled, (state, action) => {
+          state.errorButtonData2 = action?.payload;
+          state.loading = false;
+          state.appErr = undefined;
+          state.serverErr = undefined;
+        });
+        builder.addCase(getErrorButtonData2.rejected, (state, action) => {
+          state.loading = false;
+          state.appErr = action?.payload?.message;
+          state.serverErr = action?.error?.message;
+        });
     }
 });
 

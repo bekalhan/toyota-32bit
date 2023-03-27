@@ -9,7 +9,6 @@ import {
   changeError
 } from '../../../../../redux/slices/errorSlices';
 import '../../../../../index.css';
-import indication from '../../../../../img/ind.gif';
 
 
 
@@ -34,8 +33,6 @@ function MenuItems({defectSc,anchorEl,defects,error}) {
   const handleClickError = (errorName) => {
     dispatch(changeError(errorName));
   }
-
-  console.log("error :",choosedError)
     
   return (
         <Box>
@@ -87,11 +84,7 @@ function MenuItems({defectSc,anchorEl,defects,error}) {
             </Box>
           </Stack>
         ):(
-          <Avatar
-          variant='square'
-          src={indication}
-          sx={{border:'transparent',transform:'rotate(-45deg)',border:'2px transparent #000',marginLeft:'100px',position:'absolute',marginBottom:'4rem',zIndex:3}}
-          />
+          null
         )}
         </Box>
   )

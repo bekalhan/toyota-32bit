@@ -4,11 +4,10 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import "../../../index.css";
 
-
-
-
 function KeyboardTr({inputName,formik,setInputs,inputs,keyboard}) {
   const [layoutName, setLayoutName] = useState("default");
+
+  console.log("gelen input name :",inputName);
   
   useEffect(()=>{
     patchAll();
@@ -21,6 +20,10 @@ function KeyboardTr({inputName,formik,setInputs,inputs,keyboard}) {
       formik.setFieldValue("sifre",inputs.sifre);
     }else if(inputName=="montaj_no"){
       formik.setFieldValue("montaj_no",inputs.montaj_no);
+    }else if(inputName=="aciklama"){
+      formik.setFieldValue("aciklama",inputs.aciklama);
+    }else if(inputName=="yapilanIslem"){
+      formik.setFieldValue("yapilanIslem",inputs.yapilanIslem);
     }
   }
 
@@ -32,6 +35,10 @@ function KeyboardTr({inputName,formik,setInputs,inputs,keyboard}) {
       formik.setFieldValue("sifre",inputs.sifre);
     }else if(inputName=="montaj_no"){
       formik.setFieldValue("montaj_no",inputs.montaj_no);
+    }else if(inputName=="aciklama"){
+      formik.setFieldValue("aciklama",inputs.aciklama);
+    }else if(inputName=="yapilanIslem"){
+      formik.setFieldValue("yapilanIslem",inputs.yapilanIslem);
     }
   };
 

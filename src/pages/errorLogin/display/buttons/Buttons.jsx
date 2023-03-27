@@ -4,9 +4,17 @@ import {
 } from '@mui/material';
 import Search from '../../../../components/search/Search';
 import {useSelector} from "react-redux";
+import ModalComponent from '../modal/ModalComponent';
+
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 function Buttons() {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => {
+    console.log("girdi");
+    setOpen(true);
+    }
+    const handleClose = () => setOpen(false);
     //redux
     const store = useSelector(store => store?.error);
     const {choosedError} = store;
@@ -31,7 +39,10 @@ function Buttons() {
             {choosedError === undefined ?(
              <Button sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}} disabled><Typography sx={{fontWeight:'bold'}}>HATA KAYIT</Typography></Button>
             ):(
-                <Button sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}} disabled><Typography sx={{fontWeight:'bold',color:'black'}}>HATA KAYIT</Typography></Button>
+                <Button
+                 sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}}
+                 onClick={()=>{handleOpen()}}
+                 ><Typography sx={{fontWeight:'bold',color:'black'}}>HATA KAYIT</Typography></Button>
             )}
         </Stack>
         <Search />
@@ -40,6 +51,12 @@ function Buttons() {
             <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black'}}><Typography sx={{fontWeight:'bold'}}>KAYDET VE GEÇ</Typography></Button>
             <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black'}}><Typography sx={{fontWeight:'bold'}}>HATA KAYIT</Typography></Button>
         </Stack>
+        {open ? (
+            <ModalComponent
+            open={open}
+            handleClose={handleClose}
+            />
+        ):null}
         
     </Stack>
   )
