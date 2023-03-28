@@ -10,6 +10,7 @@ import VirtualKeyboard from '../../../../components/keyboard/VirtualKeyboard';
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import ValidationMessages from '../../../../utils/ValidationMessages';
+import {toast} from 'react-toastify';
 
 
 const style = {
@@ -18,7 +19,7 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: '90%',
-    height:'75%',
+    height:'80%',
     bgcolor: '#c6ffc7',
     border: '0px transparent gray',
     p: 4,
@@ -59,7 +60,10 @@ function ModalComponent({open,handleClose}) {
           values.errorClass = errorClass;
           values.errorExit = errorExit;
           values.errorSub = errorSub;
-          window.location.reload();   
+          showToast();
+          setTimeout(()=>{
+            window.location.reload();   
+          },3000);
         },
         validationSchema: formSchema,
     });
@@ -121,9 +125,9 @@ function ModalComponent({open,handleClose}) {
       })
    keyboard.current.setInput(inputVal);
   };
-  //when clicked
-  const handleClick = () => {
-    window.location.reload();
+  //toast
+  const showToast = () => {
+    toast.success("Hata kaydınız başarılı! Ana ekrana yönlendiriliyorsunuz");
   }
 
   return (

@@ -7,8 +7,14 @@ import {
   Box
 } from '@mui/material';
 
+//toast
+import {ToastContainer} from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
+
 function App() {
   return (
+    <>
     <Box sx={{backgroundColor:'#c6ffc7',height:'2000px'}}>
     <BrowserRouter>
         <Routes>
@@ -21,6 +27,8 @@ function App() {
        </Routes>
     </BrowserRouter>
     </Box>
+    <ToastContainer />
+    </>
   );
 }
 
