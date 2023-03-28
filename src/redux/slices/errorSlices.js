@@ -45,10 +45,14 @@ const errorSlice = createSlice({
         errorButtonData : [],
         errorButtonData2 : [],
         choosedError : undefined,
+        errorName:undefined
     },
     reducers:{
       changeError(state,action){
         state.choosedError = action.payload;
+      },
+      changeErrorName(state,action){
+        state.errorName = action.payload;
       }
     },
     extraReducers: builder =>{
@@ -116,4 +120,4 @@ const errorSlice = createSlice({
 });
 
 export default errorSlice.reducer;
-export const { changeError } = errorSlice.actions
+export const { changeError , changeErrorName } = errorSlice.actions

@@ -6,7 +6,10 @@ import car from '../../../../../img/car10.jpeg';
 import errlocat from '../../../../../img/errlocat.gif';
 import { Line } from 'react-lineto';
 import MenuItems from './MenuItems';
-import { useSelector} from "react-redux";
+import { useSelector,useDispatch} from "react-redux";
+import {
+  changeErrorName
+} from '../../../../../redux/slices/errorSlices';
 
 function ChoosedError({error,defects}) {
   const [control,setControl] = useState(false);
@@ -16,6 +19,9 @@ function ChoosedError({error,defects}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [defectsSc,setDefectsSc] = useState(false);
   const open = Boolean(anchorEl);
+
+  //dispatch
+  const dispatch = useDispatch();
 
   const handleMove = (e) =>{
     e.preventDefault();
@@ -44,6 +50,7 @@ function ChoosedError({error,defects}) {
   }
 
   const handleMenuClick = (event) => {
+    dispatch(changeErrorName(error?.labelText));
     if(defectsSc){
       setAnchorEl(event.currentTarget);
     }

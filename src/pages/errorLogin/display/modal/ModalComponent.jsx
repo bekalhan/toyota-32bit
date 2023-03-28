@@ -1,6 +1,6 @@
 import React,{useRef} from 'react';
 import { 
-  Grid,FormControlLabel,Checkbox,FormControl,Select,OutlinedInput,MenuItem, Button , TextField, Typography,Box,Modal
+  Grid,FormControlLabel,Checkbox,FormControl,Select,OutlinedInput,MenuItem, Button , TextField, Typography,Box,Modal,Stack
 } from '@mui/material';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
@@ -10,7 +10,6 @@ import VirtualKeyboard from '../../../../components/keyboard/VirtualKeyboard';
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import ValidationMessages from '../../../../utils/ValidationMessages';
-import { useNavigate } from "react-router-dom";
 
 
 const style = {
@@ -45,9 +44,6 @@ function ModalComponent({open,handleClose}) {
   const [inputName, setInputName] = useState("");
   const [inputs, setInputs] = useState({});
 
-  //usenavigate
-  const navigate = useNavigate();
-
   //keyboard useref
   const keyboard = useRef();
 
@@ -58,7 +54,12 @@ function ModalComponent({open,handleClose}) {
         yapilanIslem: "",
         },
         onSubmit: values => {
-            //dispatch(userLogin(values));     
+          values.errorRes = errorRes;
+          values.errorReason = errorReason;
+          values.errorClass = errorClass;
+          values.errorExit = errorExit;
+          values.errorSub = errorSub;
+          window.location.reload();   
         },
         validationSchema: formSchema,
     });
@@ -73,7 +74,6 @@ function ModalComponent({open,handleClose}) {
     dispatch(getErrorButtonData());
     dispatch(getErrorButtonData2());
   },[]);
-
 
   //change
   const handleChange = (event,name) => {
@@ -107,7 +107,6 @@ function ModalComponent({open,handleClose}) {
       );
     }
   };
-
   //for keyboard
   const onChangeInput = (event) => {
     const inputVal = event.target.value;
@@ -121,10 +120,11 @@ function ModalComponent({open,handleClose}) {
         [inputName]: inputVal
       })
    keyboard.current.setInput(inputVal);
-};
-
-
-  console.log("data : ",errorButtonData2?.data?.Response?.data[0][0].nrReasonAbb);
+  };
+  //when clicked
+  const handleClick = () => {
+    window.location.reload();
+  }
 
   return (
     <Modal
@@ -134,6 +134,7 @@ function ModalComponent({open,handleClose}) {
     aria-describedby="modal-modal-description"
   >
     <Box sx={style}>
+    <form onSubmit={formik.handleSubmit}>
         <Grid container sx={{width:'100%'}}>
             <Grid container sx={{display:'flex'}}>
                <Grid item lg={6} md={6} sm={6} xs={6}>
@@ -160,6 +161,7 @@ function ModalComponent({open,handleClose}) {
                               value={errorRes}
                               onChange={(e)=>{handleChange(e,"errorRes")}}
                               input={<OutlinedInput />}
+                              defaultValue={"asdlaksdmsa"}
                               renderValue={(selected) => {
                                 if (selected.length === 0) {
                                 return <Typography sx={{color:'#666666',fontSize:'14px'}}>{errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue}</Typography>;
@@ -258,6 +260,7 @@ function ModalComponent({open,handleClose}) {
                   </Grid>
                   <Grid item lg={2.6} md={2.6} sm={5.6} xs={5.6} sx={{marginLeft:'0.4em',marginTop:{lg:'0',md:'0',sm:'1em',xs:'1em'}}}>
                     <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}}
+                    type="submit"
                     >KAYDET</Button>
                   </Grid>
                   <Grid item lg={0.2} md={0.2} sm={0.2} xs={0.2}></Grid>
@@ -359,10 +362,15 @@ function ModalComponent({open,handleClose}) {
               </Grid>
             </Grid>
             {/* Keybaord */}
-            <Box sx={{display:'flex',justifyContent:'center',width:'100%'}}>
+            <Stack direction="column" sx={{display:'flex',justifyContent:'center',width:'100%'}}>
               <VirtualKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard} />
+            </Stack>
+            <Box sx={{display:'flex',justifyContent:'space-between',width:'100%',marginTop:'5.5em'}}>
+              <Typography sx={{color:'red',fontWeight:'bold'}}>TEKNİK DESTEK</Typography>
+              <Typography>6.2.192-CVQSTerminal</Typography>
             </Box>
         </Grid>
+        </form>
     </Box>
   </Modal>
   )

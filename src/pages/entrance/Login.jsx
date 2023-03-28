@@ -82,7 +82,6 @@ function Login() {
 
     return (
     <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'2000px',width:{lg:'100%',md:'100%',sm:'100%',xs:'500px'}}}>
-
         <Grid container sx={{justifyContent:'center'}}>
             <Grid item lg={10} md={10} sm={12} xs={12} sx={{border:'2px solid #b7ecba',borderRadius:'12px',display:'flex',height:'1200px'}}>
                 <Stack direction='column' sx={{width:'100%',display:'flex'}}>
