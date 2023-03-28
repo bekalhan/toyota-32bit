@@ -10,7 +10,7 @@ import VirtualKeyboard from '../../../../components/keyboard/VirtualKeyboard';
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import ValidationMessages from '../../../../utils/ValidationMessages';
-
+import { useNavigate } from "react-router-dom";
 
 
 const style = {
@@ -45,6 +45,9 @@ function ModalComponent({open,handleClose}) {
   const [inputName, setInputName] = useState("");
   const [inputs, setInputs] = useState({});
 
+  //usenavigate
+  const navigate = useNavigate();
+
   //keyboard useref
   const keyboard = useRef();
 
@@ -69,9 +72,7 @@ function ModalComponent({open,handleClose}) {
   useEffect(()=>{
     dispatch(getErrorButtonData());
     dispatch(getErrorButtonData2());
-    setDefaultName();
   },[]);
-
 
 
   //change
@@ -122,6 +123,9 @@ function ModalComponent({open,handleClose}) {
    keyboard.current.setInput(inputVal);
 };
 
+
+  console.log("data : ",errorButtonData2?.data?.Response?.data[0][0].nrReasonAbb);
+
   return (
     <Modal
     open={open}
@@ -150,6 +154,7 @@ function ModalComponent({open,handleClose}) {
                 <Grid item lg={4} md={4} sm={4} xs={9}>
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                             <Select
+                              displayEmpty
                               labelId="demo-multiple-name-label"
                               id="demo-multiple-name"
                               value={errorRes}
@@ -157,14 +162,14 @@ function ModalComponent({open,handleClose}) {
                               input={<OutlinedInput />}
                               renderValue={(selected) => {
                                 if (selected.length === 0) {
-                                return <em>aöskdmlakndaksjl</em>;
+                                return <Typography sx={{color:'#666666',fontSize:'14px'}}>{errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue}</Typography>;
                                 }
                                 return selected.join(', ');
                             }}
                               sx={{height:'40px'}}
                             >
                             <MenuItem disabled value="">
-                                <em>{defaultName}</em>
+                                <em>{errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue}</em>
                             </MenuItem>
                               {errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList.map((e) => (
                                   <MenuItem
@@ -186,6 +191,7 @@ function ModalComponent({open,handleClose}) {
                 <Grid item lg={3.3} md={3.3} sm={3.3} xs={8}>
                     <FormControl sx={{width:{lg:'200px',md:'200px',sm:'200px',xs:'300px'},backgroundColor:'white'}}>
                                 <Select
+                                  displayEmpty
                                   labelId="demo-multiple-name-label"
                                   id="demo-multiple-name"
                                   value={errorReason}
@@ -193,14 +199,14 @@ function ModalComponent({open,handleClose}) {
                                   input={<OutlinedInput />}
                                   renderValue={(selected) => {
                                     if (selected.length === 0) {
-                                    return <em>aöskdmlakndaksjl</em>;
+                                    return <Typography sx={{color:'#666666',fontSize:'14px'}}>{errorButtonData2?.data?.Response?.data[0][0].nrReasonAbb}</Typography>;
                                     }
                                     return selected.join(', ');
                                 }}
                                   sx={{height:'40px'}}
                                 >
                                 <MenuItem disabled value="">
-                                    <em>{defaultName}</em>
+                                    <em>{errorButtonData2?.data?.Response?.data[0][0].nrReasonAbb}</em>
                                 </MenuItem>
                                   {errorButtonData2?.data?.Response?.data[0].map((e) => (
                                       <MenuItem
@@ -213,7 +219,6 @@ function ModalComponent({open,handleClose}) {
                                 </Select>
                         </FormControl>
                 </Grid>
-
             </Grid>
             <Grid container>
                   <Grid item lg={1.5} md={1.5} sm={1.5} xs={2}>
@@ -223,6 +228,7 @@ function ModalComponent({open,handleClose}) {
                   <Grid item lg={4} md={4} sm={9.5} xs={9}>
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                             <Select
+                              displayEmpty
                               labelId="demo-multiple-name-label"
                               id="demo-multiple-name"
                               value={errorClass}
@@ -230,14 +236,14 @@ function ModalComponent({open,handleClose}) {
                               input={<OutlinedInput />}
                               renderValue={(selected) => {
                                 if (selected.length === 0) {
-                                return <em>aöskdmlakndaksjl</em>;
+                                return <Typography sx={{color:'#666666',fontSize:'14px'}}>{errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList[0]?.dataValue}</Typography>;
                                 }
                                 return selected.join(', ');
                             }}
                               sx={{height:'40px'}}
                             >
                             <MenuItem disabled value="">
-                                <em>{defaultName}</em>
+                                <em>{errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList[0]?.dataValue}</em>
                             </MenuItem>
                               {errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList.map((e) => (
                                   <MenuItem
@@ -251,7 +257,8 @@ function ModalComponent({open,handleClose}) {
                     </FormControl>
                   </Grid>
                   <Grid item lg={2.6} md={2.6} sm={5.6} xs={5.6} sx={{marginLeft:'0.4em',marginTop:{lg:'0',md:'0',sm:'1em',xs:'1em'}}}>
-                    <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}}>KAYDET</Button>
+                    <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}}
+                    >KAYDET</Button>
                   </Grid>
                   <Grid item lg={0.2} md={0.2} sm={0.2} xs={0.2}></Grid>
                   <Grid item lg={2.6} md={2.6} sm={5.6} xs={5.6} sx={{marginTop:{lg:'0',md:'0',sm:'1em',xs:'1em'}}}>
@@ -267,6 +274,7 @@ function ModalComponent({open,handleClose}) {
               <Grid item lg={4} md={4} sm={8.5} xs={9}>
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                             <Select
+                              displayEmpty
                               labelId="demo-multiple-name-label"
                               id="demo-multiple-name"
                               value={errorExit}
@@ -274,14 +282,14 @@ function ModalComponent({open,handleClose}) {
                               input={<OutlinedInput />}
                               renderValue={(selected) => {
                                 if (selected.length === 0) {
-                                return <em>aöskdmlakndaksjl</em>;
+                                return <Typography sx={{color:'#666666',fontSize:'14px'}}>{errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList[0].dataValue}</Typography>;
                                 }
                                 return selected.join(', ');
                             }}
                               sx={{height:'40px'}}
                             >
                             <MenuItem disabled value="">
-                                <em>{defaultName}</em>
+                                <em>{errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList[0].dataValue}</em>
                             </MenuItem>
                               {errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList.map((e) => (
                                   <MenuItem
