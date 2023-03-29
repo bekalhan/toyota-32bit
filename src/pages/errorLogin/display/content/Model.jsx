@@ -1,25 +1,15 @@
-import { Avatar,Box,Typography,Select,OutlinedInput,MenuItem } from '@mui/material'
+import { Avatar,Box,Typography} from '@mui/material'
 import React, { useState } from 'react';
 import car from '../../../../img/car4.jpg';
-import { useDispatch , useSelector} from "react-redux";
-import { useEffect } from 'react';
 import {getErrors} from '../../../../redux/slices/errorSlices';
 import Loading from '../../../../utils/loading/Loading';
 import ChoosedError from './clickedError/ChoosedError';
+import {useRedux} from '../../../../hooks/useRedux';
 
 function Model() {
   //react useState
   const [click,setClick] = useState(false);
   const [clickedError,setClickedError] = useState([]);
-  //redux requirements
-  const dispatch = useDispatch();
-  const error = useSelector(store => store?.error);
-  const {errors,loading} = error;
-
-  //react hooks
-  useEffect(()=>{
-    dispatch(getErrors());
-  },[]);
 
   const handleClick = (childNum,error) => {
     if(childNum!==0){
@@ -28,6 +18,10 @@ function Model() {
     }
   }
 
+   let obj = useRedux({name:"error",data:["errors","loading"],slice:getErrors()});
+   let errors = obj[0];
+   let loading = obj[1];
+  
   return (
     loading ? <Loading />: 
     click ?
@@ -59,5 +53,4 @@ function Model() {
     </Box> 
   )
 }
-
-export default Model
+export default Model;

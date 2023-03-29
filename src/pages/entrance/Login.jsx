@@ -9,8 +9,9 @@ import DateShift from './dateShift/DateShift';
 import ValidationMessages from '../../utils/ValidationMessages';
 import TerminalList from './form/terminal/TerminalList';
 import { userLogin } from "../../redux/slices/loginSlices";
-import { useDispatch , useSelector} from "react-redux";
+import { useDispatch} from "react-redux";
 import NumericKeyboard from '../../components/keyboard/NumericKeyboard';
+import {useRedux} from '../../hooks/useRedux';
 
 //Form schema
 const formSchema = Yup.object({
@@ -41,9 +42,10 @@ function Login() {
     //dispatch
     const dispatch = useDispatch();
 
-    //selector
-    const login = useSelector(store=>store?.login);
-    const {user,loading} = login;
+    let obj = useRedux({name:"login",data:["user","loading"]});
+    let user = obj[0];
+    let loading = obj[1];
+
 
     //formik 
      const formik = useFormik({
@@ -204,7 +206,7 @@ function Login() {
                         </Grid>
                         {/* Keybaord */}
                         <Box sx={{display:'flex',justifyContent:'center'}}>
-                            {inputName ==="sicil_no" || inputName ==="sifre" || inputName=="" ? (
+                            {inputName ==="sicil_no" || inputName ==="sifre" || inputName==="" ? (
                                 <VirtualKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard}  />
                             ) : (
                                 <NumericKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard}  />

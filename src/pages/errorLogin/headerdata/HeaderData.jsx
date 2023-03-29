@@ -2,20 +2,11 @@ import React from 'react';
 import {
   Grid, Typography
 } from '@mui/material';
-import { useDispatch , useSelector} from "react-redux";
-import { useEffect } from 'react';
 import {getErrorData} from '../../../redux/slices/errorSlices';
+import { useRedux } from '../../../hooks/useRedux';
 
 function HeaderData() {
-  //redux requirements
-  const dispatch = useDispatch();
-  const error = useSelector(store => store?.error);
-  const {errorData} = error;
-
-  //react hooks
-  useEffect(()=>{
-    dispatch(getErrorData());
-  },[]);
+  let errorData = useRedux({name:"error",data:"errorData",slice:getErrorData()});
 
   return (
     <Grid container>

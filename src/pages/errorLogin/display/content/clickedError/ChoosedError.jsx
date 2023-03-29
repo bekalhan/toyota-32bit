@@ -6,10 +6,11 @@ import car from '../../../../../img/car10.jpeg';
 import errlocat from '../../../../../img/errlocat.gif';
 import { Line } from 'react-lineto';
 import MenuItems from './MenuItems';
-import { useSelector,useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import {
   changeErrorName
 } from '../../../../../redux/slices/errorSlices';
+import { useRedux } from '../../../../../hooks/useRedux';
 
 function ChoosedError({error,defects}) {
   const [control,setControl] = useState(false);
@@ -67,9 +68,7 @@ function ChoosedError({error,defects}) {
     setErr({x:corX+15,y:corY+10});
   }
 
-  //redux
-  const store = useSelector(store => store?.error);
-  const {choosedError} = store;
+  let choosedError = useRedux({name:"error",data:"choosedError"});
 
   return (
     <>
@@ -131,5 +130,4 @@ function ChoosedError({error,defects}) {
     </>
   )
 }
-
-export default ChoosedError
+export default ChoosedError;

@@ -5,7 +5,6 @@ import {
   import DrawerMenu from '../../utils/DrawerMenu';
   import {Outlet} from 'react-router-dom';
 
-
 function Header() {
   return (
     <>
@@ -30,5 +29,4 @@ function Header() {
   </>
   )
 }
-
-export default Header
+export default Header;

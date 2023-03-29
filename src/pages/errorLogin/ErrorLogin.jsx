@@ -6,13 +6,12 @@ import HeaderData from './headerdata/HeaderData';
 import Model from './display/content/Model';
 import Buttons from './display/buttons/Buttons';
 import ButtomButtons from './buttomButtons/ButtomButtons';
-import { useDispatch , useSelector} from "react-redux";
+import {useRedux} from '../../hooks/useRedux';
 
 
 function ErrorLogin() {
-    //redux
-    const store = useSelector(store => store?.error);
-    const {errorName} = store;
+let errorName = useRedux({name:"error",data:"errorName",slice:""});
+
   return (
     <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'780px'}}>
         <Grid container sx={{display:'flex',justifyContent:'center'}}>

@@ -6,19 +6,18 @@ import {
     MenuItem,
     FormControl,OutlinedInput
 } from '@mui/material';
-import { useDispatch, useSelector } from "react-redux";
 import {useParams} from 'react-router-dom';
-import { getShifts } from "../../../../redux/slices/loginSlices";
 import { getSpeTerminal } from "../../../../redux/slices/terminalSlices";
+import {useRedux} from '../../../../hooks/useRedux';
 
 function TerminalList() {
     const [personName, setPersonName] = useState([]);
     const [defaultName, setDefaultName] = useState('');
 
-     //redux requirement
-    const dispatch = useDispatch();
-    const store = useSelector(state => state?.terminals);
-    const {terminal} = store;
+    //use react router params
+    const params = useParams();
+
+    let terminal = useRedux({name:"terminals",data:"terminal",slice:getSpeTerminal(params)});
 
     const handleChange = (event) => {
         const {
@@ -34,14 +33,6 @@ function TerminalList() {
         setDefaultName(terminal?.data?.Response?.filter_data[0]?.termName);
     }
 
-        //use react router params
-        const params = useParams();
-
-     //react hooks
-    useEffect(()=>{
-        dispatch(getShifts());
-        dispatch(getSpeTerminal(params));
-    },[]);
     useEffect(()=>{
         setName();
     },[terminal]);

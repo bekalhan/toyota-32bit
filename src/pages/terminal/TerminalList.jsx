@@ -1,29 +1,17 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
 import { getTerminalList } from "../../redux/slices/terminalSlices";
 import TerminalGrid from './terminalGrid/TerminalGrid';
 import Header from '../header/Header';
+import {useRedux} from '../../hooks/useRedux';
 
 function TerminalList() {
-    //redux requirements
-    const dispatch = useDispatch();
-    const store = useSelector(state => state?.terminals);
-    const {terminalList} = store;
-
-    //react hooks
-    useEffect(()=>{
-        dispatch(getTerminalList());
-    },[]);
-
-    console.log("eee:",terminalList);
-    
+    //custom
+    const list = useRedux({name:"terminals",data:"terminalList",slice:getTerminalList()});
   return (
     <>
       <Header />
-      <TerminalGrid terminalList={terminalList?.data?.Response?.data} />
+      <TerminalGrid terminalList={list?.data?.Response?.data} />
     </>
   )
 }
-
 export default TerminalList;

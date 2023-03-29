@@ -3,8 +3,8 @@ import {
     Box , Stack, Typography , Checkbox ,FormControlLabel , Button
 } from '@mui/material';
 import Search from '../../../../components/search/Search';
-import {useSelector} from "react-redux";
 import ModalComponent from '../modal/ModalComponent';
+import {useRedux} from '../../../../hooks/useRedux';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -15,10 +15,9 @@ function Buttons() {
     setOpen(true);
     }
     const handleClose = () => setOpen(false);
-    //redux
-    const store = useSelector(store => store?.error);
-    const {choosedError} = store;
-    
+
+    let choosedError = useRedux({name:"error",data:"choosedError"});
+
   return (
     <Stack direction="column">
         <Box sx={{display:'flex'}}>
@@ -61,5 +60,4 @@ function Buttons() {
     </Stack>
   )
 }
-
-export default Buttons
+export default Buttons;

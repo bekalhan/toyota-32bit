@@ -4,7 +4,6 @@ import {
   } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
-
 function TerminalGrid({terminalList}) {
     const navigate = useNavigate();
 
@@ -67,5 +66,4 @@ function TerminalGrid({terminalList}) {
  </Box>
   )
 }
-
 export default TerminalGrid;

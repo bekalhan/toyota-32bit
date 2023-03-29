@@ -2,8 +2,6 @@ import React,{useRef} from 'react';
 import { 
   Grid,FormControlLabel,Checkbox,FormControl,Select,OutlinedInput,MenuItem, Button , TextField, Typography,Box,Modal,Stack
 } from '@mui/material';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from 'react';
 import {getErrorButtonData,getErrorButtonData2} from '../../../../redux/slices/errorSlices';
 import { useState } from 'react';
 import VirtualKeyboard from '../../../../components/keyboard/VirtualKeyboard';
@@ -11,6 +9,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import ValidationMessages from '../../../../utils/ValidationMessages';
 import {toast} from 'react-toastify';
+import {useRedux} from '../../../../hooks/useRedux';
 
 
 const style = {
@@ -36,7 +35,6 @@ const formSchema = Yup.object({
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 function ModalComponent({open,handleClose}) {
-  const [defaultName,setDefaultName] = useState();
   const [errorRes,setErrorRes] = useState([]);
   const [errorReason,setErrorReason] = useState([]);
   const [errorClass,setErrorClass] = useState([]);
@@ -68,16 +66,8 @@ function ModalComponent({open,handleClose}) {
         validationSchema: formSchema,
     });
 
-  //redux
-  const dispatch = useDispatch();
-  const store = useSelector(store => store?.error);
-  const {errorButtonData,errorButtonData2} = store;
-
-  //useEffect
-  useEffect(()=>{
-    dispatch(getErrorButtonData());
-    dispatch(getErrorButtonData2());
-  },[]);
+  let errorButtonData = useRedux({name:"error",data:"errorButtonData",slice:getErrorButtonData()});
+  let errorButtonData2 = useRedux({name:"error",data:"errorButtonData2",slice:getErrorButtonData2()});
 
   //change
   const handleChange = (event,name) => {
@@ -131,7 +121,7 @@ function ModalComponent({open,handleClose}) {
   }
 
   return (
-    <Modal
+  <Modal
     open={open}
     onClose={handleClose}
     aria-labelledby="modal-modal-title"
