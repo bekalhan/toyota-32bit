@@ -1,41 +1,17 @@
 import React,{useState,useEffect} from 'react';
-import {
-    Grid,
-    Typography,
-    Select,
-    MenuItem,
-    FormControl,OutlinedInput
-} from '@mui/material';
+import {Grid,Typography,FormControl} from '@mui/material';
 import {useParams} from 'react-router-dom';
 import { getSpeTerminal } from "../../../../redux/slices/terminalSlices";
 import {useRedux} from '../../../../hooks/useRedux';
+import SelectFormatter from '../../../../components/select/SelectFormatter';
+import {useSelect} from '../../../../hooks/useSelect';
 
 function TerminalList() {
-    const [personName, setPersonName] = useState([]);
-    const [defaultName, setDefaultName] = useState('');
-
     //use react router params
     const params = useParams();
 
     let terminal = useRedux({name:"terminals",data:"terminal",slice:getSpeTerminal(params)});
-
-    const handleChange = (event) => {
-        const {
-          target: { value },
-        } = event;
-        setPersonName(
-          // On autofill we get a stringified value.
-          typeof value === 'string' ? value.split(',') : value,
-        );
-      };
-
-    const setName = () =>{
-        setDefaultName(terminal?.data?.Response?.filter_data[0]?.termName);
-    }
-
-    useEffect(()=>{
-        setName();
-    },[terminal]);
+    const [select,setSelect] = useSelect({personName:[]});
 
   return (
     <Grid container>
@@ -46,38 +22,14 @@ function TerminalList() {
     <Grid item lg={7.5} md={7.5} sm={7.2} xs={7.5}>
         {/* select dropdown */}
         <FormControl sx={{ width:{lg:'550px',md:'400px',sm:'360px',xs:'320px'}}}>
-                    <Select
-                    displayEmpty
-                    value={personName}
-                    onChange={handleChange}
-                    input={<OutlinedInput />}
-                    renderValue={(selected) => {
-                        if (selected.length === 0) {
-                        return <em>{defaultName}</em>;
-                        }
-
-                        return selected.join(', ');
-                    }}
-                    inputProps={{ 'aria-label': 'Without label' }}
-                    sx={{height:{lg:'50px',md:'50px',sm:'40px',xs:'40px'}}}
-                    >
-                    <MenuItem disabled value="">
-                        <em>{defaultName}</em>
-                    </MenuItem>
-                    {terminal?.data?.Response?.filter_data?.map((e) => (
-                        <MenuItem
-                        key={e?.termName}
-                        value={e?.termName}
-                        >
-                        {e?.termName}
-                        </MenuItem>
-                    ))}
-                    </Select>
+                    <SelectFormatter name={"personName"}
+                      select={select} onChange={setSelect}
+                        list={terminal?.data?.Response?.filter_data} key={"termName"}
+                        value={"termName"} defaultName={terminal?.data?.Response?.filter_data[0]?.termName} />
                 </FormControl>
         {/* select dropdown end */}
     </Grid>
 </Grid>
   )
 }
-
 export default TerminalList;

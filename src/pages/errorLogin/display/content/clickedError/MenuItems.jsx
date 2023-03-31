@@ -12,7 +12,7 @@ import '../../../../../index.css';
 
 
 
-function MenuItems({defectSc,anchorEl,defects,error}) {
+function MenuItems({anchorEl,defects,error}) {
     const open = Boolean(anchorEl);
 
     const scrollTopToBottom = () =>{
@@ -36,7 +36,7 @@ function MenuItems({defectSc,anchorEl,defects,error}) {
     
   return (
         <Box>
-        {defectSc && open && choosedError===undefined ? (
+        {open && choosedError===undefined ? (
           <Stack>
             <Box sx={{
               marginLeft:`${error?.boxX+20}px`,

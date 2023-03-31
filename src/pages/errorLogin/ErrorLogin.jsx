@@ -13,7 +13,7 @@ function ErrorLogin() {
 let errorName = useRedux({name:"error",data:"errorName",slice:""});
 
   return (
-    <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'780px'}}>
+    <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'780px',overflow:'auto'}}>
         <Grid container sx={{display:'flex',justifyContent:'center'}}>
             <Grid item lg={10} md={12} sm={12} xs={12} sx={{border:'2px solid #b7ecba',borderRadius:'10px'}}>
                 <Grid container>

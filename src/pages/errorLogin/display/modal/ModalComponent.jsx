@@ -209,7 +209,7 @@ function ModalComponent({open,handleClose}) {
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={4} md={4} sm={8.5} xs={9}>
                     <FormControl sx={{width:'100%',backgroundColor:'white'}}>
-                        <SelectFormatter list={undefined} />
+                        <SelectFormatter name={""} />
                     </FormControl>
               </Grid>
             </Grid>
@@ -222,10 +222,9 @@ function ModalComponent({open,handleClose}) {
               <Typography>6.2.192-CVQSTerminal</Typography>
             </Box>
         </Grid>
-        </form>
+    </form>
     </Box>
   </Modal>
   )
 }
-
-export default ModalComponent
+export default ModalComponent;

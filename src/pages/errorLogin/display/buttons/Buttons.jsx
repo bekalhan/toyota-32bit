@@ -11,7 +11,6 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 function Buttons() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => {
-    console.log("girdi");
     setOpen(true);
     }
     const handleClose = () => setOpen(false);

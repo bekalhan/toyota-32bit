@@ -5,10 +5,8 @@ import {
 
 function SelectFormatter({name, select ,onChange , list , key , value , defaultName}) {
 
-    console.log("list : ",list);
-
   return (
-    list !== undefined ? (
+    name !== "" ? (
         <Select
         name={name}
         displayEmpty
