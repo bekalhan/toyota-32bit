@@ -78,6 +78,7 @@ function Test({error,defects}) {
         defects={defects} 
         error={error}
         setAnchor={setAnchorEl}
+        scroll={scroll}
         />
     </>
 

@@ -12,6 +12,7 @@ import {toast} from 'react-toastify';
 import {useRedux} from '../../../../hooks/useRedux';
 import {useSelect} from '../../../../hooks/useSelect';
 import SelectFormatter from '../../../../components/select/SelectFormatter';
+import Loading from '../../../../utils/loading/Loading';
 
 const style = {
     position: 'absolute',
@@ -38,7 +39,6 @@ function ModalComponent({open,handleClose}) {
   const [inputName, setInputName] = useState("");
   const [inputs, setInputs] = useState({});
 
-  const [select,setSelect] = useSelect({errorRes:[],errorReason:[],errorClass:[],errorExit:[],errorSub:[]});
 
   //keyboard useref
   const keyboard = useRef();
@@ -58,13 +58,16 @@ function ModalComponent({open,handleClose}) {
           showToast();
           setTimeout(()=>{
             window.location.reload();   
-          },3000);
+          },6000);
+          console.log("Hata giriş ekranı gönderilen veriler :  ",values);
         },
         validationSchema: formSchema,
     });
 
   let errorButtonData = useRedux({name:"error",data:"errorButtonData",slice:getErrorButtonData()});
   let errorButtonData2 = useRedux({name:"error",data:"errorButtonData2",slice:getErrorButtonData2()});
+
+  const [select,setSelect] = useSelect({errorRes:[],errorReason:[],errorClass:[],errorExit:[],errorSub:[]});
 
   //for keyboard
   const onChangeInput = (event) => {
@@ -86,6 +89,7 @@ function ModalComponent({open,handleClose}) {
   }
 
   return (
+  errorButtonData?.length !== 0 && errorButtonData2.length !== 0 ?
   <Modal
     open={open}
     onClose={handleClose}
@@ -130,7 +134,7 @@ function ModalComponent({open,handleClose}) {
                                 <SelectFormatter name={"errorReason"}
                                 select={select} onChange={setSelect}
                                 list={errorButtonData2?.data?.Response?.data[0]} key={"nrId"}
-                                value={"nrReasonAbb"} defaultName={errorButtonData2?.data?.Response?.data[0][0].nrReasonAbb} />
+                                value={"nrReasonAbb"} defaultName={errorButtonData2?.data?.Response?.data[0][0]?.nrReasonAbb} />
                     </FormControl>
                 </Grid>
             </Grid>
@@ -168,7 +172,7 @@ function ModalComponent({open,handleClose}) {
                             <SelectFormatter name={"errorExit"}
                                     select={select} onChange={setSelect}
                                     list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList} key={"dataCode"}
-                                    value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList[0].dataValue} />
+                                    value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0]?.requiredFieldsByInspectionDTOList[0]?.errDetailComboBoxValueDTOList[0]?.dataValue} />
                     </FormControl>
               </Grid>
             </Grid>
@@ -209,7 +213,7 @@ function ModalComponent({open,handleClose}) {
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={4} md={4} sm={8.5} xs={9}>
                     <FormControl sx={{width:'100%',backgroundColor:'white'}}>
-                        <SelectFormatter name={""} />
+                        {/* <SelectFormatter name={""} /> */}
                     </FormControl>
               </Grid>
             </Grid>
@@ -224,7 +228,7 @@ function ModalComponent({open,handleClose}) {
         </Grid>
     </form>
     </Box>
-  </Modal>
+  </Modal> : <Loading />
   )
 }
 export default ModalComponent;

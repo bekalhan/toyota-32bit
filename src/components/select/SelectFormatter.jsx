@@ -2,11 +2,18 @@ import React from 'react';
 import {
      Select , OutlinedInput , MenuItem , Typography
 } from '@mui/material';
+import { useEffect } from 'react';
 
 function SelectFormatter({name, select ,onChange , list , key , value , defaultName}) {
 
+  useEffect(()=>{
+    if(select[name].length === 0){
+      select[name].push(defaultName);
+    }
+  },[]);
+
   return (
-    name !== "" ? (
+  name !== undefined ? (
         <Select
         name={name}
         displayEmpty

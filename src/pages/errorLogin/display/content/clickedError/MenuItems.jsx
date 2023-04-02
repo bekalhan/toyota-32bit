@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Box,Stack,Avatar
+    Box,Stack
 } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -10,9 +10,7 @@ import {
 } from '../../../../../redux/slices/errorSlices';
 import '../../../../../index.css';
 
-
-
-function MenuItems({anchorEl,defects,error}) {
+function MenuItems({anchorEl,defects,error,scroll}) {
     const open = Boolean(anchorEl);
 
     const scrollTopToBottom = () =>{
@@ -39,8 +37,8 @@ function MenuItems({anchorEl,defects,error}) {
         {open && choosedError===undefined ? (
           <Stack>
             <Box sx={{
-              marginLeft:`${error?.boxX+20}px`,
-              marginTop:`-${600-(error?.boxY+error?.boxHeight+10)}px`,
+              marginLeft:`${error?.boxX+20-scroll.left}px`,
+              marginTop:`-${600-(error?.boxY+error?.boxHeight+10-scroll.top)}px`,
               position:'absolute',
               zIndex:3
             }}>
@@ -59,8 +57,8 @@ function MenuItems({anchorEl,defects,error}) {
             </Box>
             <Box 
               sx={{
-                marginLeft:`${error?.boxX+300}px`,
-                marginTop:`-${600-(error?.boxY+90)}px`,
+                marginLeft:`${error?.boxX+300-scroll.left}px`,
+                marginTop:`-${600-(error?.boxY+90-scroll.top)}px`,
                 position:'absolute',
                 zIndex:4
               }}
@@ -89,5 +87,4 @@ function MenuItems({anchorEl,defects,error}) {
         </Box>
   )
 }
-
-export default MenuItems
+export default MenuItems;
