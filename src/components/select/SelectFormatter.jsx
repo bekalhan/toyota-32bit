@@ -28,7 +28,7 @@ function SelectFormatter({name, select ,onChange , list , key , value , defaultN
           }
           return selected.join(', ');
       }}
-        sx={{height:'40px'}}
+        sx={{height:'50px'}}
       >
       <MenuItem disabled value="">
           <em>{defaultName}</em>

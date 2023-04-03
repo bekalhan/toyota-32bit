@@ -2,8 +2,8 @@ import React from 'react';
 import {
   Grid, Typography
 } from '@mui/material';
-import {getErrorData} from '../../../redux/slices/errorSlices';
-import { useRedux } from '../../../hooks/useRedux';
+import {getErrorData} from '../../redux/slices/errorSlices';
+import { useRedux } from '../../hooks/useRedux';
 
 function HeaderData() {
   let errorData = useRedux({name:"error",data:"errorData",slice:getErrorData()});

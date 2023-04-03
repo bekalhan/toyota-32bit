@@ -21,6 +21,7 @@ function Model() {
    let obj = useRedux({name:"error",data:["errors","loading"],slice:getErrors()});
    let errors = obj[0];
    let loading = obj[1];
+   
   
   return (
     loading ? <Loading />: 

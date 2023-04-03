@@ -5,6 +5,7 @@ import { getSpeTerminal } from "../../../../redux/slices/terminalSlices";
 import {useRedux} from '../../../../hooks/useRedux';
 import SelectFormatter from '../../../../components/select/SelectFormatter';
 import {useSelect} from '../../../../hooks/useSelect';
+import Loading from '../../../../utils/loading/Loading';
 
 function TerminalList() {
     //use react router params
@@ -13,7 +14,10 @@ function TerminalList() {
     let terminal = useRedux({name:"terminals",data:"terminal",slice:getSpeTerminal(params)});
     const [select,setSelect] = useSelect({personName:[]});
 
+    console.log("terminal : ",terminal);
+
   return (
+    terminal !== undefined ?
     <Grid container>
     <Grid item lg={1.6} md={1.6} sm={1.5} xs={0.5}></Grid>
     <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
@@ -29,7 +33,7 @@ function TerminalList() {
                 </FormControl>
         {/* select dropdown end */}
     </Grid>
-</Grid>
+</Grid> : <Loading />
   )
 }
 export default TerminalList;

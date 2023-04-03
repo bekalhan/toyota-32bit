@@ -45,7 +45,8 @@ const errorSlice = createSlice({
         errorButtonData : [],
         errorButtonData2 : [],
         choosedError : undefined,
-        errorName:undefined
+        errorName:undefined,
+        largeFont:false
     },
     reducers:{
       changeError(state,action){
@@ -53,6 +54,11 @@ const errorSlice = createSlice({
       },
       changeErrorName(state,action){
         state.errorName = action.payload;
+      },
+      changeFontStatus(state){
+        if(state.largeFont===false){
+          state.largeFont = true;
+        }
       }
     },
     extraReducers: builder =>{
@@ -120,4 +126,4 @@ const errorSlice = createSlice({
 });
 
 export default errorSlice.reducer;
-export const { changeError , changeErrorName } = errorSlice.actions
+export const { changeError , changeErrorName , changeFontStatus } = errorSlice.actions

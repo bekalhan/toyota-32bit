@@ -1,6 +1,6 @@
 import React,{useRef} from 'react';
 import { 
-  Grid,FormControlLabel,Checkbox,FormControl,Button , TextField, Typography,Box,Modal,Stack
+  Grid,FormControlLabel,Checkbox,FormControl,Button , TextField, Typography,Box,Modal,Stack, Select
 } from '@mui/material';
 import {getErrorButtonData,getErrorButtonData2} from '../../../../redux/slices/errorSlices';
 import { useState } from 'react';
@@ -213,7 +213,9 @@ function ModalComponent({open,handleClose}) {
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={4} md={4} sm={8.5} xs={9}>
                     <FormControl sx={{width:'100%',backgroundColor:'white'}}>
-                        {/* <SelectFormatter name={""} /> */}
+                        <Select
+                        sx={{height:'50px'}}
+                        />
                     </FormControl>
               </Grid>
             </Grid>

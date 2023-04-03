@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Box,Grid, Typography ,Stack
 } from '@mui/material';
-import HeaderData from './headerdata/HeaderData';
+import HeaderData from '../../components/headerdata/HeaderData';
 import Model from './display/content/Model';
 import Buttons from './display/buttons/Buttons';
 import ButtomButtons from './buttomButtons/ButtomButtons';
