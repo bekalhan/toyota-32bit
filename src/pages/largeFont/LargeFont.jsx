@@ -3,10 +3,14 @@ import '../../index.css';
 import HeaderData from '../../components/headerdata/HeaderData';
 import Search from '../../components/search/Search';
 import {
-  Box
+  Box , Stack, Typography
 } from '@mui/material';
+import {getFontData} from '../../redux/slices/largeFont';
+import {useRedux} from '../../hooks/useRedux';
 
 function LargeFont() {
+  const fontData = useRedux({name:"font",data:"fontData",slice:getFontData()});
+
   return (
     <Box sx={{width:'100%',height:'100%',paddingTop:'2em',backgroundColor:'#c6ffc7',justifyContent:'center'}}>
       <div className="data">
@@ -22,7 +26,6 @@ function LargeFont() {
                       <br />
                       <span>25073</span>
                     </h1>
-
                 </div>
                 <div className="search">
                   <div className="btn-hata">
@@ -35,13 +38,11 @@ function LargeFont() {
           </div>
       </div>
       <div className="bottom">
-          <span>
-            ECI KAR DENEME - ARACI VPI ANALİZ'E AYIRIN
-            <br /> 
-            CHASSIS PROSES - KONTROL EDİLEMEDİ
-            <br />
-            A/C TUBE - DEFORME
-          </span>
+          <Stack direction="column">
+            {fontData?.data?.Response?.data?.map((el)=>(
+              <Typography sx={{fontWeight:'bold',fontSize:'24px',marginTop:'0.4em'}}>{el?.partName} - {el?.defectName}</Typography>
+            ))}
+          </Stack>
       </div>
     </Box>
   )
