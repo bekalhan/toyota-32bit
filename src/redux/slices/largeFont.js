@@ -13,7 +13,15 @@ export const getFontData = createAsyncThunk("/font",async () =>{
 const fontSlice = createSlice({
     name:'font',
     initialState:{
-        fontData: []
+        fontData: [],
+        largeFont:false
+    },
+    reducers:{
+      changeFontStatus(state){
+        if(state.largeFont===false){
+          state.largeFont = true;
+        }
+      }
     },
     extraReducers : builder => {
     //get font data
@@ -35,4 +43,6 @@ const fontSlice = createSlice({
 });
 
 export default fontSlice.reducer;
+export const { changeFontStatus } = fontSlice.actions
+
 

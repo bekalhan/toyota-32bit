@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useDispatch } from 'react-redux';
-import {changeFontStatus} from '../../../redux/slices/errorSlices';
+import {changeFontStatus} from '../../../redux/slices/largeFont';
 
 
 function ButtomButtons() {
