@@ -81,7 +81,6 @@ Menu ıtems css
   border:0.8px solid black;
   text-align: center;
   background-color: #c5ffc4;
-
   padding: 0.5em;
 }
 
@@ -249,6 +248,10 @@ Menu ıtems css
 .btn-hata{
   display: flex;
   justify-content: center;
+}
+
+.btn-data button{
+  color:white;
 }
 
 .container button:nth-child(1){

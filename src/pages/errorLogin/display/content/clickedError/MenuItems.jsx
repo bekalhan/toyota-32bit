@@ -2,26 +2,15 @@ import React from 'react';
 import {
     Box,Stack
 } from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useDispatch , useSelector} from "react-redux";
 import {
   changeError
 } from '../../../../../redux/slices/errorSlices';
 import '../../../../../index.css';
+import ScrollButton from '../../../../../components/scrollButton/ScrollButton';
 
 function MenuItems({anchorEl,defects,error,scroll}) {
-    const open = Boolean(anchorEl);
-
-    const scrollTopToBottom = () =>{
-      const element = document.getElementById("scrollDiv");
-      element.scrollTop += 30;
-    }
-
-    const scrollBottomToTop = () =>{
-      const element = document.getElementById("scrollDiv");
-      element.scrollTop -= 30;
-    }
+   const open = Boolean(anchorEl);
 
   //redux
   const store = useSelector(store=>store?.error);
@@ -63,22 +52,9 @@ function MenuItems({anchorEl,defects,error,scroll}) {
                 zIndex:4
               }}
               >
-                <div className='direction'>
-                    <div className='rdi-button'
-                      onClick={()=>scrollBottomToTop()}
-                    >
-                        <KeyboardArrowUpIcon
-                        sx={{marginTop:'0.3em'}}
-                        />
-                    </div>
-                    <div className='rdi-button'
-                    onClick={()=>scrollTopToBottom()}
-                    >
-                        <KeyboardArrowDownIcon
-                        sx={{marginTop:'0.3em'}}
-                        />
-                    </div>
-                </div>
+              <Box sx={{width:'110px',height:'80px'}}>
+                <ScrollButton anc={"scrollDiv"} />
+              </Box>
             </Box>
           </Stack>
         ):(

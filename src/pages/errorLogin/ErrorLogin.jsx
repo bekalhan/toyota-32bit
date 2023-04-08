@@ -9,12 +9,9 @@ import ButtomButtons from './buttomButtons/ButtomButtons';
 import {useRedux} from '../../hooks/useRedux';
 import LargeFont from '../largeFont/LargeFont';
 
-
 function ErrorLogin() {
 let errorName = useRedux({name:"error",data:"errorName",slice:""});
 let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
-
-console.log("large font : ",largeFont);
 
   return (
     largeFont ? <LargeFont /> :
