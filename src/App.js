@@ -12,9 +12,6 @@ import {
 import {ToastContainer} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
-console.log("aa : ", window.innerHeight);
-
-
 function App() {
   return (
     <>
