@@ -69,8 +69,6 @@ function Date({formik}) {
              <Box>
               <FormControl sx={{marginTop:{lg:'0.6em',md:'0.6em'},display:{lg:'block',md:'block',sm:'none',xs:'none'}}}>
                         <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
                         value={formik.values.gun}
                         onChange={formik.handleChange("gun")}
                         onBlur={formik.handleBlur("gun")}
@@ -80,7 +78,7 @@ function Date({formik}) {
                     ))}
                         </Select>
                 </FormControl>
-                <FormControl sx={{marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em',xs:'0.7em'},display:{lg:'none',md:'none',sm:'block',xs:'block'}}}>
+                <FormControl sx={{marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em',xs:'0.7em'},display:{lg:'none',md:'none',sm:'block',xs:'block'},marginLeft:'1em'}}>
                         <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"

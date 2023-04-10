@@ -1,15 +1,16 @@
 import React from 'react';
 import { Box,Stack,FormControl,MenuItem,Select, Typography } from '@mui/material';
+import '../../../../index.css';
 
 
 function Shift({formik,shifts}) { 
   return (
     <Stack direction='row'>
         <Box>
-            <Typography sx={{marginTop:{lg:'2em',md:'1.6em',sm:'1.3em',xs:'1.3em'},fontWeight:'bold',marginLeft:{lg:'2em',md:'2em',sm:'1.2em',xs:'1em'}}}>Vardiya</Typography>
+            <div className='txt-vardiya'>Vardiya</div>
         </Box>
          <Box>
-             <FormControl sx={{marginTop:{lg:'0.6em',md:'0.6em'},marginLeft:{lg:'8em',md:'1em'},display:{lg:'block',md:'block',sm:'none',xs:'none'}}}>
+             <FormControl sx={{display:{lg:'block',md:'block',sm:'none',xs:'none'}}} className='list'>
                     <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
@@ -23,7 +24,7 @@ function Shift({formik,shifts}) {
                       ))}
                     </Select>
             </FormControl>
-            <FormControl sx={{marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em',xs:'0.7em'},marginLeft:{lg:'8em',md:'1em',sm:'1.3em',xs:'1em'},display:{lg:'none',md:'none',sm:'block',xs:'block'}}}>
+            <FormControl sx={{marginLeft:{lg:'8em',md:'1em',sm:'1.3em',xs:'1em'},display:{lg:'none',md:'none',sm:'block',xs:'block'}}} className='list'>
                     <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"

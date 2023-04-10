@@ -7,7 +7,7 @@ import { useState } from 'react';
 import VirtualKeyboard from '../../../../components/keyboard/VirtualKeyboard';
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import ValidationMessages from '../../../../utils/ValidationMessages';
+import ValidationMessages from '../../../../components/messages/ValidationMessages';
 import {toast} from 'react-toastify';
 import {useRedux} from '../../../../hooks/useRedux';
 import {useSelect} from '../../../../hooks/useSelect';

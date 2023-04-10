@@ -7,15 +7,26 @@ input {
     box-sizing: border-box;
   }
   
-  .simple-keyboard {
-    max-width: 100%;
+
+  @media screen and (min-width:1000px) {
+    .simple-keyboard {
+      max-width: 100%;
+    }
   }
+
+  @media screen and (min-width:1700px) and (max-width:2500px),screen and (min-device-width:1700px) and (max-device-width:2500px) {
+    .simple-keyboard {
+      max-width: 100%;
+    }
+  }
+
+
+  
   
   /*
     Theme: myTheme1
   */
   .simple-keyboard.myTheme1 {
-    background-color: #eaeaea;
     border-radius: 0;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -266,6 +277,216 @@ h1 span{
   display: flex;
   justify-content: center;
 }
+
+/* end */
+
+/* entrance */
+@media screen and (min-width:2500px) and (max-width:3000px),screen and (min-device-width:2500px) and (max-device-width:3000px) {
+  .txt-field{
+    width: 1100px;
+  }
+  .txt{
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0.6rem;
+  }
+  .bkg{
+    width: 1120px !important;
+  }
+  .list{
+    margin-left: 3.7em !important;
+  }
+  .txt-vardiya{
+    margin-left: 15em !important;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0.6em;
+  }
+  .txt-tarih{
+    font-size:28px;
+    font-weight: bold;
+    margin-top: 0.6em;
+  }
+}
+
+@media screen and (min-width:2200px) and (max-width:2500px),screen and (min-device-width:2200px) and (max-device-width:2800px) {
+  .txt-field{
+    width: 900px;
+  }
+  .txt{
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0.6rem;
+  }
+  .bkg{
+    width: 1120px !important;
+  }
+  .list{
+    margin-left: 3.7em !important;
+  }
+  .txt-vardiya{
+    margin-left: 15em !important;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0.6em;
+  }
+  .txt-tarih{
+    font-size:28px;
+    font-weight: bold;
+    margin-top: 0.6em;
+  }
+}
+
+@media screen and (min-width:1700px) and (max-width:2200px),screen and (min-device-width:600px) and (max-device-width:900px) {
+  .txt-field{
+    width: 700px;
+  }
+  .txt{
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0.7rem;
+  }
+  .bkg{
+    width: 900px !important;
+  }
+  .list{
+    margin-left: 4em !important;
+  }
+  .txt-vardiya{
+    margin-left: 8em !important;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 0.6em;
+  }
+  .txt-tarih{
+    font-size:28px;
+    font-weight: bold;
+    margin-top: 0.6em;
+  }
+}
+
+
+@media screen and (min-width:1200px) and (max-width:1700px),screen and (min-device-width:1200px) and (max-device-width:1700px) {
+  .txt-field{
+    width: 550px;
+  }
+  .txt{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  .bkg{
+    width: 690px !important;
+  }
+  .list{
+    margin-left: 8em !important;
+    margin-top: 0.7em !important;
+  }
+  .txt-vardiya{
+    margin-left: 2em !important;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 1.5em;
+  }
+  .txt-tarih{
+    font-size:18px;
+    font-weight: bold;
+    margin-top: 1.5em;
+  }
+}
+
+@media screen and (min-width:900px) and (max-width:1200px),screen and (min-device-width:900px) and (max-device-width:1200px) {
+  .txt-field{
+    width: 400px;
+  }
+  .txt{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  .bkg{
+    width: 500px !important;
+  }
+  .list{
+    margin-left: 1em !important;
+  }
+  .txt-vardiya{
+    margin-left: 0.3em !important;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 1.5em;
+  }
+  .txt-tarih{
+    font-size:18px;
+    font-weight: bold;
+    margin-top: 1.5em;
+  }
+}
+
+@media screen and (min-width:600px) and (max-width:900px),screen and (min-device-width:600px) and (max-device-width:900px) {
+  .txt-field{
+    width: 360px;
+    size: small !important;
+  }
+  .txt{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  .bkg{
+    width: 480px !important;
+  }
+  .list{
+    margin-left: 1.3em !important;
+  }
+  .txt-vardiya{
+    margin-left: 0.3em !important;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 1.2em;
+  }
+  .txt-tarih{
+    font-size:18px;
+    font-weight: bold;
+    margin-top: 1.2em;
+  }
+  .select{
+    size: small !important;
+  }
+}
+
+@media screen and (max-width:700px),screen and (max-device-width:700px) {
+  .txt-field{
+    width: 340px;
+  }
+  .txt{
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 0.6rem;
+  }
+  .bkg{
+    width: 470px !important;
+  }
+  .list{
+    margin-left: 1em !important; 
+    size: small ;
+  }
+  .txt-vardiya{
+    margin-left: 0.3em !important;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 1.2em;
+  }
+  .txt-tarih{
+    font-size:18px;
+    font-weight: bold;
+    margin-top: 1em;
+  }
+}
+
+
+
+
 
 /* end */
 
