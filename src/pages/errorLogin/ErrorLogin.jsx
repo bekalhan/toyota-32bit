@@ -8,15 +8,25 @@ import Buttons from './display/buttons/Buttons';
 import ButtomButtons from './buttomButtons/ButtomButtons';
 import {useRedux} from '../../hooks/useRedux';
 import LargeFont from '../largeFont/LargeFont';
+import '../../index.css';
+import {useTime} from '../../hooks/useTime';
+import ses from '../../audio/ses.mp3';
+import { useEffect } from 'react';
+import ReactAudioPlayer from 'react-audio-player';
+
 
 function ErrorLogin() {
 let errorName = useRedux({name:"error",data:"errorName",slice:""});
 let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
 
+let inactivity = useTime(5);
+
+
   return (
-    largeFont ? <LargeFont /> :
-    <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'780px',overflow:'auto'}}>
-        <Grid container sx={{display:'flex',justifyContent:'center'}}>
+    <>
+    {largeFont ? <LargeFont status={inactivity} /> :
+    <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'780px',overflow:'auto',justifyContent:'center',width:'100%'}}>
+        <Grid container sx={{display:'flex',justifyContent:'center'}} className='pic'>
             <Grid item lg={10} md={12} sm={12} xs={12} sx={{border:'2px solid #b7ecba',borderRadius:'10px'}}>
                 <Grid container>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
@@ -28,7 +38,7 @@ let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
                                 <Model />
                             </Grid>
                             <Grid item lg={2.7} md={2.5} sm={12} xs={12} >
-                                <Buttons />
+                                <Buttons status={inactivity} />
                             </Grid>
                         </Grid>
                     </Grid>
@@ -62,7 +72,9 @@ let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
                 </Grid>
             </Grid>
         </Grid>
-    </Box>
+    </Box>}
+    </>
+  
   )
 }
 

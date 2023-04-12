@@ -3,6 +3,8 @@ import {
     Box,Grid, Typography,Stack
   } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import '../../../index.css';
+
 
 function TerminalGrid({terminalList}) {
     const navigate = useNavigate();
@@ -32,15 +34,15 @@ function TerminalGrid({terminalList}) {
        {terminalList?.map((terminal)=>(
             <Grid item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}} key={terminal.depName}>
                 <Grid container sx={{marginTop:'0.2px'}}>
-                    <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:'2px solid #b7ecba'}}>
+                    <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:'2px solid #b7ecba'}} className='terminal'>
                     <Box sx={{display:'flex',justifyContent:'center'}}>
-                        <Typography sx={{color:'#d34555',fontSize:{lg:'15px'},marginTop:{lg:'1.5em',md:'0.7em',sm:'0'}}}>{terminal?.depName}</Typography>
+                        <Typography sx={{color:'#d34555',fontSize:{lg:'15px'},marginTop:{lg:'1.5em',md:'0.7em',sm:'0'}}}>({terminal?.depCode}){terminal?.depName}</Typography>
                     </Box>
                     </Grid>
-                    <Grid item lg={10} md={10} sm={12} xs={12} sx={{border:'2px solid #b7ecba',padding:1,display:'flex'}}>
+                    <Grid item lg={10} md={10} sm={12} xs={12} sx={{border:'2px solid #b7ecba',padding:1,display:'flex'}} >
                         <Grid container sx={{justifyContent:{lg:'flex-start',md:'flex-start',sm:'center',xs:'center'}}}>
                         {terminal.filterBaseds?.map((e)=>(
-                        <Grid item lg={1.5} md={2} sm={3} xs={3} sx={{borderRadius:'10px',border:'2px solid #b7ecba',height:'50px',marginTop:'0.4em',marginLeft:'0.7em'}}
+                        <Grid item lg={1.5} md={2} sm={3} xs={3} sx={{borderRadius:'10px',border:'2px solid #b7ecba',height:'50px',marginTop:'0.4em',marginLeft:'0.7em'}} className='terminal'
                         onClick={()=> navigate(`/cvqsterminal/terminal/${terminal.depCode}/${e.filterCode}`)}
                         >
                             <Stack direction='column'>

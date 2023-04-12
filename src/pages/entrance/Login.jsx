@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import moment from 'moment';
 import VirtualKeyboard from '../../components/keyboard/VirtualKeyboard';
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useParams } from "react-router-dom";
 import DateShift from './dateShift/DateShift';
 import ValidationMessages from '../../components/messages/ValidationMessages';
 import TerminalList from './form/terminal/TerminalList';
@@ -33,6 +33,7 @@ function Login() {
 
     //useNavigate
     const navigate = useNavigate();
+    const params = useParams();
 
     //use ref
     const keyboard = useRef();
@@ -81,7 +82,7 @@ function Login() {
     };
 
     if(user?.data?.Response?.type==="Success") {
-       return navigate('/cvqsterminal/terminal/defectentry');
+       return navigate(`/cvqsterminal/terminal/defectentry/${params.depcode}/${params.filtercode}/3070725`);
      }
 
     return (

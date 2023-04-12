@@ -37,7 +37,7 @@ export default function TableComp({list}) {
             </Grid>
           </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody id="asd">
           {list?.defectList?.map((el)=>(
         <TableRow sx={{backgroundColor:'#c6ffc7',height:'30px'}}  hover>
             <TableCell style={{minWidth:'100px',border:'0.5px solid black'}} align='center'>{el?.depCode}</TableCell>

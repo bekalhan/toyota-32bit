@@ -1,15 +1,23 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
      Select , OutlinedInput , MenuItem , Typography
 } from '@mui/material';
 import { useEffect } from 'react';
 
-function SelectFormatter({name, select ,onChange , list , key , value , defaultName}) {
+function SelectFormatter({name, select ,onChange , list , key , value , defaultName ,format}) {
+  const [hg,setHg] = useState({lg:0,md:0,sm:0,xs:0});
 
+  const splitFormat = () => {
+    let arr = [];
+    arr = format.split("-");
+    setHg({lg:arr[0],md:arr[1],sm:arr[2],xs:arr[3]});
+  }
+  
   useEffect(()=>{
     if(select[name].length === 0){
       select[name].push(defaultName);
     }
+    splitFormat();
   },[]);
 
   return (
@@ -28,7 +36,7 @@ function SelectFormatter({name, select ,onChange , list , key , value , defaultN
           }
           return selected.join(', ');
       }}
-        sx={{height:'50px'}}
+        sx={{height:{lg:`${hg.lg}px`,md:`${hg.md}px`,sm:`${hg.sm}px`,xs:`${hg.xs}px`}}}
       >
       <MenuItem disabled value="">
           <em>{defaultName}</em>
@@ -41,15 +49,9 @@ function SelectFormatter({name, select ,onChange , list , key , value , defaultN
             {e?.[value]}
             </MenuItem>
         ))}
-      </Select>
+        </Select>
     ) : (
-        <Select
-        labelId="demo-multiple-name-label"
-        id="demo-multiple-name"
-        input={<OutlinedInput />}
-        sx={{height:'40px'}}
-      >
-      </Select>
+     null
     )
   )
 }

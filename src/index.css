@@ -20,8 +20,14 @@ input {
     }
   }
 
+/* terminalList */
 
-  
+.terminal:hover{
+  background-color: #e8f0fd;
+}
+
+/* end */
+
   
   /*
     Theme: myTheme1
@@ -484,7 +490,56 @@ h1 span{
   }
 }
 
+/* end */
 
+/* error login */
+
+@media screen and (min-width:1400px) and (max-width:2800px),screen and (min-device-width:600px) and (max-device-width:900px) {
+  .pic{
+    width: 1500px !important;
+    display: flex;
+    justify-content: center;
+  }
+  .pic2{
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+
+/* end */
+
+/* errorlist */
+
+@media screen and (min-width:0px) and (max-width:1600px),screen and (min-device-width:0px) and (max-device-width:1600px) {
+  .bt1{
+    width: 500px !important;
+  }
+  .bt2{
+    width: 120px;
+  }
+  .bt3{
+    width: 1000px !important;
+  }
+  .bt4{
+    width: 1630px !important;
+  }
+}
+
+@media screen and (min-width:1600px) and (max-width:2800px),screen and (min-device-width:1600px) and (max-device-width:2800px) {
+  .bt1{
+    width: 700px !important;
+  }
+  .bt2{
+    width: 150px !important; 
+  }
+  .bt3{
+    width: 1200px !important;
+  }
+  .bt4{
+    width: 1860px !important;
+  }
+}
 
 
 

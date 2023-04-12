@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import { Box,Stack,FormControl,MenuItem,Select } from '@mui/material';
 import { useEffect } from 'react';
 
-
 const months = [1,2,3,4,5,6,7,8,9,10,11,12];
 
 function Date({formik}) {
@@ -66,26 +65,13 @@ function Date({formik}) {
 
   return (
     <Stack direction='row'>
-             <Box>
-              <FormControl sx={{marginTop:{lg:'0.6em',md:'0.6em'},display:{lg:'block',md:'block',sm:'none',xs:'none'}}}>
+             <Box sx={{height:'50px'}}>
+              <FormControl sx={{marginTop:{lg:'0.6em',md:'0.6em'}}}>
                         <Select
                         value={formik.values.gun}
                         onChange={formik.handleChange("gun")}
                         onBlur={formik.handleBlur("gun")}
-                        >
-                    {day?.map((el)=>(
-                        <MenuItem value={el} key={el}>{el}</MenuItem>
-                    ))}
-                        </Select>
-                </FormControl>
-                <FormControl sx={{marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em',xs:'0.7em'},display:{lg:'none',md:'none',sm:'block',xs:'block'},marginLeft:'1em'}}>
-                        <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={formik.values.gun}
-                        onChange={formik.handleChange("gun")}
-                        onBlur={formik.handleBlur("gun")}
-                        size="small"
+                        sx={{height:{lg:'55px',md:'55px',sm:'42px',xs:'40px'},marginTop:{lg:'0',md:'0',sm:'10px',xs:'10px'}}}
                         >
                     {day?.map((el)=>(
                         <MenuItem value={el} key={el}>{el}</MenuItem>
@@ -94,27 +80,12 @@ function Date({formik}) {
                 </FormControl>
             </Box>
             <Box>
-                <FormControl sx={{width:{},marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em'},marginLeft:'1em',display:{lg:'block',md:'block',sm:'none',xs:'none'}}}>
+                <FormControl sx={{width:{},marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em'},marginLeft:'1em'}}>
                         <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
                         value={formik.values.ay}
                         onChange={formik.handleChange("ay")}
                         onBlur={formik.handleBlur("ay")}
-                        >
-                        {months?.map((month)=>(
-                          <MenuItem value={month} key={month}>{month}</MenuItem>
-                        ))}
-                        </Select>
-                </FormControl>
-                <FormControl sx={{width:{},marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em',xs:'0.7em'},marginLeft:{lg:'1em',md:'1em',sm:'0.3em',xs:'0.2em'},display:{lg:'none',md:'none',sm:'block',xs:'block'}}}>
-                        <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={formik.values.ay}
-                        onChange={formik.handleChange("ay")}
-                        onBlur={formik.handleBlur("ay")}
-                        size="small"
+                        sx={{height:{lg:'55px',md:'55px',sm:'40px',xs:'40px'},marginTop:{lg:'0',md:'0',sm:'0px',xs:'10px'}}}
                         >
                         {months?.map((month)=>(
                           <MenuItem value={month} key={month}>{month}</MenuItem>
@@ -123,38 +94,20 @@ function Date({formik}) {
                 </FormControl>
             </Box>
             <Box>
-                  <FormControl sx={{width:{},height:{lg:'80px'},marginTop:{lg:'0.6em',md:'0.6em'},marginLeft:'1em',display:{lg:'block',md:'block',sm:'none',xs:'none'}}}>
+                  <FormControl sx={{width:{},height:{lg:'80px'},marginTop:{lg:'0.6em',md:'0.6em'},marginLeft:'1em'}}>
                               <Select
-                              labelId="demo-simple-select-label"
-                              id="demo-simple-select"
                               value={formik.values.yil}
                               onChange={formik.handleChange("yil")}
                               onBlur={formik.handleBlur("yil")}
+                              sx={{height:{lg:'55px',md:'55px',sm:'40px',xs:'40px'},marginTop:{lg:'0',md:'0',sm:'10px',xs:'10px'}}}
                               >
                               {year?.map((year)=>(
                                 <MenuItem value={year} key={year}>{year}</MenuItem>
                               ))}
-
-                              </Select>
-                      </FormControl>
-                      <FormControl sx={{width:{},height:{lg:'80px'},marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em',xs:'0.7em'},marginLeft:{lg:'1em',md:'1em',sm:'0.3em',xs:'0.2em'},display:{lg:'none',md:'none',sm:'block',xs:'block'}}}> 
-                              <Select
-                              labelId="demo-simple-select-label"
-                              id="demo-simple-select"
-                              value={formik.values.yil}
-                              onChange={formik.handleChange("yil")}
-                              onBlur={formik.handleBlur("yil")}
-                              size="small"
-                              >
-                              {year?.map((year)=>(
-                                <MenuItem value={year} key={year}>{year}</MenuItem>
-                              ))}
-
                               </Select>
                       </FormControl>
             </Box>
     </Stack>
   )
 }
-
-export default Date
+export default Date;

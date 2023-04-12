@@ -8,11 +8,11 @@ import {
 import {getFontData} from '../../redux/slices/largeFont';
 import {useRedux} from '../../hooks/useRedux';
 
-function LargeFont() {
+function LargeFont({status}) {
   const fontData = useRedux({name:"font",data:"fontData",slice:getFontData()});
 
   return (
-    <Box sx={{width:'100%',height:'100%',paddingTop:'2em',backgroundColor:'#c6ffc7',justifyContent:'center'}}>
+    <Box sx={{width:'100%',height:'120%',paddingTop:'2em',backgroundColor:status ? '#c6ffc7' : '#d5584a',justifyContent:'center'}}>
       <div className="data">
           <div className="header-data">
                <HeaderData name={"font"} />

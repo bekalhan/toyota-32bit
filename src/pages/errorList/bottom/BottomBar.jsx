@@ -1,11 +1,12 @@
 import React from 'react';
 import {Button, Grid, Stack, TextField, Typography ,Box} from '@mui/material';
 import ScrollButton from '../../../components/scrollButton/ScrollButton';
+import '../../../index.css'; 
 
 function BottomBar() {
   return (
-    <Grid container sx={{height:'100%',width:'3000px'}}>
-        <Grid item sx={{border:'0.3px solid gray',padding:1.4,borderRadius:'8px',width:'800px'}}>
+    <Grid container sx={{height:'100%',width:'2100px'}} className='bt4'>
+        <Grid item sx={{border:'0.3px solid gray',padding:1.4,borderRadius:'8px',width:'500px'}} className='bt1'>
             <Grid container>
                 <Grid item lg={12} md={12} sm={12} xs={12}>
                     <Grid container>
@@ -53,18 +54,18 @@ function BottomBar() {
                 </Grid>
             </Grid>
         </Grid>
-        <Grid item sx={{marginLeft:'0.4em',width:'150px'}}>
+        <Grid item sx={{marginLeft:'0.4em',width:'120px'}} className='bt2'>
             <Box sx={{height:'60%',marginTop:'1.4em',width:'80%'}}>
-                    <ScrollButton name={"errorList"}  />
+                    <ScrollButton name={"errorList"} anc={""}  />
             </Box>
         </Grid>
-        <Grid item sx={{width:'1600px',border:'0.3px solid gray',padding:1,borderRadius:'8px'}}>
-            <Button sx={{height:'80%',width:'15%',marginLeft:'0.1em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>ARAÇ LİSTESİ</Button>
-            <Button sx={{height:'80%',width:'15%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>MANUEL HATA</Button>
-            <Button sx={{height:'80%',width:'15%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>ÇOKLU HATA</Button>
-            <Button sx={{height:'80%',width:'15%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>HATA LİSTESİ</Button>
-            <Button sx={{height:'80%',width:'15%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>HATA KOPYA</Button>
-            <Button sx={{height:'80%',width:'15%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>ÇIKIŞ</Button>
+        <Grid item sx={{width:'1000px',border:'0.3px solid gray',padding:1,borderRadius:'8px'}}>
+            <Button sx={{height:'80%',width:'16%',marginLeft:'0.1em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>ARAÇ LİSTESİ</Button>
+            <Button sx={{height:'80%',width:'16%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>MANUEL HATA</Button>
+            <Button sx={{height:'80%',width:'16%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>ÇOKLU HATA</Button>
+            <Button sx={{height:'80%',width:'16%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>HATA LİSTESİ</Button>
+            <Button sx={{height:'80%',width:'16%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>HATA KOPYA</Button>
+            <Button sx={{height:'80%',width:'16%',marginLeft:'0.5em',marginTop:'0.8em',backgroundColor:'white',color:'black',border:'1px solid black',fontWeight:'bold'}} variant='contained'>ÇIKIŞ</Button>
         </Grid>
     </Grid>
   )

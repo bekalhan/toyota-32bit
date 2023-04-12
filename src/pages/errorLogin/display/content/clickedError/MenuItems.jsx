@@ -2,28 +2,25 @@ import React from 'react';
 import {
     Box,Stack
 } from '@mui/material';
-import { useDispatch , useSelector} from "react-redux";
-import {
-  changeError
-} from '../../../../../redux/slices/errorSlices';
+import {changeError} from '../../../../../redux/slices/errorSlices';
 import '../../../../../index.css';
 import ScrollButton from '../../../../../components/scrollButton/ScrollButton';
+import {useRedux} from '../../../../../hooks/useRedux';
+import { useDispatch } from 'react-redux';
 
-function MenuItems({anchorEl,defects,error,scroll}) {
+function MenuItems({anchorEl,defects,error,scroll,x}) {
    const open = Boolean(anchorEl);
-
-  //redux
-  const store = useSelector(store=>store?.error);
-  const {choosedError} = store;
-  const dispatch = useDispatch();
-
+    const dispatch = useDispatch();
   const handleClickError = (errorName) => {
     dispatch(changeError(errorName));
   }
-    
+
+  let choosedError = useRedux({name:"error",data:"choosedError"});
+  let clean = useRedux({name:"error",data:"clean"});
+
   return (
         <Box>
-        {open && choosedError===undefined ? (
+        {open && choosedError===undefined && x !== "" && clean===false ? (
           <Stack>
             <Box sx={{
               marginLeft:`${error?.boxX+20-scroll.left}px`,

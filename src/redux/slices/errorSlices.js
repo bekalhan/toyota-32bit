@@ -46,6 +46,9 @@ const errorSlice = createSlice({
         errorButtonData2 : [],
         choosedError : undefined,
         errorName:undefined,
+        clickError:undefined,
+        status:true,
+        clean:false
     },
     reducers:{
       changeError(state,action){
@@ -53,6 +56,16 @@ const errorSlice = createSlice({
       },
       changeErrorName(state,action){
         state.errorName = action.payload;
+      },
+      changeChoosedError(state,action){
+        state.clickError = action.payload;
+      },
+      changeClean(state,action){
+        if(state.clean){
+          state.clean = false;
+        }else{
+          state.clean = true;
+        }
       }
     },
     extraReducers: builder =>{
@@ -120,4 +133,4 @@ const errorSlice = createSlice({
 });
 
 export default errorSlice.reducer;
-export const { changeError , changeErrorName  } = errorSlice.actions
+export const { changeError , changeErrorName , changeChoosedError , changeClean } = errorSlice.actions

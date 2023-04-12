@@ -6,8 +6,10 @@ import { useState } from 'react';
 import { useRedux } from '../../../../../hooks/useRedux';
 import MenuItems from './MenuItems';
 import { useDispatch } from 'react-redux';
-import {changeErrorName} from '../../../../../redux/slices/errorSlices';
+import {changeErrorName , changeClean} from '../../../../../redux/slices/errorSlices';
 import errlocat from '../../../../../img/errlocat.gif';
+import '../../../../../index.css';
+import { useEffect } from 'react';
 
 function Test({error,defects}) {
     const [point,setPoint] = useState({x:"",y:"",offx:"",offy:""});
@@ -17,7 +19,19 @@ function Test({error,defects}) {
     const open = Boolean(anchorEl);
 
     //dipatch
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+
+  useEffect(()=>{
+    if(point.x !== ""  && clean) {
+      setTimeout(()=>{
+        setPoint({x:"",y:"",offsetX:"",offsetY:""});
+        setAnchorEl(null);
+        dispatch(changeClean());
+      },1000);
+    }
+  })
+
 
   const handleClick = (e) => {
     if(point.x === ""){
@@ -30,11 +44,14 @@ function Test({error,defects}) {
   }
 
   const handleMenuClick = (event) => {
-    dispatch(changeErrorName(error?.labelText));
-    setAnchorEl(event.currentTarget);
+    if(point.x !== ""){
+      dispatch(changeErrorName(error?.labelText));
+      setAnchorEl(event.currentTarget);
+    }
   }
 
   let choosedError = useRedux({name:"error",data:"choosedError"});
+  let clean = useRedux({name:"error",data:"clean"});
 
   return (
     <>
@@ -44,14 +61,15 @@ function Test({error,defects}) {
       sx={{width:'915px',height:'700px',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed'
      ,backgroundPosition:'center',backgroundSize:'cover',position:'absolute'
     }}
+    className='pic2'
     onClick={handleClick}
      />
     {/* add line according to choosed coordinates */}
-     {point.x !== "" && choosedError === undefined ? (
+     {point.x !== "" && choosedError === undefined && clean === false ? (
           <Line x0={point.offx+error.boxX+60 - scroll.left} y0={point.offy + error.boxY + 50 - scroll.top} x1={point.x - scroll.left} y1={point.y-scroll.top} />
      ):null}
      {/* print choosed error */}
-    <Box sx={{borderRadius:'8px',border:`5px solid red`,position:'absolute',justifyContent:'center',cursor:'pointer',overflowX:'scroll',}}
+    <Box sx={{borderRadius:'8px',border:`3px solid red`,position:'absolute',justifyContent:'center',cursor:'pointer',overflowX:'scroll',}}
             height={error.boxHeight} width={error.boxWidth} left={error.boxX+20} top={error.boxY}
             onClick={handleMenuClick}
             aria-controls={open ? 'basic-menu' : undefined}
@@ -61,7 +79,7 @@ function Test({error,defects}) {
            <Typography sx={{maxWidth:'100%',backgroundColor:'white',color:'red',fontSize:'11px',display:'flex',justifyContent:'center'}}>{error.labelText}</Typography>
     </Box>
         {/* error locat indication  */}
-        {choosedError !== undefined ? (
+        {choosedError !== undefined  && point.x !== "" ? (
         <Avatar
         src={errlocat}
         sx={{
@@ -79,6 +97,7 @@ function Test({error,defects}) {
         error={error}
         setAnchor={setAnchorEl}
         scroll={scroll}
+        x={point.x}
         />
     </>
 

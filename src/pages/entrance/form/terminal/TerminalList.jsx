@@ -30,7 +30,7 @@ function TerminalList() {
                     <SelectFormatter name={"personName"}
                       select={select} onChange={setSelect}
                         list={terminal?.data?.Response?.filter_data} key={"termName"}
-                        value={"termName"} defaultName={terminal?.data?.Response?.filter_data[0]?.termName} />
+                        value={"termName"} defaultName={terminal?.data?.Response?.filter_data[0]?.termName} format={"50-50-40-40"} />
                 </FormControl>
         {/* select dropdown end */}
     </Grid>

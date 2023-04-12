@@ -1,17 +1,23 @@
 import { Avatar,Box,Typography} from '@mui/material'
 import React, { useState } from 'react';
 import car from '../../../../img/car4.jpg';
-import {getErrors} from '../../../../redux/slices/errorSlices';
+import {getErrors,changeChoosedError} from '../../../../redux/slices/errorSlices';
 import Loading from '../../../../utils/loading/Loading';
 import ChoosedError from './clickedError/ChoosedError';
 import {useRedux} from '../../../../hooks/useRedux';
+import '../../../../index.css';
+import { useDispatch } from 'react-redux';
 
 function Model() {
   //react useState
   const [click,setClick] = useState(false);
   const [clickedError,setClickedError] = useState([]);
+  
+  //dispatch
+  const dispatch = useDispatch();
 
   const handleClick = (childNum,error) => {
+    dispatch(changeChoosedError(error.labelText));
     if(childNum!==0){
       setClick(true);
       setClickedError(error);
@@ -37,9 +43,10 @@ function Model() {
      sx={{width:'915px',height:'700px',backgroundRepeat:'no-repeat',backgroundAttachment:'fixed'
      ,backgroundPosition:'center',backgroundSize:'cover',position:'absolute'     
     }}
+    className='pic2'
      />
      {errors?.data?.Response?.data[0].defectButtonRecords?.map((e)=>(
-           <Box sx={{position:'absolute',borderRadius:'8px',border:`5px solid ${e.boxColor}`,
+           <Box sx={{position:'absolute',borderRadius:'8px',border:`3px solid ${e.boxColor}`,
            justifyContent:'center',
            cursor:'pointer'
            }}

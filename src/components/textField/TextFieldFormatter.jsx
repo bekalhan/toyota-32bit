@@ -12,7 +12,8 @@ function TextFieldFormatter({formik,name,setInputName,onChangeInput}) {
             onBlur={formik.handleBlur(name)}
             onChange={onChangeInput}
             onFocus={() => setInputName(name)}
-            className='txt-field' variant="outlined" sx={{backgroundColor:'#e8f0fd'}} />
+            type={name === "sifre" ? 'password' : name}
+            className='txt-field' variant="outlined" sx={{backgroundColor:name === "montaj_no" ? 'white' : '#e8f0fd'}} />
         </Box>
         <Box sx={{display:{lg:'none',md:'none',sm:'block',xs:'block'}}}>
             <TextField
@@ -20,8 +21,9 @@ function TextFieldFormatter({formik,name,setInputName,onChangeInput}) {
             onBlur={formik.handleBlur(name)}
             onChange={onChangeInput}
             onFocus={() => setInputName(name)}
+            type={name === "sifre" ? 'password' : name}
             size="small"
-            className='txt-field' variant="outlined" sx={{backgroundColor:'#e8f0fd'}} />
+            className='txt-field' variant="outlined" sx={{backgroundColor:name === "montaj_no" ? 'white' : '#e8f0fd'}} />
         </Box>
     </>
 

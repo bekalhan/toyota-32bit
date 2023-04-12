@@ -1,7 +1,5 @@
 import React,{useRef} from 'react';
-import { 
-  Grid,FormControlLabel,Checkbox,FormControl,Button , TextField, Typography,Box,Modal,Stack, Select
-} from '@mui/material';
+import { Grid,FormControlLabel,Checkbox,FormControl,Button , TextField, Typography,Box,Modal,Stack, Select} from '@mui/material';
 import {getErrorButtonData,getErrorButtonData2} from '../../../../redux/slices/errorSlices';
 import { useState } from 'react';
 import VirtualKeyboard from '../../../../components/keyboard/VirtualKeyboard';
@@ -13,6 +11,7 @@ import {useRedux} from '../../../../hooks/useRedux';
 import {useSelect} from '../../../../hooks/useSelect';
 import SelectFormatter from '../../../../components/select/SelectFormatter';
 import Loading from '../../../../utils/loading/Loading';
+import TextFieldFormatter from '../../../../components/textField/TextFieldFormatter';
 
 const style = {
     position: 'absolute',
@@ -120,7 +119,9 @@ function ModalComponent({open,handleClose}) {
                       <SelectFormatter name={"errorRes"}
                       select={select} onChange={setSelect}
                         list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList} key={"dataCode"}
-                        value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue} />
+                        value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue}
+                        format={"40-40-40-40"}
+                        />
                     </FormControl>
                 </Grid>
                 <Grid item lg={2.2} md={2.2} sm={2.2} xs={4}>
@@ -134,7 +135,8 @@ function ModalComponent({open,handleClose}) {
                                 <SelectFormatter name={"errorReason"}
                                 select={select} onChange={setSelect}
                                 list={errorButtonData2?.data?.Response?.data[0]} key={"nrId"}
-                                value={"nrReasonAbb"} defaultName={errorButtonData2?.data?.Response?.data[0][0]?.nrReasonAbb} />
+                                value={"nrReasonAbb"} defaultName={errorButtonData2?.data?.Response?.data[0][0]?.nrReasonAbb} format={"40-40-40-40"}
+                                />
                     </FormControl>
                 </Grid>
             </Grid>
@@ -148,7 +150,9 @@ function ModalComponent({open,handleClose}) {
                                   <SelectFormatter name={"errorClass"}
                                     select={select} onChange={setSelect}
                                     list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList} key={"dataCode"}
-                                    value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList[0]?.dataValue} />
+                                    value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList[0]?.dataValue} 
+                                    format={"40-40-40-40"}
+                                    />
                     </FormControl>
                   </Grid>
                   <Grid item lg={2.6} md={2.6} sm={5.6} xs={5.6} sx={{marginLeft:'0.4em',marginTop:{lg:'0',md:'0',sm:'1em',xs:'1em'}}}>
@@ -158,7 +162,7 @@ function ModalComponent({open,handleClose}) {
                   </Grid>
                   <Grid item lg={0.2} md={0.2} sm={0.2} xs={0.2}></Grid>
                   <Grid item lg={2.6} md={2.6} sm={5.6} xs={5.6} sx={{marginTop:{lg:'0',md:'0',sm:'1em',xs:'1em'}}}>
-                  <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}}>İPTAL</Button>
+                  <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}} onClick={()=>{handleClose()}}>İPTAL</Button>
                   </Grid>
                   
             </Grid>
@@ -172,7 +176,9 @@ function ModalComponent({open,handleClose}) {
                             <SelectFormatter name={"errorExit"}
                                     select={select} onChange={setSelect}
                                     list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList} key={"dataCode"}
-                                    value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0]?.requiredFieldsByInspectionDTOList[0]?.errDetailComboBoxValueDTOList[0]?.dataValue} />
+                                    value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0]?.requiredFieldsByInspectionDTOList[0]?.errDetailComboBoxValueDTOList[0]?.dataValue}ü
+                                    format={"40-40-40-40"}
+                                    />
                     </FormControl>
               </Grid>
             </Grid>
@@ -188,6 +194,7 @@ function ModalComponent({open,handleClose}) {
                 onChange={onChangeInput}
                 onFocus={() => setInputName("aciklama")}
                 id="outlined-basic" label="örnek açıklama" variant="outlined" sx={{width:'100%',backgroundColor:'white'}} size='small' />
+
               </Grid>
             </Grid>
             <ValidationMessages formik={formik} name="aciklama" />
