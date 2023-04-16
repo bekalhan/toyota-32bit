@@ -1,7 +1,5 @@
-import React from 'react';
-import {
-    Box,Grid, Typography ,Stack
-} from '@mui/material';
+import React, { useState } from 'react';
+import { Box,Grid, Typography ,Stack} from '@mui/material';
 import HeaderData from '../../components/headerdata/HeaderData';
 import Model from './display/content/Model';
 import Buttons from './display/buttons/Buttons';
@@ -10,22 +8,32 @@ import {useRedux} from '../../hooks/useRedux';
 import LargeFont from '../largeFont/LargeFont';
 import '../../index.css';
 import {useTime} from '../../hooks/useTime';
-import ses from '../../audio/ses.mp3';
-import { useEffect } from 'react';
-import ReactAudioPlayer from 'react-audio-player';
-
+import ses from '../../utils/audio/ses.mp3';
+import ScrollTop from '../../components/scrollTop/ScrollTop';
 
 function ErrorLogin() {
 let errorName = useRedux({name:"error",data:"errorName",slice:""});
 let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
+let inactivity = useTime(30);
 
-let inactivity = useTime(5);
-
+const handleAudio = () => {
+        if(!inactivity){
+            return(
+                <audio controls autoPlay loop id='aud'>
+                    <source src={ses} type="audio/mpeg" />
+                </audio>
+            )
+        }
+}
 
   return (
     <>
+    <Box sx={{display:'none'}}>
+        {handleAudio()}
+    </Box>
     {largeFont ? <LargeFont status={inactivity} /> :
-    <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'780px',overflow:'auto',justifyContent:'center',width:'100%'}}>
+    <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'95%',overflow:'auto',justifyContent:'center',width:'100%'}}>
+        <ScrollTop />
         <Grid container sx={{display:'flex',justifyContent:'center'}} className='pic'>
             <Grid item lg={10} md={12} sm={12} xs={12} sx={{border:'2px solid #b7ecba',borderRadius:'10px'}}>
                 <Grid container>
@@ -77,5 +85,4 @@ let inactivity = useTime(5);
   
   )
 }
-
-export default ErrorLogin
+export default ErrorLogin;

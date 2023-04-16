@@ -21,7 +21,7 @@ function Buttons({status}) {
 
   return (
     <Stack direction="column">
-        {error === undefined ?(
+        {error === undefined?(
             <>
             <Box sx={{display:'flex'}}>
             <Stack direction="row" sx={{justifyContent:'center',width:'100%'}}>
@@ -53,7 +53,7 @@ function Buttons({status}) {
             <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black'}}><Typography sx={{fontWeight:'bold'}}>KAYDET VE GEÇ</Typography></Button>
             <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black',backgroundColor:status ? null : '#ff1b00'}}><Typography sx={{fontWeight:'bold'}}>HATA KAYIT</Typography></Button>
         </Stack></>
-        ):(
+        ): error !==undefined ? (
         <>
             <Box>
                  <Typography sx={{fontWeight:'bold',marginLeft:'0.5em',marginRight:'0.5em',display:{lg:'block',md:'block',sm:'flex',xs:'flex'},justifyContent:'center'}}>ÖNCEKİ</Typography>
@@ -84,7 +84,7 @@ function Buttons({status}) {
                  ><Typography sx={{fontWeight:'bold',color:'black'}}>SIRADAKİ ARACI ATLA</Typography></Button>
             </Stack>
         </>
-        )}
+        ):null}
         {open ? (
             <ModalComponent
             open={open}

@@ -9,6 +9,8 @@ import '../../../index.css';
 function TerminalGrid({terminalList}) {
     const navigate = useNavigate();
 
+    console.log("tlist : ",terminalList);
+
   return (
     <Box sx={{backgroundColor:'#c6ffc7',paddingTop:'3em'}}>
     <Grid container>
@@ -31,10 +33,11 @@ function TerminalGrid({terminalList}) {
              </Grid>
            </Grid>
        </Grid>
-       {terminalList?.map((terminal)=>(
-            <Grid item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}} key={terminal.depName}>
+       {terminalList?.map((terminal,index)=>(
+            <Grid item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}} key={index}>
                 <Grid container sx={{marginTop:'0.2px'}}>
-                    <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:'2px solid #b7ecba'}} className='terminal'>
+                    <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:'2px solid #b7ecba'}} className='terminal'
+                    >
                     <Box sx={{display:'flex',justifyContent:'center'}}>
                         <Typography sx={{color:'#d34555',fontSize:{lg:'15px'},marginTop:{lg:'1.5em',md:'0.7em',sm:'0'}}}>({terminal?.depCode}){terminal?.depName}</Typography>
                     </Box>

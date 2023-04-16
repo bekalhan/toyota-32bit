@@ -3,7 +3,6 @@ import {Grid,Stack,Typography} from '@mui/material';
 import Date from './date/ChooseDate';
 import Shift from './shift/Shift';
 import { getShifts } from "../../../redux/slices/loginSlices";
-import GridFormatter from '../../../utils/GridHelper/GridFormatter';
 import {useRedux} from '../../../hooks/useRedux';
 import '../../../index.css'
 
@@ -34,7 +33,6 @@ function DateShift({formik}) {
                     </Grid>
                 </Grid>
         ):<h1></h1>}
-        <GridFormatter format="2"></GridFormatter>
     </Grid>
   )
 }

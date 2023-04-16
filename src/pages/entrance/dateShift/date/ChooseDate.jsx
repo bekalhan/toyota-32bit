@@ -30,7 +30,7 @@ function Date({formik}) {
           daynumber = 30;
         }else if(month === 2){
           if(formik?.values.yil!==""){
-              if(formik?.values.yil % 4 == 0){
+              if(formik?.values.yil % 4 === 0){
                 daynumber = 29;
               }else{
                 daynumber = 28;
@@ -55,12 +55,15 @@ function Date({formik}) {
     }
 
     const setAllYears = () =>{
-      for(let i=1937;i<2024;i++){
+      if(year.length < 2){
+      for(let i=1937;i<2023;i++){
         setYears((year)=>[
           ...year,
           i
         ]);
       }
+      }
+
     }
 
   return (
@@ -80,7 +83,7 @@ function Date({formik}) {
                 </FormControl>
             </Box>
             <Box>
-                <FormControl sx={{width:{},marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em'},marginLeft:'1em'}}>
+                <FormControl sx={{marginTop:{lg:'0.6em',md:'0.6em',sm:'0.7em'},marginLeft:'1em'}}>
                         <Select
                         value={formik.values.ay}
                         onChange={formik.handleChange("ay")}
@@ -94,7 +97,7 @@ function Date({formik}) {
                 </FormControl>
             </Box>
             <Box>
-                  <FormControl sx={{width:{},height:{lg:'80px'},marginTop:{lg:'0.6em',md:'0.6em'},marginLeft:'1em'}}>
+                  <FormControl sx={{height:{lg:'80px'},marginTop:{lg:'0.6em',md:'0.6em'},marginLeft:'1em'}}>
                               <Select
                               value={formik.values.yil}
                               onChange={formik.handleChange("yil")}

@@ -3,12 +3,12 @@ import Login from "./pages/entrance/Login";
 import ErrorLogin from "./pages/errorLogin/ErrorLogin";
 import NotFound from "./utils/notfound/NotFound";
 import ErrorList from "./pages/errorList/ErrorList";
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import PrivateRoute from "./pages/routes/PrivateRoute";
+import {Routes,Route} from 'react-router-dom';
 import {
   Box
 } from '@mui/material';
 import { HashRouter } from "react-router-dom";
-import IdleTimerComponent from "./pages/errorLogin/display/time/IdleTimerComponent";
 
 //toast
 import {ToastContainer} from 'react-toastify';
@@ -22,10 +22,13 @@ function App() {
         <Routes>
           <Route path="cvqsterminal">
             <Route path="terminals" element={<TerminalList/>} />
+            <Route path="terminals/route" element={<PrivateRoute/>} />
             <Route path="terminal/:depcode/:filtercode" element={<Login />} />
-            <Route path="terminal/defectentry/:depcode/:filtercode/:number" element={<ErrorLogin />} />
-            <Route path="terminal/defectentry/list" element={<ErrorList />} />
-            <Route path="terminal/defectentry/time" element={<IdleTimerComponent />} />
+            <Route path="terminal/:depcode/:filtercode/:slash" element={<Login />} />
+            <Route path="terminal" element={<PrivateRoute />}>
+              <Route path="defectentry/:depcode/:filtercode/:number" element={<ErrorLogin />} />
+              <Route path="defcorrect/:depcode/:filtercode" element={<ErrorList />} />
+            </Route>
           </Route>
           <Route path="*" element={<NotFound />} />
        </Routes>

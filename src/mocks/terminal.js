@@ -1225,10 +1225,9 @@ export const terminals = [
       })
     )
   }),
-  rest.get('/:depcode/:filtercode',(req,res,ctx)=>{
-
-    let terminal = {
-      "type": "SUCCESS",
+  rest.get('/:depcode/:filtercode',(req,res,ctx)=>{    
+    return res(
+      ctx.json({Response:{  "type": "SUCCESS",
       "data": [
         {
           "termId": 82842,
@@ -1500,15 +1499,7 @@ export const terminals = [
           "line": "1",
           "filterCode": "HAT"
         }
-      ]
-    };
-
-    let filter_data = terminal.data?.map((el)=>{
-      if(el.filterCode == req.params.filtercode) return el;
-    });   
-    
-    return res(
-      ctx.json({Response:{filter_data}})
+      ]}})
     );
   })
 ]

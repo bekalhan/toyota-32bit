@@ -15,8 +15,6 @@ function TerminalList() {
     let terminal = useRedux({name:"terminals",data:"terminal",slice:getSpeTerminal(params)});
     const [select,setSelect] = useSelect({personName:[]});
 
-    console.log("terminal : ",terminal);
-
   return (
     terminal !== undefined ?
     <Grid container>
@@ -29,8 +27,8 @@ function TerminalList() {
         <FormControl className='txt-field'>
                     <SelectFormatter name={"personName"}
                       select={select} onChange={setSelect}
-                        list={terminal?.data?.Response?.filter_data} key={"termName"}
-                        value={"termName"} defaultName={terminal?.data?.Response?.filter_data[0]?.termName} format={"50-50-40-40"} />
+                        list={terminal?.data?.Response?.data} keys={"termName"}
+                        value={"termName"} defaultName={terminal?.data?.Response?.data[0]?.termName} format={"50-50-40-40"} />
                 </FormControl>
         {/* select dropdown end */}
     </Grid>

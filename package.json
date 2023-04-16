@@ -35,9 +35,11 @@
     "react-triangle": "^0.3.0",
     "react-virtual-keyboard": "^1.0.2",
     "redux": "^4.2.0",
+    "redux-logger": "^3.0.6",
     "simple-keyboard": "^3.5.20",
     "simple-keyboard-layouts": "^3.1.274",
     "styled-components": "^5.3.6",
+    "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

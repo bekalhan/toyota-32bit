@@ -118,7 +118,7 @@ function ModalComponent({open,handleClose}) {
                     <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                       <SelectFormatter name={"errorRes"}
                       select={select} onChange={setSelect}
-                        list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList} key={"dataCode"}
+                        list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList} keys={"dataCode"}
                         value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue}
                         format={"40-40-40-40"}
                         />
@@ -149,7 +149,7 @@ function ModalComponent({open,handleClose}) {
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                                   <SelectFormatter name={"errorClass"}
                                     select={select} onChange={setSelect}
-                                    list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList} key={"dataCode"}
+                                    list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList} keys={"dataCode"}
                                     value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList[0]?.dataValue} 
                                     format={"40-40-40-40"}
                                     />
@@ -162,7 +162,7 @@ function ModalComponent({open,handleClose}) {
                   </Grid>
                   <Grid item lg={0.2} md={0.2} sm={0.2} xs={0.2}></Grid>
                   <Grid item lg={2.6} md={2.6} sm={5.6} xs={5.6} sx={{marginTop:{lg:'0',md:'0',sm:'1em',xs:'1em'}}}>
-                  <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}} onClick={()=>{handleClose()}}>İPTAL</Button>
+                  <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}} onClick={()=>{window.location.reload()}}>İPTAL</Button>
                   </Grid>
                   
             </Grid>
@@ -175,7 +175,7 @@ function ModalComponent({open,handleClose}) {
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                             <SelectFormatter name={"errorExit"}
                                     select={select} onChange={setSelect}
-                                    list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList} key={"dataCode"}
+                                    list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList} keys={"dataCode"}
                                     value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0]?.requiredFieldsByInspectionDTOList[0]?.errDetailComboBoxValueDTOList[0]?.dataValue}ü
                                     format={"40-40-40-40"}
                                     />

@@ -48,7 +48,8 @@ const errorSlice = createSlice({
         errorName:undefined,
         clickError:undefined,
         status:true,
-        clean:false
+        clean:false,
+        click:false
     },
     reducers:{
       changeError(state,action){
@@ -60,11 +61,18 @@ const errorSlice = createSlice({
       changeChoosedError(state,action){
         state.clickError = action.payload;
       },
-      changeClean(state,action){
+      changeClean(state){
         if(state.clean){
           state.clean = false;
         }else{
           state.clean = true;
+        }
+      },
+      changeClick(state){
+        if(state.click){
+          state.click = false;
+        }else{
+          state.click = true;
         }
       }
     },
@@ -133,4 +141,4 @@ const errorSlice = createSlice({
 });
 
 export default errorSlice.reducer;
-export const { changeError , changeErrorName , changeChoosedError , changeClean } = errorSlice.actions
+export const { changeError , changeErrorName , changeChoosedError , changeClean , changeClick } = errorSlice.actions

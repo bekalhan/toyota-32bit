@@ -4,49 +4,49 @@ import {
 } from '@mui/material';
 import { useEffect } from 'react';
 
-function SelectFormatter({name, select ,onChange , list , key , value , defaultName ,format}) {
+function SelectFormatter(params) {
   const [hg,setHg] = useState({lg:0,md:0,sm:0,xs:0});
 
   const splitFormat = () => {
     let arr = [];
-    arr = format.split("-");
+    arr = params.format.split("-");
     setHg({lg:arr[0],md:arr[1],sm:arr[2],xs:arr[3]});
   }
   
   useEffect(()=>{
-    if(select[name].length === 0){
-      select[name].push(defaultName);
+    if(params.select[params.name].length === 0){
+      params.select[params.name].push(params.defaultName);
     }
     splitFormat();
   },[]);
 
   return (
-  name !== undefined ? (
+  params.name !== undefined ? (
         <Select
-        name={name}
+        name={params.name}
         displayEmpty
         labelId="demo-multiple-name-label"
         id="demo-multiple-name"
-        value={select[name]}
-        onChange={onChange}
+        value={params.select[params.name]}
+        onChange={params.onChange}
         input={<OutlinedInput />}
         renderValue={(selected) => {
           if (selected.length === 0) {
-          return <Typography sx={{color:'#666666',fontSize:'14px'}}>{defaultName}</Typography>;
+          return <Typography sx={{color:'#666666',fontSize:'14px'}}>{params.defaultName}</Typography>;
           }
           return selected.join(', ');
       }}
         sx={{height:{lg:`${hg.lg}px`,md:`${hg.md}px`,sm:`${hg.sm}px`,xs:`${hg.xs}px`}}}
       >
       <MenuItem disabled value="">
-          <em>{defaultName}</em>
+          <em>{params.defaultName}</em>
       </MenuItem>
-        {list?.map((e) => (
+        {params?.list?.map((e) => (
             <MenuItem
-            key={e?.[key]}
-            value={e?.[value]}
+            key={e?.[params.keys]}
+            value={e?.[params.value]}
             >
-            {e?.[value]}
+            {e?.[params.value]}
             </MenuItem>
         ))}
         </Select>

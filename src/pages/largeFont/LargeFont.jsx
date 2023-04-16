@@ -7,12 +7,14 @@ import {
 } from '@mui/material';
 import {getFontData} from '../../redux/slices/largeFont';
 import {useRedux} from '../../hooks/useRedux';
+import ScrollTop from '../../components/scrollTop/ScrollTop';
 
 function LargeFont({status}) {
   const fontData = useRedux({name:"font",data:"fontData",slice:getFontData()});
 
   return (
     <Box sx={{width:'100%',height:'120%',paddingTop:'2em',backgroundColor:status ? '#c6ffc7' : '#d5584a',justifyContent:'center'}}>
+          <ScrollTop />
       <div className="data">
           <div className="header-data">
                <HeaderData name={"font"} />

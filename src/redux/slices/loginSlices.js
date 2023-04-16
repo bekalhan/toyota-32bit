@@ -1,5 +1,7 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
+import logger from 'redux-logger'
+
 
 export const getShifts = createAsyncThunk("/shifts",async () =>{
     try{
@@ -19,7 +21,6 @@ export const userLogin = createAsyncThunk("/user-login",async (info) => {
   try{
     console.log("info :",info);
     const data = await axios.get(`/login/${info.sicil_no}/${info.sifre}/${info.montaj_no}`)
-    console.log("data :",data?.data?.Response?.type);
     if(data?.data?.Response?.type==="Success"){
       localStorage.setItem("userInfo", JSON.stringify(data));
     }
@@ -27,7 +28,22 @@ export const userLogin = createAsyncThunk("/user-login",async (info) => {
   }catch(error){
     if(!error.response) throw error;
   }
-})
+});
+
+//logout
+export const logoutAction = createAsyncThunk(
+  "/user/logout",
+  async (payload, { rejectWithValue, getState, dispatch }) => {
+    try {
+      localStorage.removeItem("userInfo");
+    } catch (error) {
+      if (!error?.response) {
+        throw error;
+      }
+      return rejectWithValue(error?.response?.data);
+    }
+  }
+);
 
 //get user from local storage and place into store
 const userLoginFromStorage = localStorage.getItem("userInfo")
@@ -38,9 +54,13 @@ const loginSlice = createSlice({
     name:'login',
     initialState:{
         shifts : [],
-        user:userLoginFromStorage
+        user:userLoginFromStorage,
+        errorLogin:false
     },
-    extraReducers: builder =>{
+    middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),    extraReducers: builder =>{
     //get shift list
     builder.addCase(getShifts.pending, (state, action) => {
         state.loading = true;
@@ -71,6 +91,21 @@ const loginSlice = createSlice({
       state.appErr = action?.payload?.message;
       state.serverErr = action?.error?.message;
     });
+        //logout
+        builder.addCase(logoutAction.pending, (state, action) => {
+          state.loading = false;
+        });
+        builder.addCase(logoutAction.fulfilled, (state, action) => {
+          state.user = undefined;
+          state.loading = false;
+          state.appErr = undefined;
+          state.serverErr = undefined;
+        });
+        builder.addCase(logoutAction.rejected, (state, action) => {
+          state.appErr = action?.payload?.message;
+          state.serverErr = action?.error?.message;
+          state.loading = false;
+        });
     }
 });
 

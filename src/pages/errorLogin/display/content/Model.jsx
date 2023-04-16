@@ -1,7 +1,7 @@
 import { Avatar,Box,Typography} from '@mui/material'
 import React, { useState } from 'react';
 import car from '../../../../img/car4.jpg';
-import {getErrors,changeChoosedError} from '../../../../redux/slices/errorSlices';
+import {getErrors,changeChoosedError,changeClick} from '../../../../redux/slices/errorSlices';
 import Loading from '../../../../utils/loading/Loading';
 import ChoosedError from './clickedError/ChoosedError';
 import {useRedux} from '../../../../hooks/useRedux';
@@ -10,7 +10,6 @@ import { useDispatch } from 'react-redux';
 
 function Model() {
   //react useState
-  const [click,setClick] = useState(false);
   const [clickedError,setClickedError] = useState([]);
   
   //dispatch
@@ -19,19 +18,19 @@ function Model() {
   const handleClick = (childNum,error) => {
     dispatch(changeChoosedError(error.labelText));
     if(childNum!==0){
-      setClick(true);
+      dispatch(changeClick());
       setClickedError(error);
     }
   }
 
-   let obj = useRedux({name:"error",data:["errors","loading"],slice:getErrors()});
+   let obj = useRedux({name:"error",data:["errors","loading","click"],slice:getErrors()});
    let errors = obj[0];
    let loading = obj[1];
-   
+   let clicked = obj[2];   
   
   return (
     loading ? <Loading />: 
-    click ?
+    clicked ?
     <>
         <ChoosedError error={clickedError} defects={errors?.data?.Response?.data[0].partDefects} /> 
     </> 
