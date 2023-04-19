@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     Box,Stack
 } from '@mui/material';
@@ -7,10 +7,11 @@ import '../../../../../index.css';
 import ScrollButton from '../../../../../components/scrollButton/ScrollButton';
 import {useRedux} from '../../../../../hooks/useRedux';
 import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
-function MenuItems({anchorEl,defects,error,scroll,x}) {
-   const open = Boolean(anchorEl);
-    const dispatch = useDispatch();
+function MenuItems(params) {
+  const open = Boolean(params.anchorEl);
+  const dispatch = useDispatch();
   const handleClickError = (errorName) => {
     dispatch(changeError(errorName));
   }
@@ -20,17 +21,17 @@ function MenuItems({anchorEl,defects,error,scroll,x}) {
 
   return (
         <Box>
-        {open && choosedError===undefined && x !== "" && clean===false ? (
+        {open && choosedError === undefined && params.x!=="" && clean===false ? (
           <Stack>
             <Box sx={{
-              marginLeft:`${error?.boxX+20-scroll.left}px`,
-              marginTop:`-${600-(error?.boxY+error?.boxHeight+10-scroll.top)}px`,
+              marginLeft:`${params.error?.boxX+20-params.scroll.left}px`,
+              marginTop:`-${600-(params.error?.boxY+params.error?.boxHeight+10-params.scroll.top-params.allScroll.y)}px`,
               position:'absolute',
               zIndex:3
             }}>
                 <div className='scrollDiv' id='scrollDiv'>
                     <div className='content'>
-                        {defects?.map((el,key)=>(
+                        {params?.defects?.map((el,key)=>(
                          <div className='element'
                           key={key}
                           onClick={()=>handleClickError(el?.defectName)}
@@ -43,8 +44,8 @@ function MenuItems({anchorEl,defects,error,scroll,x}) {
             </Box>
             <Box 
               sx={{
-                marginLeft:`${error?.boxX+300-scroll.left}px`,
-                marginTop:`-${600-(error?.boxY+90-scroll.top)}px`,
+                marginLeft:`${params.error?.boxX+300-params.scroll.left}px`,
+                marginTop:`-${600-(params.error?.boxY+90-params.scroll.top-params.allScroll.y)}px`,
                 position:'absolute',
                 zIndex:4
               }}

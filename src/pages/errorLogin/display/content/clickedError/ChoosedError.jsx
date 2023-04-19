@@ -10,17 +10,18 @@ import {changeErrorName , changeClean} from '../../../../../redux/slices/errorSl
 import errlocat from '../../../../../img/errlocat.gif';
 import '../../../../../index.css';
 import { useEffect } from 'react';
+import '../../../../../index.css';
 
 function Test({error,defects}) {
     const [point,setPoint] = useState({x:"",y:"",offx:"",offy:""});
-    const [scroll,setScroll] = useState({left:"",top:""});
+    const [ind,setInd] = useState({x:"",y:"",offx:"",offy:""});
+
+    const [scroll,setScroll] = useState({left:0,top:0});
     const [anchorEl, setAnchorEl] = useState(null);
-
     const open = Boolean(anchorEl);
-
+    
     //dipatch
-  const dispatch = useDispatch();
-
+    const dispatch = useDispatch();
 
   useEffect(()=>{
     if(point.x !== ""  && clean) {
@@ -32,15 +33,15 @@ function Test({error,defects}) {
     }
   })
 
-
   const handleClick = (e) => {
     if(point.x === ""){
-        setPoint({x:e.pageX,y:e.pageY,offx:(e.pageX - e.nativeEvent.offsetX),offy:(e.pageY - e.nativeEvent.offsetY)});
+        setPoint({x:e.pageX,y:e.nativeEvent.layerY,offx:(e.pageX - e.nativeEvent.offsetX),offy:(e.pageY - e.nativeEvent.offsetY)});
+        setInd({x:e.pageX,y:e.pageY,offx:(e.pageX - e.nativeEvent.offsetX),offy:(e.pageY - e.nativeEvent.offsetY)});
     }
   }
 
   const handleScroll = (event) => {
-    setScroll({left:event.currentTarget.scrollLeft,top:event.currentTarget.scrollTop});
+      setScroll({left:event.currentTarget.scrollLeft,top:event.currentTarget.scrollTop});
   }
 
   const handleMenuClick = (event) => {
@@ -50,8 +51,10 @@ function Test({error,defects}) {
     }
   }
 
+
   let choosedError = useRedux({name:"error",data:"choosedError"});
   let clean = useRedux({name:"error",data:"clean"});
+  let allScroll = useRedux({name:"error",data:"scroll"});
 
   return (
     <>
@@ -65,8 +68,11 @@ function Test({error,defects}) {
     onClick={handleClick}
      />
     {/* add line according to choosed coordinates */}
-     {point.x !== "" && choosedError === undefined && clean === false ? (
-          <Line x0={point.offx+error.boxX+60 - scroll.left} y0={point.offy + error.boxY + 50 - scroll.top} x1={point.x - scroll.left} y1={point.y-scroll.top} />
+     {point.x !== "" && choosedError === undefined && clean === false? (
+      <>
+          <Line x0={point.offx+error.boxX+60 - scroll.left - allScroll.x} y0={(218-allScroll.y) + error.boxY + 50 - scroll.top } x1={point.x - scroll.left - allScroll.x} y1={point.y+210-allScroll.y-scroll.top} className='line' />
+          <Line x0={point.offx+error.boxX+60 - scroll.left - allScroll.x} y0={(60-allScroll.y) + error.boxY + 50 - scroll.top } x1={point.x - scroll.left - allScroll.x} y1={point.y+60-allScroll.y-scroll.top} className='line2' />
+      </>
      ):null}
      {/* print choosed error */}
     <Box sx={{borderRadius:'8px',border:`3px solid red`,position:'absolute',justifyContent:'center',cursor:'pointer',overflowX:'scroll',}}
@@ -80,14 +86,7 @@ function Test({error,defects}) {
     </Box>
         {/* error locat indication  */}
         {choosedError !== undefined  && point.x !== "" ? (
-        <Avatar
-        src={errlocat}
-        sx={{
-          position: 'absolute',
-          marginLeft:`${point.x-scroll.left-point.offx}px`,
-          marginTop:`${point.y-scroll.top-point.offy}px`
-        }}
-        /> 
+        <Avatar src={errlocat} sx={{position: 'absolute',marginLeft:`${ind.x-scroll.left-ind.offx}px`,marginTop:`${ind.y-scroll.top-ind.offy}px`}}/> 
     ):null}
     </Box>
         {/* menu ıtems */}
@@ -95,12 +94,11 @@ function Test({error,defects}) {
         anchorEl={anchorEl}
         defects={defects} 
         error={error}
-        setAnchor={setAnchorEl}
         scroll={scroll}
         x={point.x}
+        allScroll={allScroll}
         />
     </>
-
   )
 }
 export default Test;

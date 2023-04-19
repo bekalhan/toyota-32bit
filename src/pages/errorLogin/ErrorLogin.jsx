@@ -10,11 +10,17 @@ import '../../index.css';
 import {useTime} from '../../hooks/useTime';
 import ses from '../../utils/audio/ses.mp3';
 import ScrollTop from '../../components/scrollTop/ScrollTop';
+import { useEffect } from 'react';
+import {changeScroll} from '../../redux/slices/errorSlices';
+import { useDispatch } from 'react-redux';
 
 function ErrorLogin() {
 let errorName = useRedux({name:"error",data:"errorName",slice:""});
 let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
+const [scroll,setScroll] = useState({left:"",top:""});
 let inactivity = useTime(30);
+
+const dispatch = useDispatch();
 
 const handleAudio = () => {
         if(!inactivity){
@@ -26,13 +32,21 @@ const handleAudio = () => {
         }
 }
 
+const handleScroll = (event) => {
+    setScroll({left:event.currentTarget.scrollLeft,top:event.currentTarget.scrollTop});
+}
+
+useEffect(()=>{
+    dispatch(changeScroll(scroll))
+},[scroll]);
+
   return (
     <>
     <Box sx={{display:'none'}}>
         {handleAudio()}
     </Box>
     {largeFont ? <LargeFont status={inactivity} /> :
-    <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'95%',overflow:'auto',justifyContent:'center',width:'100%'}}>
+    <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'95%',overflow:'auto',justifyContent:'center',width:'100%'}} onScroll={handleScroll}>
         <ScrollTop />
         <Grid container sx={{display:'flex',justifyContent:'center'}} className='pic'>
             <Grid item lg={10} md={12} sm={12} xs={12} sx={{border:'2px solid #b7ecba',borderRadius:'10px'}}>

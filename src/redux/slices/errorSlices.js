@@ -49,7 +49,8 @@ const errorSlice = createSlice({
         clickError:undefined,
         status:true,
         clean:false,
-        click:false
+        click:false,
+        scroll:{x:0,y:0}
     },
     reducers:{
       changeError(state,action){
@@ -74,6 +75,10 @@ const errorSlice = createSlice({
         }else{
           state.click = true;
         }
+      },
+      changeScroll(state,action){
+        state.scroll.x = action.payload.left;
+        state.scroll.y = action.payload.top;
       }
     },
     extraReducers: builder =>{
@@ -141,4 +146,4 @@ const errorSlice = createSlice({
 });
 
 export default errorSlice.reducer;
-export const { changeError , changeErrorName , changeChoosedError , changeClean , changeClick } = errorSlice.actions
+export const { changeError , changeErrorName , changeChoosedError , changeClean , changeClick , changeScroll} = errorSlice.actions

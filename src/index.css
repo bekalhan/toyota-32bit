@@ -502,16 +502,16 @@ h1 span{
 
 /* error login */
 
-@media screen and (min-width:1400px) and (max-width:2800px),screen and (min-device-width:600px) and (max-device-width:900px) {
+@media screen and (min-width:1400px) and (max-width:2800px),screen and (min-device-width:1400px) and (max-device-width:2800px) {
   .pic{
     width: 1500px !important;
     display: flex;
     justify-content: center;
   }
-  .pic2{
+  /* .pic2{
     width: 100% !important;
     height: auto !important;
-  }
+  } */
 }
 
 
@@ -553,6 +553,24 @@ h1 span{
 
 /* end */
 
+
+@media screen and (min-width:900px) and (max-width:2800px),screen and (min-device-width:900px) and (max-device-width:2800px) {
+  .line{
+  visibility: hidden;
+  }
+  .line2{
+    visibility: visible;
+  }
+}
+
+@media screen and (min-width:0px) and (max-width:900px),screen and (min-device-width:0px) and (max-device-width:900px) {
+  .line2{
+    visibility: hidden;
+  }
+  .line{
+    visibility: visible;
+  }
+}
 
 
   
