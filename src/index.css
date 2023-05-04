@@ -128,7 +128,7 @@ Menu ıtems css
 @media screen and (min-width:1000px) {
   .container{
       height: 400px;
-      width: 95%;
+      width: 100%;
       display: grid;
       grid-template-columns: 80% auto;
   }
@@ -570,6 +570,66 @@ h1 span{
   .line{
     visibility: visible;
   }
+}
+
+/* table */
+html {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: arial, sans-serif;
+  table-layout: fixed;
+  width: 100%;
+  height: 1200px;
+}
+
+thead {
+  background:#c6ffc7 ;
+  margin: 0;
+  position: sticky;
+  top: 0;
+}
+
+thead tr th{
+  border:1px solid black;
+  justify-content: center;
+  text-align: center;
+}
+
+tbody tr td{
+  text-align: center;
+  border: 0.8px solid black;
+}
+
+th {
+  border-bottom: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+  padding: 2px 4px;
+  text-align: left;
+}
+
+td {
+  padding: 6px;
+}
+
+.container {
+  border: 1px solid lightgray;
+  height: 500px;
+  max-width: 1600px !important;
+  height: 100%;
+  overflow: auto;
+}
+
+.all{
+  height: 100%;
+}
+
+.all2{
+  height: 100%;
 }
 
 

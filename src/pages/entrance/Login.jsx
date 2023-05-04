@@ -87,7 +87,7 @@ function Login() {
      }
 
     return (
-    <Box sx={{backgroundColor:'#c6ffc7',height:'1500px',width:{lg:'100%',md:'100%',sm:'100%',xs:'500px'}}}>
+            <Box sx={{backgroundColor:'#c6ffc7',height:'1500px',width:{lg:'100%',md:'100%',sm:'100%',xs:'500px'}}}>
         <ScrollTop />
         <Grid container sx={{justifyContent:'center'}}>
             <Grid item lg={10} md={10} sm={12} xs={12} sx={{border:'2px solid #b7ecba',borderRadius:'12px',height:'60%'}}>

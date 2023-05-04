@@ -3,6 +3,7 @@ import axios from "axios";
 
 export const getErrorDataList = createAsyncThunk("/error-list",async () =>{
     try{
+      console.log("error list slices");
         const data = await axios.get(`/error-list`);
         let list = data?.data?.Response?.data[0];
         return list;
@@ -14,7 +15,13 @@ export const getErrorDataList = createAsyncThunk("/error-list",async () =>{
 const errorList = createSlice({
     name:'errorList',
     initialState:{
-        errorList:[]
+        errorList:[],
+        count:-1
+    },
+    reducers:{
+      incCount(state){
+        state.count += 1;
+      }
     },
     extraReducers : builder =>{
     //get error data
@@ -36,3 +43,5 @@ const errorList = createSlice({
 });
 
 export default errorList.reducer;
+export const {incCount} = errorList.actions
+
