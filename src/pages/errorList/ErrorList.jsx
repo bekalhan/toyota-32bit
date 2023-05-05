@@ -1,16 +1,31 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography , Stack } from '@mui/material';
 import React from 'react';
 import BottomBar from './bottom/BottomBar';
 import {useRedux} from '../../hooks/useRedux';
 import {getErrorDataList} from '../../redux/slices/errorList';
 import Main from './table/main';
+import {useTime} from '../../hooks/useTime';
+import {useParams,useNavigate} from 'react-router-dom';
+
+
+
 
 function ErrorList() {
 
   let list = useRedux({name:"errorList",data:"errorList",slice:getErrorDataList()});  
+  let inactivity = useTime(5);
+  const navigate = useNavigate();
+  const params = useParams();
+
+  console.log("inactivity : ",inactivity);
 
   return (
-    <Box sx={{height:'100%'}}>
+    <Stack direction="column" sx={{height:'100%',display:'flex'}}>
+      {!inactivity?(
+        <Box sx={{justifyContent:'flex-end',display:'flex'}}>
+          <Button sx={{border:'2px solid gray',color:'black',width:'100px',fontWeight:'bold',height:'50px'}} onClick={()=>navigate(`/cvqsterminal/terminal/defectentry/${params.depcode}/${params.filtercode}/3070725`)}>GERİ</Button>
+        </Box>
+      ):null}
       <Box sx={{height:'77%'}}>
           <Main />
       </Box>
@@ -20,7 +35,7 @@ function ErrorList() {
       <Box sx={{backgroundColor:'white',height:'20%',overflow:'auto'}}>
           <BottomBar />
       </Box>
-    </Box>
+    </Stack>
   )
 }
 

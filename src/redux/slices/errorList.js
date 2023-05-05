@@ -16,11 +16,15 @@ const errorList = createSlice({
     name:'errorList',
     initialState:{
         errorList:[],
-        count:-1
+        count:-1,
+        searchBody:null
     },
     reducers:{
       incCount(state){
         state.count += 1;
+      },
+      searchBody(state,action){
+        state.searchBody = action.paylaod;
       }
     },
     extraReducers : builder =>{

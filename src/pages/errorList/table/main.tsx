@@ -1,9 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { Typography , Box , Grid , Stack} from '@mui/material'
+import { Typography , Box , Stack} from '@mui/material'
 import SaveIcon from '@mui/icons-material/Save';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import NrReason from './NrReason';
 
 import '../../../index.css';
 
@@ -20,10 +20,7 @@ import { makeData, Error } from './makeData'
 import { useVirtual } from 'react-virtual'
 
 function Main() {
-  const rerender = React.useReducer(() => ({}), {})[1]
-
   const [sorting, setSorting] = React.useState<SortingState>([])
-
 
   const getColor = (code:string) => {
     if(code === "#d7dfe3" || code === "#fffefe" || code === "#f6f6f6" || code === "#ffffff"){
@@ -32,6 +29,13 @@ function Main() {
       return "white";
     }
   }
+
+  const randomNumber = () => {
+    let number = Math.floor(Math.random() * 11);
+    console.log("üretilen sayı : ",number);
+    return number;
+  }
+
 
   const columns = React.useMemo<ColumnDef<Error>[]>(
     () => [
@@ -163,8 +167,12 @@ function Main() {
         size:50
       },
       {
-        id: 'nrReason',
-        cell: info =>info.getValue(),
+        accessorFn: row => row.nrReasonId,
+        id: 'nrReasonId',
+        cell: info =>info.getValue() !== 0 ?(
+          //  console.log("test : ",info.row.original)
+           <NrReason control={true} list={info.row.original.nrReasonList} defaultValue={info.row.original.nrReasonList[info.row.original.random]} />
+        ):<NrReason control={false} list={info.row.original.nrReasonList} defaultValue={info.row.original.nrReasonList[info.row.original.random]} />,
         header: () => <span>NR REASON</span>,
         size:80
       },
@@ -199,7 +207,7 @@ function Main() {
     []
   )
 
-  const [data, setData] = React.useState(() => makeData(1000))
+  const [data] = React.useState(() => makeData(1000))
 
   const table = useReactTable({
     data,
@@ -213,7 +221,9 @@ function Main() {
     debugTable: true,
   })
 
+
   const tableContainerRef = React.useRef<HTMLDivElement>(null)
+
 
   const { rows } = table.getRowModel()
   const rowVirtualizer = useVirtual({
@@ -230,10 +240,10 @@ function Main() {
       : 0
 
   return (
-    <div className="all">
+    <div className="all" id='all'>
       <div className="all-2" />
-      <div ref={tableContainerRef} className="container">
-        <table>
+      <div ref={tableContainerRef} className="container" id="container">
+        <table id='table-error'>
           <thead>
             {table.getHeaderGroups().map(headerGroup => (
               <tr key={headerGroup.id}>

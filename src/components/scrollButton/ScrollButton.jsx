@@ -18,10 +18,10 @@ function ScrollButton({name,anc}) {
 
   return (
     <Box sx={{width:'100%',backgroundColor:'#c5ffc4',height:'80px'}} backgroundColor={name==="errorList" ? 'red' : '#c5ffc4'}>
-        <Box sx={{width:'100%',height:'50%',display:'flex',justifyContent:'center',border:'0.8px solid black',textAlign:'center',padding:'0.5em'}} backgroundColor={name==="errorList" ? '#d41823' : '#c5ffc4'} color={name==="errorList" ? 'white' : 'black'} borderRadius={name==="errorList" ? '8px 8px 0 0 ' : null} onClick={()=>scrollBottomToTop()}>
+        <Box sx={{width:'100%',height:'50%',display:'flex',justifyContent:'center',border:'0.8px solid black',textAlign:'center',padding:'0.5em',cursor:'pointer'}} backgroundColor={name==="errorList" ? '#d41823' : '#c5ffc4'} color={name==="errorList" ? 'white' : 'black'} borderRadius={name==="errorList" ? '8px 8px 0 0 ' : null} onClick={()=>scrollBottomToTop()}>
             <KeyboardArrowUpIcon sx={{marginTop:'0.3em'}} />
         </Box>
-        <Box sx={{width:'100%',height:'50%',display:'flex',justifyContent:'center',border:'0.8px solid black',textAlign:'center',padding:'0.5em'}} backgroundColor={name==="errorList" ? '#d41823' : '#c5ffc4'} color={name==="errorList" ? 'white' : 'black'} borderRadius={name==="errorList" ? '0 0 8px 8px ' : null} onClick={()=>scrollTopToBottom()}>
+        <Box sx={{width:'100%',height:'50%',display:'flex',justifyContent:'center',border:'0.8px solid black',textAlign:'center',padding:'0.5em',cursor:'pointer'}} backgroundColor={name==="errorList" ? '#d41823' : '#c5ffc4'} color={name==="errorList" ? 'white' : 'black'} borderRadius={name==="errorList" ? '0 0 8px 8px ' : null} onClick={()=>scrollTopToBottom()}>
             <KeyboardArrowDownIcon sx={{marginTop:'0.3em'}} />
         </Box>
     </Box>

@@ -3,17 +3,25 @@ import '../../index.css';
 import HeaderData from '../../components/headerdata/HeaderData';
 import Search from '../../components/search/Search';
 import {
-  Box , Stack, Typography
+  Box , Stack, Typography,Button
 } from '@mui/material';
 import {getFontData} from '../../redux/slices/largeFont';
 import {useRedux} from '../../hooks/useRedux';
 import ScrollTop from '../../components/scrollTop/ScrollTop';
+import {useTime} from '../../hooks/useTime';
+
 
 function LargeFont({status}) {
   const fontData = useRedux({name:"font",data:"fontData",slice:getFontData()});
+  let inactivity = useTime(5);
 
   return (
     <Box sx={{width:'100%',height:'120%',paddingTop:'2em',backgroundColor:status ? '#c6ffc7' : '#d5584a',justifyContent:'center'}}>
+     {!inactivity?(
+        <Box sx={{justifyContent:'flex-end',display:'flex',marginRight:'3em'}}>
+          <Button sx={{border:'2px solid gray',color:'black',width:'100px',fontWeight:'bold',height:'50px'}} onClick={()=>window.location.reload()}>GERİ</Button>
+        </Box>
+      ):null}
           <ScrollTop />
       <div className="data">
           <div className="header-data">

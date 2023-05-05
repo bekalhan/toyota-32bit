@@ -1,5 +1,5 @@
-import React from 'react';
-import {Button, Grid, Stack, TextField, Typography ,Box} from '@mui/material';
+import React,{useState} from 'react';
+import {Button, Grid, TextField, Typography ,Box} from '@mui/material';
 import ScrollButton from '../../../components/scrollButton/ScrollButton';
 import '../../../index.css'; 
 
@@ -56,7 +56,7 @@ function BottomBar() {
         </Grid>
         <Grid item sx={{marginLeft:'0.4em',width:'120px'}} className='bt2'>
             <Box sx={{height:'60%',marginTop:'1.4em',width:'80%'}}>
-                    <ScrollButton name={"errorList"} anc={""}  />
+                    <ScrollButton name={"errorList"} anc={"container"}  />
             </Box>
         </Grid>
         <Grid item sx={{width:'1000px',border:'0.3px solid gray',padding:1,borderRadius:'8px'}}>
@@ -71,4 +71,4 @@ function BottomBar() {
   )
 }
 
-export default BottomBar
+export default BottomBar;

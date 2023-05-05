@@ -9,6 +9,7 @@
         "es2018",
         "DOM"
       ],
+      "noImplicitAny": false,
       "baseUrl": "src",
       "esModuleInterop": true,
       "target": "es5",

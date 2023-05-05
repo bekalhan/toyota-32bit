@@ -578,14 +578,65 @@ html {
   font-size: 14px;
 }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-family: arial, sans-serif;
-  table-layout: fixed;
-  width: 100%;
-  height: 1200px;
+@media screen and (min-width:1300px) and (max-width:2800px),screen and (min-device-width:1300px) and (max-device-width:2800px) {
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial, sans-serif;
+    table-layout: fixed;
+    width: 200%;
+    height: 1200px;
+  }
 }
+
+@media screen and (min-width:1000px) and (max-width:1300px),screen and (min-device-width:1000px) and (max-device-width:1300px) {
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial, sans-serif;
+    table-layout: fixed;
+    width: 250%;
+    height: 1200px;
+  }
+}
+
+
+@media screen and (min-width:750px) and (max-width:1000px),screen and (min-device-width:750px) and (max-device-width:1000px) {
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial, sans-serif;
+    table-layout: fixed;
+    width: 400%;
+    height: 1200px;
+  }
+}
+
+@media screen and (min-width:600px) and (max-width:750px),screen and (min-device-width:600px) and (max-device-width:750px) {
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial, sans-serif;
+    table-layout: fixed;
+    width: 500%;
+    height: 1200px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial, sans-serif;
+    table-layout: fixed;
+    width: 150%;
+    height: 1200px;
+  }
+}
+
+
 
 thead {
   background:#c6ffc7 ;

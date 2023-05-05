@@ -1,15 +1,22 @@
-import { faker } from '@faker-js/faker';
-import { string } from 'yup';
-import {data} from '../../../mocks/Data'
-
+import {data} from '../../../mocks/Data';
 
 const ImportData =  () => {
-    return data[0].data[0].defectList;
+  let newData = data[0].data[0].defectList?.sort((a,b)=>{return a.depCode > b.depCode ? 1 : -1});
+  return newData;
+}
+
+const NrReasonList = () => {
+  let list = data[0].data[0].nrReasonList;
+  return list;
+}
+
+const randomNumber = () => {
+  let number = Math.floor(Math.random() * 11);
+  console.log("üretilen sayı : ",number);
+  return number;
 }
 
 let i = 0;
-
-
 
 export type Error = {
   depCode: string
@@ -31,6 +38,9 @@ export type Error = {
   hataTuru:string
   hataSor:string,
   altSorumlu:string
+  nrReasonList:Array<object>
+  nrReasonId:number,
+  random:number
 }
 
 const range = (len: number) => {
@@ -41,8 +51,9 @@ const range = (len: number) => {
   return arr
 }
 
-const NewPerson = (index: number):Error=> {
+const NewError = (index: number):Error=> {
   let list = ImportData();
+  let nrReasonList = NrReasonList();
   if(i<list.length-1){
     i = i+1;
   }
@@ -65,7 +76,10 @@ const NewPerson = (index: number):Error=> {
     saat:list[i].formattedDefectHour,
     hataTuru:list[i].defectType,
     hataSor:list[i].defrespName,
-    altSorumlu:''
+    altSorumlu:'',
+    nrReasonList:nrReasonList,
+    nrReasonId:list[i].nrReasonId,
+    random:randomNumber()
   }
 }
 
@@ -74,7 +88,7 @@ export function makeData(...lens: number[]) {
     const len = lens[depth]!
     return range(len).map((d): Error => {
       return {
-        ...NewPerson(d),
+        ...NewError(d),
       }
     })
   }
