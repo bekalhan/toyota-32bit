@@ -20,6 +20,8 @@ const fontSlice = createSlice({
       changeFontStatus(state){
         if(state.largeFont===false){
           state.largeFont = true;
+        }else{
+          state.largeFont=false;
         }
       }
     },

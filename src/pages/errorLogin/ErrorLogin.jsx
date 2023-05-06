@@ -13,12 +13,15 @@ import ScrollTop from '../../components/scrollTop/ScrollTop';
 import { useEffect } from 'react';
 import {changeScroll} from '../../redux/slices/errorSlices';
 import { useDispatch } from 'react-redux';
+import {useTranslation} from 'react-i18next';
+
 
 function ErrorLogin() {
 let errorName = useRedux({name:"error",data:"errorName",slice:""});
 let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
 const [scroll,setScroll] = useState({left:"",top:""});
 let inactivity = useTime(30);
+const {t,i18n} = useTranslation();
 
 const dispatch = useDispatch();
 
@@ -76,7 +79,7 @@ useEffect(()=>{
                         </Grid>
                         <Grid item lg={6} sx={{display:'flex',justifyContent:'flex-end'}}>
                                 <Stack direction="row" sx={{marginRight:'1em'}}>
-                                     <Typography sx={{color:'red',fontWeight:'bold'}}>TEKNİK DESTEK</Typography>
+                                     <Typography sx={{color:'red',fontWeight:'bold'}}>{t('teknikdestek')}</Typography>
                                      <Typography sx={{marginLeft:'0.5em'}}>CVQS(TMMT)</Typography>
                                 </Stack>
                         </Grid>
@@ -85,7 +88,7 @@ useEffect(()=>{
                         <Grid container sx={{marginTop:'1em'}}>
                             <Grid item lg={12} md={12} sm={12} xs={12} sx={{display:'flex',justifyContent:'flex-end'}}>
                                 <Stack direction="row" sx={{marginRight:'1em'}}>
-                                     <Typography sx={{color:'red',fontWeight:'bold'}}>TEKNİK DESTEK</Typography>
+                                     <Typography sx={{color:'red',fontWeight:'bold'}}>{t('teknikdestek')}</Typography>
                                      <Typography sx={{marginLeft:'0.5em'}}>CVQS(TMMT)</Typography>
                                 </Stack>
                             </Grid>

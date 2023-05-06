@@ -7,10 +7,14 @@ import SelectFormatter from '../../../../components/select/SelectFormatter';
 import {useSelect} from '../../../../hooks/useSelect';
 import Loading from '../../../../utils/loading/Loading';
 import '../../../../index.css';
+import {useTranslation} from 'react-i18next';
+
 
 function TerminalList() {
     //use react router params
     const params = useParams();
+
+    const {t,i18n} = useTranslation();
 
     let terminal = useRedux({name:"terminals",data:"terminal",slice:getSpeTerminal(params)});
     const [select,setSelect] = useSelect({personName:[]});
@@ -20,7 +24,7 @@ function TerminalList() {
     <Grid container>
     <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.5}></Grid>
     <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
-        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>Terminal Listesi</div>
+        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('terminallistesi')}</div>
     </Grid>
     <Grid item lg={7.5} md={7.5} sm={7.2} xs={7.5}>
         {/* select dropdown */}

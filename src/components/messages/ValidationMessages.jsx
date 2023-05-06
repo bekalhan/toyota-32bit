@@ -1,7 +1,11 @@
 import React from 'react';
 import {Box,Typography} from '@mui/material';
+import {useTranslation} from 'react-i18next';
+
 
 function ValidationMessages({formik,name}) {
+    const {t,i18n} = useTranslation();
+
 
     const determineName = () =>{
         switch(name){
@@ -22,7 +26,7 @@ function ValidationMessages({formik,name}) {
                 break;
             case 'invalid_credentials':
                 return(
-                    <Typography sx={{color:'red',marginBottom:'2em'}}>Lütfen girdiğiniz bilgileri kontrol edip tekrar giriş yapmayı deneyiniz</Typography>
+                    <Typography sx={{color:'red',marginBottom:'2em'}}>{t('tummesaj')}</Typography>
                 )
             case 'aciklama':
                 return(

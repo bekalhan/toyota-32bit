@@ -11,7 +11,7 @@ import {useRedux} from '../../../../hooks/useRedux';
 import {useSelect} from '../../../../hooks/useSelect';
 import SelectFormatter from '../../../../components/select/SelectFormatter';
 import Loading from '../../../../utils/loading/Loading';
-import TextFieldFormatter from '../../../../components/textField/TextFieldFormatter';
+import {useTranslation} from 'react-i18next';
 
 const style = {
     position: 'absolute',
@@ -65,6 +65,7 @@ function ModalComponent({open,handleClose}) {
 
   let errorButtonData = useRedux({name:"error",data:"errorButtonData",slice:getErrorButtonData()});
   let errorButtonData2 = useRedux({name:"error",data:"errorButtonData2",slice:getErrorButtonData2()});
+  const {t,i18n} = useTranslation();
 
   const [select,setSelect] = useSelect({errorRes:[],errorReason:[],errorClass:[],errorExit:[],errorSub:[]});
 
@@ -104,14 +105,14 @@ function ModalComponent({open,handleClose}) {
                </Grid>
                <Grid item lg={6} md={6} sm={6} xs={6} sx={{display:'flex',justifyContent:'flex-end'}}>
                <FormControlLabel
-                label="SIK GELEN HATA"
+                label={t('sikgelenhata')}
                 control={<Checkbox {...label} sx={{ '& .MuiSvgIcon-root': { fontSize: 40 } }} />}
             />
                </Grid>
             </Grid>
             <Grid container>
                 <Grid item lg={1.5} md={1.5} sm={1.5} xs={2}>
-                   <Typography sx={{fontWeight:'bold'}}>Hata Sorumlusu</Typography>
+                   <Typography sx={{fontWeight:'bold'}}>{t('hatasorumlusu')}</Typography>
                 </Grid>
                 <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
                 <Grid item lg={4} md={4} sm={4} xs={9}>
@@ -142,7 +143,7 @@ function ModalComponent({open,handleClose}) {
             </Grid>
             <Grid container>
                   <Grid item lg={1.5} md={1.5} sm={1.5} xs={2}>
-                    <Typography sx={{fontWeight:'bold'}}>Hata Sınıfı</Typography>
+                    <Typography sx={{fontWeight:'bold'}}>{t('hatasinifi')}</Typography>
                   </Grid>
                   <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
                   <Grid item lg={4} md={4} sm={9.5} xs={9}>
@@ -158,17 +159,17 @@ function ModalComponent({open,handleClose}) {
                   <Grid item lg={2.6} md={2.6} sm={5.6} xs={5.6} sx={{marginLeft:'0.4em',marginTop:{lg:'0',md:'0',sm:'1em',xs:'1em'}}}>
                     <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}}
                     type="submit"
-                    >KAYDET</Button>
+                    >{t('kaydet')}</Button>
                   </Grid>
                   <Grid item lg={0.2} md={0.2} sm={0.2} xs={0.2}></Grid>
                   <Grid item lg={2.6} md={2.6} sm={5.6} xs={5.6} sx={{marginTop:{lg:'0',md:'0',sm:'1em',xs:'1em'}}}>
-                  <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}} onClick={()=>{window.location.reload()}}>İPTAL</Button>
+                  <Button variant="contained" sx={{backgroundColor:'#d5141a',width:'100%'}} onClick={()=>{window.location.reload()}}>{t('iptal')}</Button>
                   </Grid>
                   
             </Grid>
             <Grid container sx={{marginTop:'0.4em'}}>
               <Grid item lg={1.5} md={1.5} sm={2.5} xs={2} sx={{marginTop:'0.5em'}}>
-                      <Typography sx={{fontWeight:'bold'}}>Exit Departmant</Typography>
+                      <Typography sx={{fontWeight:'bold'}}>{t('exitdepartmant')}</Typography>
               </Grid>
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={4} md={4} sm={8.5} xs={9}>
@@ -184,7 +185,7 @@ function ModalComponent({open,handleClose}) {
             </Grid>
             <Grid container sx={{marginTop:'0.4em'}}>
               <Grid item lg={1.5} md={1.5} sm={2.5} xs={2} sx={{marginTop:'0.5em'}}>
-                        <Typography sx={{fontWeight:'bold'}}>Açıklama</Typography>
+                        <Typography sx={{fontWeight:'bold'}}>{t('aciklama')}</Typography>
               </Grid>
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={9.5} md={9.5} sm={8.5} xs={9}>
@@ -200,7 +201,7 @@ function ModalComponent({open,handleClose}) {
             <ValidationMessages formik={formik} name="aciklama" />
             <Grid container sx={{marginTop:'0.4em'}}>
               <Grid item lg={1.5} md={1.5} sm={2.5} xs={2} sx={{marginTop:'0.5em'}}>
-                        <Typography sx={{fontWeight:'bold',color:'red'}}>Yapılan İşlem *</Typography>
+                        <Typography sx={{fontWeight:'bold',color:'red'}}>{t('yapilanislem')} *</Typography>
               </Grid>
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={9.5} md={9.5} sm={8.5} xs={9}>
@@ -215,7 +216,7 @@ function ModalComponent({open,handleClose}) {
             <ValidationMessages formik={formik} name="yapilanIslem" />
             <Grid container sx={{marginTop:'0.4em'}}>
               <Grid item lg={1.5} md={1.5} sm={2.5} xs={2} sx={{marginTop:'0.5em'}}>
-                      <Typography sx={{fontWeight:'bold',color:'red'}}>Alt Sorumlu *</Typography>
+                      <Typography sx={{fontWeight:'bold',color:'red'}}>{t('altsorumlu')} *</Typography>
               </Grid>
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={4} md={4} sm={8.5} xs={9}>
@@ -228,10 +229,10 @@ function ModalComponent({open,handleClose}) {
             </Grid>
             {/* Keybaord */}
             <Stack direction="column" sx={{display:'flex',justifyContent:'center',width:'100%'}}>
-              <VirtualKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard} />
+              <VirtualKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard} language={i18n.language} />
             </Stack>
             <Box sx={{display:'flex',justifyContent:'space-between',width:'100%',marginTop:'5.5em'}}>
-              <Typography sx={{color:'red',fontWeight:'bold'}}>TEKNİK DESTEK</Typography>
+              <Typography sx={{color:'red',fontWeight:'bold'}}>{t('teknikdestek')}</Typography>
               <Typography>6.2.192-CVQSTerminal</Typography>
             </Box>
         </Grid>

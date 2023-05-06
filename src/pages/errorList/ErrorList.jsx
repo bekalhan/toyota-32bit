@@ -17,8 +17,6 @@ function ErrorList() {
   const navigate = useNavigate();
   const params = useParams();
 
-  console.log("inactivity : ",inactivity);
-
   return (
     <Stack direction="column" sx={{height:'100%',display:'flex'}}>
       {!inactivity?(

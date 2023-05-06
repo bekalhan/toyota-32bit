@@ -1,12 +1,16 @@
 import React from 'react';
 import { Box,Stack,FormControl,MenuItem,Select } from '@mui/material';
 import '../../../../index.css';
+import {useTranslation} from 'react-i18next';
+
 
 function Shift({formik,shifts}) { 
+  const {t,i18n} = useTranslation();
+
   return (
     <Stack direction='row'>
         <Box>
-            <div className='txt-vardiya'>Vardiya</div>
+            <div className='txt-vardiya'>{t('vardiya')}</div>
         </Box>
          <Box>
              <FormControl className='list'>

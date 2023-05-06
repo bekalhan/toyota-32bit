@@ -5,6 +5,8 @@ import store from './redux/store/store';
 import { Provider } from "react-redux";
 import {BrowserRouter} from 'react-router-dom';
 
+import './i18n';
+
 
 if (process.env.NODE_ENV === 'development') {
   const { worker } = require('./mocks/browser')

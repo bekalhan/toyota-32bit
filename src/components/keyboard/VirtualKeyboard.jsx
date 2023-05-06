@@ -5,43 +5,49 @@ import KeyboardAe from '../../utils/keyboard/ae/KeyboardAe';
 import KeyboardEn from '../../utils/keyboard/en/KeyboardEn';
 import {Grid} from '@mui/material';
 
-function VirtualKeyboard({inputName,formik,setInputs,inputs,keyboard}) {
+function VirtualKeyboard({inputName,formik,setInputs,inputs,keyboard,language}) {
+
+  console.log("dil : ",language);
 
   return (
     <>
      <Grid container sx={{marginTop:{lg:'1em',md:'1em',sm:'1em',xs:'1em'},width:'100%',height:'200px',backgroundColor:'#eaeaea'}}>
        <Grid item lg={12} md={12} sm={12} xs={12}>
-       <KeyboardTr
-          inputName={inputName}
-          formik={formik}
-          setInputs={setInputs}
-          inputs={inputs}
-          keyboard={keyboard}
-          />
+       {language==="tr" ? (
+             <KeyboardTr
+             inputName={inputName}
+             formik={formik}
+             setInputs={setInputs}
+             inputs={inputs}
+             keyboard={keyboard}
+             />
+      ) : language==="en" ? (
+        <KeyboardEn
+        inputName={inputName}
+        formik={formik}
+        setInputs={setInputs}
+        inputs={inputs}
+        keyboard={keyboard} 
+      />
+      ): language==="fr" ?(
+        <KeyboardFr
+        inputName={inputName}
+        formik={formik}
+        setInputs={setInputs}
+        inputs={inputs}
+        keyboard={keyboard}
+        />
+      ):language==="ae" ? (
+        <KeyboardAe
+        inputName={inputName}
+        formik={formik}
+        setInputs={setInputs}
+        inputs={inputs}
+        keyboard={keyboard}
+        />
+      ):null}
        </Grid>
      </Grid>
-    {/* <KeyboardFr
-     inputName={inputName}
-     formik={formik}
-     setInputs={setInputs}
-     inputs={inputs}
-     keyboard={keyboard}
-    /> */}
-    {/* <KeyboardAe
-     inputName={inputName}
-     formik={formik}
-     setInputs={setInputs}
-     inputs={inputs}
-     keyboard={keyboard}
-    /> */}
-    {/* <KeyboardEn
-     inputName={inputName}
-     formik={formik}
-     setInputs={setInputs}
-     inputs={inputs}
-     keyboard={keyboard}
-    
-    /> */}
     </>
   )
 }

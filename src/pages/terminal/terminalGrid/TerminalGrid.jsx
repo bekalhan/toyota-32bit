@@ -4,31 +4,31 @@ import {
   } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 import '../../../index.css';
+import {useTranslation} from 'react-i18next';
 
 
 function TerminalGrid({terminalList}) {
     const navigate = useNavigate();
-
-    console.log("tlist : ",terminalList);
+    const {t,i18n} = useTranslation();
 
   return (
     <Box sx={{backgroundColor:'#c6ffc7',paddingTop:'3em'}}>
     <Grid container>
        <Grid item lg={12} md={12} sm={12} xs={12} sx={{border:'1px solid #b7ecba'}}>
          <Box sx={{display:'flex',justifyContent:'center',padding:1}}>
-             <Typography sx={{textDecoration:'underline',color:'#d23d42',fontSize:{lg:'16px'}}}>TÜM TERMİNALLER</Typography>
+             <Typography sx={{textDecoration:'underline',color:'#d23d42',fontSize:{lg:'16px'}}}>{t('tumterminaller')}</Typography>
          </Box>
        </Grid>
        <Grid item lg={12} md={12} sm={12} xs={12}>
            <Grid container sx={{marginTop:'0.2px'}}>
              <Grid item lg={2} md={2} sm={4} xs={4} sx={{border:'2px solid #b7ecba',padding:0.5}}>
                <Box sx={{display:'flex',justifyContent:'center'}}>
-                   <Typography sx={{color:'#d23d42',fontSize:{lg:'15px'}}}>BÖLÜM BAZINDA</Typography>
+                   <Typography sx={{color:'#d23d42',fontSize:{lg:'15px'}}}>{t('bolumbazinda')}</Typography>
                </Box>
              </Grid>
              <Grid item lg={10} md={10} sm={8} xs={8} sx={{border:'2px solid #b7ecba',padding:0.5}}>
                  <Box sx={{display:'flex',justifyContent:'center'}}>
-                    <Typography sx={{color:'#d23d42',fontSize:{lg:'15px'}}}>FİLTRE BAZINDA</Typography>
+                    <Typography sx={{color:'#d23d42',fontSize:{lg:'15px'}}}>{t('filtrebazinda')}</Typography>
                  </Box>
              </Grid>
            </Grid>

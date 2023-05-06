@@ -1,6 +1,8 @@
 import React,{useState} from 'react';
 import { Box,Stack,FormControl,MenuItem,Select } from '@mui/material';
 import { useEffect } from 'react';
+import {useTranslation} from 'react-i18next';
+
 
 const months = [1,2,3,4,5,6,7,8,9,10,11,12];
 
@@ -20,6 +22,9 @@ function Date({formik}) {
       let recent = changeDay(formik?.values.ay);
       setAllDay(recent);
     },[formik?.values.yil])
+
+    const {t,i18n} = useTranslation();
+
 
     //functions
     const changeDay =  (month) =>{

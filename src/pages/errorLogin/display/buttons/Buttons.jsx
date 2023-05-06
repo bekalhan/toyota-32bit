@@ -6,6 +6,7 @@ import Search from '../../../../components/search/Search';
 import ModalComponent from '../modal/ModalComponent';
 import {useRedux} from '../../../../hooks/useRedux';
 import car from '../../../../img/car12.jpeg';
+import {useTranslation} from 'react-i18next';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -18,6 +19,8 @@ function Buttons({status}) {
 
     let choosedError = useRedux({name:"error",data:"choosedError"});
     let error = useRedux({name:"error",data:"clickError"});
+    const {t,i18n} = useTranslation();
+
 
   return (
     <Stack direction="column">
@@ -36,52 +39,52 @@ function Buttons({status}) {
             </Stack>
         </Box>
         <Stack direction="column" sx={{marginLeft:'1em',marginRight:'1em'}}>
-            <Button disabled sx={{border:'1px solid gray',padding:2}}><Typography sx={{fontWeight:'bold'}}>HIZLI KAYDET</Typography></Button>
-            <Button disabled sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}}><Typography sx={{fontWeight:'bold'}}>KAYDET VE GEÇ</Typography></Button>
+            <Button disabled sx={{border:'1px solid gray',padding:2}}><Typography sx={{fontWeight:'bold'}}>{t('hizlikaydet')}</Typography></Button>
+            <Button disabled sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}}><Typography sx={{fontWeight:'bold'}}>{t('kaydetvegec')}</Typography></Button>
             {choosedError === undefined ?(
-             <Button sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}} disabled><Typography sx={{fontWeight:'bold'}}>HATA KAYIT</Typography></Button>
+             <Button sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}} disabled><Typography sx={{fontWeight:'bold'}}>{t('hatakayit')}</Typography></Button>
             ):(
                 <Button
                  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}}
                  onClick={()=>{handleOpen()}}
-                 ><Typography sx={{fontWeight:'bold',color:'black'}}>HATA KAYIT</Typography></Button>
+                 ><Typography sx={{fontWeight:'bold',color:'black'}}>{t('montajno')}</Typography></Button>
             )}
         </Stack>
         <Search />
         <Stack direction="column" sx={{marginLeft:'1em',marginRight:'1em'}}>
-            <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black',backgroundColor:status ? null : '#ff1b00'}}><Typography sx={{fontWeight:'bold',}}>HIZLI KAYDET</Typography></Button>
-            <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black'}}><Typography sx={{fontWeight:'bold'}}>KAYDET VE GEÇ</Typography></Button>
-            <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black',backgroundColor:status ? null : '#ff1b00'}}><Typography sx={{fontWeight:'bold'}}>HATA KAYIT</Typography></Button>
+            <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black',backgroundColor:status ? null : '#ff1b00'}}><Typography sx={{fontWeight:'bold',}}>{t('terminalilkresmi')}</Typography></Button>
+            <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black'}}><Typography sx={{fontWeight:'bold'}}>{t('sikgelenhata')}</Typography></Button>
+            <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black',backgroundColor:status ? null : '#ff1b00'}}><Typography sx={{fontWeight:'bold'}}>{t('manifest')}</Typography></Button>
         </Stack></>
         ): error !==undefined ? (
         <>
             <Box>
-                 <Typography sx={{fontWeight:'bold',marginLeft:'0.5em',marginRight:'0.5em',display:{lg:'block',md:'block',sm:'flex',xs:'flex'},justifyContent:'center'}}>ÖNCEKİ</Typography>
+                 <Typography sx={{fontWeight:'bold',marginLeft:'0.5em',marginRight:'0.5em',display:{lg:'block',md:'block',sm:'flex',xs:'flex'},justifyContent:'center'}}>{t('onceki')}</Typography>
                  <Box sx={{display:{lg:'block',md:'block',sm:'flex',xs:'flex'},justifyContent:'center'}}>
                      <Avatar src={car} variant='square' sx={{width:{lg:'92%',md:'92%',sm:'40%',xs:'40%'},height:'auto',marginLeft:'0.5em',marginRight:'0.5em'}} />
                  </Box>
             </Box>
             <Stack sx={{marginLeft:'0.5em',marginRight:'0.5em'}}>
             {choosedError === undefined ?(
-             <Button sx={{border:'1px solid gray',padding:3,marginTop:'0.3em'}} disabled><Typography sx={{fontWeight:'bold'}}>HATA KAYIT</Typography></Button>
+             <Button sx={{border:'1px solid gray',padding:3,marginTop:'0.3em'}} disabled><Typography sx={{fontWeight:'bold'}}>{t('hatakayit')}</Typography></Button>
             ):(
                 <Button
                  sx={{border:'1px solid gray',padding:3,marginTop:'0.3em'}}
                  onClick={()=>{handleOpen()}}
-                 ><Typography sx={{fontWeight:'bold',color:'black'}}>HATA KAYIT</Typography></Button>
+                 ><Typography sx={{fontWeight:'bold',color:'black'}}>{t('hatakayit')}</Typography></Button>
             )}
             <Button
                  sx={{border:'1px solid gray',padding:3,marginTop:'0.3em',backgroundColor:status ? null : '#ff1b00'}}
-                 ><Typography sx={{fontWeight:'bold',color:'black'}}>SONRAKİ ARAÇ</Typography></Button>
+                 ><Typography sx={{fontWeight:'bold',color:'black'}}>{t('sonrakiarac')}</Typography></Button>
             <Button
                  sx={{border:'1px solid gray',padding:3,marginTop:'0.3em'}}
-                 ><Typography sx={{fontWeight:'bold',color:'black'}}>TERMİNAL İLK RESMİ</Typography></Button>
+                 ><Typography sx={{fontWeight:'bold',color:'black'}}>{t('tumterminaller')}</Typography></Button>
             <Button
                  sx={{border:'1px solid gray',padding:3,marginTop:'0.3em'}}
-                 ><Typography sx={{fontWeight:'bold',color:'black'}}>SIK GELEN HATA</Typography></Button>
+                 ><Typography sx={{fontWeight:'bold',color:'black'}}>{t('terminalilkresmi')}</Typography></Button>
             <Button
                  sx={{border:'1px solid gray',padding:3,marginTop:'0.3em',backgroundColor:status ? null : '#ff1b00'}}
-                 ><Typography sx={{fontWeight:'bold',color:'black'}}>SIRADAKİ ARACI ATLA</Typography></Button>
+                 ><Typography sx={{fontWeight:'bold',color:'black'}}>{t('siradakiaraciatla')}</Typography></Button>
             </Stack>
         </>
         ):null}

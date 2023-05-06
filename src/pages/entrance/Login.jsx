@@ -14,18 +14,9 @@ import NumericKeyboard from '../../components/keyboard/NumericKeyboard';
 import {useRedux} from '../../hooks/useRedux';
 import TextFieldFormatter from '../../components/textField/TextFieldFormatter';
 import ScrollTop from '../../components/scrollTop/ScrollTop';
+import {useTranslation} from 'react-i18next';
 import '../../index.css';
 
-//Form schema
-const formSchema = Yup.object({
-    sicil_no: Yup.string().required("Lütfen bir sicil numarası giriniz"),
-    sifre: Yup.string().required("Lütfen bir sifre giriniz"),
-    montaj_no : Yup.string().max(3).required("Lütfen en fazla 3 haneli bir montaj no giriniz"),
-    gun:  Yup.string().required("Lütfen bir gün giriniz"),
-    ay : Yup.string().required("Lütfen bir ay giriniz"),
-    yil : Yup.string().required("Lütfen bir yil giriniz"),
-    vardiya : Yup.string().required("Lütfen bir vardiya giriniz")
-  });
 
 function Login() {
     //use state
@@ -39,6 +30,14 @@ function Login() {
     //use ref
     const keyboard = useRef();
 
+    const {t,i18n} = useTranslation();
+
+    //Form schema
+    const formSchema = Yup.object({
+    sicil_no: Yup.string().required(t('sicilmesaj')),
+    sifre: Yup.string().required(t('sifremesaj')),
+    montaj_no : Yup.string().max(3).required(t('montajmesaj')),
+    });
 
     //moment
     let current = moment().format('L').split('/'); 
@@ -112,7 +111,7 @@ function Login() {
                         <Grid container sx={{marginTop:'1rem',width:'100%'}}>
                                    <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.5}></Grid>
                                     <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
-                                        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>Sicil No</div>
+                                        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('sicilno')}</div>
                                     </Grid>
                                     <Grid item lg={7.5} md={7.5} sm={7.5} xs={7.5}>
                                          <TextFieldFormatter formik={formik} name={"sicil_no"} setInputName={setInputName} onChangeInput={onChangeInput} />
@@ -123,7 +122,7 @@ function Login() {
                         <Grid container sx={{marginTop:'1rem'}}>
                             <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.5}></Grid>
                             <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
-                                        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>Şifre</div>
+                                        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('sifre')}</div>
                             </Grid>
                             <Grid item lg={7.5} md={7.5} sm={7.5} xs={7.5}>
                                 <TextFieldFormatter formik={formik} name={"sifre"} setInputName={setInputName} onChangeInput={onChangeInput} />
@@ -134,7 +133,7 @@ function Login() {
                         <Grid container sx={{marginTop:'1rem'}}>
                                 <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.5}></Grid>
                                 <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
-                                        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>Montaj No</div>
+                                        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('montajno')}</div>
                                 </Grid>
                                 <Grid item lg={7.5} md={7.5} sm={7.5} xs={7.5}>
                                     <TextFieldFormatter formik={formik} name={"montaj_no"} setInputName={setInputName} onChangeInput={onChangeInput} />
@@ -152,7 +151,7 @@ function Login() {
                                  </Grid>
                                 ):(
                                 <Grid item lg={5.8} md={5.8} sm={5.8} xs={5.8}>
-                                    <Button variant="contained" type='submit' sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:'#000000',marginLeft:{lg:'0.5em'}}}>GİRİŞ YAP</Button>
+                                    <Button variant="contained" type='submit' sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:'#000000',marginLeft:{lg:'0.5em'}}}>{t('girisyap')}</Button>
                                   </Grid>
                                 )}
 
@@ -163,7 +162,7 @@ function Login() {
                                     sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:'#d31823'}}
                                     onClick={()=> navigate(`/cvqsterminal/terminals`)}
                                     >
-                                    KAPAT
+                                    {t('kapat')}
                                 </Button>
                                 </Grid>
                         </Grid>
@@ -174,7 +173,7 @@ function Login() {
                 {/* Keybaord */}
                 <Box sx={{width:'100%',justifyContent:'center',display:'flex'}}>
                             {inputName ==="sicil_no" || inputName ==="sifre" || inputName==="" ? (
-                                <VirtualKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard}  />
+                                <VirtualKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard} language={i18n.language}  />
                             ) : (
                                 <NumericKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard}  />
                             )}
