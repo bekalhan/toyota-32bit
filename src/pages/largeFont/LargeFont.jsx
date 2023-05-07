@@ -31,7 +31,7 @@ function LargeFont({status}) {
           </div>
       </div>
       <div className="center">
-          <div className="container">
+          <div className="container-largefont">
                 <div className="title">
                     <h1>
                       CHR - 222

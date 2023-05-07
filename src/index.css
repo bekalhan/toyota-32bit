@@ -126,9 +126,9 @@ Menu ıtems css
 }
 
 @media screen and (min-width:1000px) {
-  .container{
+  .container-largefont{
       height: 400px;
-      width: 100%;
+      width: 95%;
       display: grid;
       grid-template-columns: 80% auto;
   }
@@ -158,7 +158,7 @@ Menu ıtems css
 
 @media screen and (min-width:750px) and (max-width:1000px),screen and (min-device-width:750px) and (max-device-width:1000px) {
 
-  .container{
+  .container-largefont{
       height: 400px;
       width: 95%;
       display: grid;
@@ -190,7 +190,7 @@ Menu ıtems css
 
 @media screen and (min-width:700px) and (max-width:750px),screen and (min-device-width:600px) and (max-device-width:700px) {
 
-  .container{
+  .container-largefont{
       height: 300px;
       width: 95%;
       display: grid;
@@ -221,9 +221,43 @@ Menu ıtems css
 
 }
 
-@media screen and (max-width:700px),screen and (max-device-width:700px) {
+@media screen and (min-width:600px) and (max-width:700px),screen and (min-device-width:600px) and (max-device-width:700px) {
 
-  .container{
+  .container-largefont{
+      height: 300px;
+      width: 95%;
+      display: grid;
+      grid-template-columns: 70% auto;
+  }
+
+  h1{
+      font-weight: bold;
+      font-size: 70px;
+      height: 280px;
+  }
+  .title{
+      height: 400px;
+      display: flex;
+      justify-content: center;
+  }
+
+  .bottom{
+      width: 100%;
+      display: grid;
+      grid-template-columns: 60% auto;
+      margin-top: 2rem;
+  }
+  
+  .bottom span {
+      font-weight: bold;
+      font-size: 24px;
+  }
+
+}
+
+@media screen and (max-width:600px),screen and (max-device-width:600px) {
+
+  .container-largefont{
       height: 200px;
       width: 95%;
       display: grid;
@@ -264,10 +298,10 @@ Menu ıtems css
 .search{
   height:250px;
   width: 100%;
-  left: 79.2%;
   margin-top: 1em;
   border:1px solid #b5e8b7;
   border-radius: 8px;
+  margin-right: 5em !important;
 }
 
 .btn-hata{
@@ -279,7 +313,7 @@ Menu ıtems css
   color:white;
 }
 
-.container button:nth-child(1){
+.container-largefont button:nth-child(1){
   width: 95%;
   height: 60px;
   margin-top: 0.5em;
@@ -425,7 +459,7 @@ h1 span{
     margin-left: 1em !important;
   }
   .txt-vardiya{
-    margin-left: 0.3em !important;
+    margin-left: 1.8em !important;
     font-size: 18px;
     font-weight: bold;
     margin-top: 1.5em;
@@ -454,7 +488,7 @@ h1 span{
     margin-left: 1.3em !important;
   }
   .txt-vardiya{
-    margin-left: 0.3em !important;
+    margin-left: 1.4em !important;
     font-size: 18px;
     font-weight: bold;
     margin-top: 1.2em;
@@ -486,7 +520,7 @@ h1 span{
     size: small ;
   }
   .txt-vardiya{
-    margin-left: 0.3em !important;
+    margin-left: 1.6em !important;
     font-size: 18px;
     font-weight: bold;
     margin-top: 1.2em;
