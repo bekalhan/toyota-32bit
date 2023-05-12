@@ -31,7 +31,7 @@ const fontSlice = createSlice({
         state.loading = true;
       });
       builder.addCase(getFontData.fulfilled, (state, action) => {
-        state.fontData = action?.payload;
+        state.fontData = action?.payload?.data;
         state.loading = false;
         state.appErr = undefined;
         state.serverErr = undefined;

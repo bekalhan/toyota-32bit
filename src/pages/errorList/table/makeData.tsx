@@ -12,7 +12,6 @@ const NrReasonList = () => {
 
 const randomNumber = () => {
   let number = Math.floor(Math.random() * 11);
-  console.log("üretilen sayı : ",number);
   return number;
 }
 
@@ -44,7 +43,7 @@ export type Error = {
 }
 
 const range = (len: number) => {
-  const arr = []
+  const arr : number[] = []
   for (let i = 0; i < len; i++) {
     arr.push(i)
   }
@@ -54,7 +53,10 @@ const range = (len: number) => {
 const NewError = (index: number):Error=> {
   let list = ImportData();
   let nrReasonList = NrReasonList();
-  if(i<list.length-1){
+  if(i===list.length-1) {
+    i=1;
+  }
+  else if(i<list.length-1){
     i = i+1;
   }
   return {

@@ -6,10 +6,9 @@ import { useNavigate } from "react-router-dom";
 import '../../../index.css';
 import {useTranslation} from 'react-i18next';
 
-
 function TerminalGrid({terminalList}) {
     const navigate = useNavigate();
-    const {t,i18n} = useTranslation();
+    const {t} = useTranslation();
 
   return (
     <Box sx={{backgroundColor:'#c6ffc7',paddingTop:'3em'}}>
@@ -34,7 +33,7 @@ function TerminalGrid({terminalList}) {
            </Grid>
        </Grid>
        {terminalList?.map((terminal,index)=>(
-            <Grid item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}} key={index}>
+            <Grid key={index} item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}}>
                 <Grid container sx={{marginTop:'0.2px'}}>
                     <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:'2px solid #b7ecba'}} className='terminal'
                     >
@@ -44,9 +43,9 @@ function TerminalGrid({terminalList}) {
                     </Grid>
                     <Grid item lg={10} md={10} sm={12} xs={12} sx={{border:'2px solid #b7ecba',padding:1,display:'flex'}} >
                         <Grid container sx={{justifyContent:{lg:'flex-start',md:'flex-start',sm:'center',xs:'center'}}}>
-                        {terminal.filterBaseds?.map((e)=>(
-                        <Grid item lg={1.5} md={2} sm={3} xs={3} sx={{borderRadius:'10px',border:'2px solid #b7ecba',height:'50px',marginTop:'0.4em',marginLeft:'0.7em'}} className='terminal'
-                        onClick={()=> navigate(`/cvqsterminal/terminal/${terminal.depCode}/${e.filterCode}`)}
+                        {terminal?.filterBaseds?.map((e,index)=>(
+                        <Grid item lg={1.5} md={2} sm={3} xs={3} key={index} sx={{borderRadius:'10px',border:'2px solid #b7ecba',height:'50px',marginTop:'0.4em',marginLeft:'0.7em'}} className='terminal'
+                        onClick={()=> navigate(`/cvqsterminal/terminal/${terminal?.depCode}/${e?.filterCode}`)}
                         >
                             <Stack direction='column'>
                                 <Box sx={{height:'15px'}}>

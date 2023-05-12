@@ -21,7 +21,7 @@ let errorName = useRedux({name:"error",data:"errorName",slice:""});
 let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
 const [scroll,setScroll] = useState({left:"",top:""});
 let inactivity = useTime(30);
-const {t,i18n} = useTranslation();
+const {t} = useTranslation();
 
 const dispatch = useDispatch();
 

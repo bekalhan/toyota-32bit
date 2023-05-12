@@ -6,9 +6,6 @@ import KeyboardEn from '../../utils/keyboard/en/KeyboardEn';
 import {Grid} from '@mui/material';
 
 function VirtualKeyboard({inputName,formik,setInputs,inputs,keyboard,language}) {
-
-  console.log("dil : ",language);
-
   return (
     <>
      <Grid container sx={{marginTop:{lg:'1em',md:'1em',sm:'1em',xs:'1em'},width:'100%',height:'200px',backgroundColor:'#eaeaea'}}>

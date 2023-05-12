@@ -87,7 +87,7 @@ const errorSlice = createSlice({
         state.loading = true;
       });
       builder.addCase(getErrorData.fulfilled, (state, action) => {
-        state.errorData = action?.payload;
+        state.errorData = action?.payload?.data;
         state.loading = false;
         state.appErr = undefined;
         state.serverErr = undefined;
@@ -102,7 +102,7 @@ const errorSlice = createSlice({
         state.loading = true;
       });
       builder.addCase(getErrors.fulfilled, (state, action) => {
-        state.errors = action?.payload;
+        state.errors = action?.payload?.data;
         state.loading = false;
         state.appErr = undefined;
         state.serverErr = undefined;
@@ -117,7 +117,7 @@ const errorSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(getErrorButtonData.fulfilled, (state, action) => {
-      state.errorButtonData = action?.payload;
+      state.errorButtonData = action?.payload?.data;
       state.loading = false;
       state.appErr = undefined;
       state.serverErr = undefined;
@@ -132,7 +132,7 @@ const errorSlice = createSlice({
           state.loading = true;
         });
         builder.addCase(getErrorButtonData2.fulfilled, (state, action) => {
-          state.errorButtonData2 = action?.payload;
+          state.errorButtonData2 = action?.payload?.data;
           state.loading = false;
           state.appErr = undefined;
           state.serverErr = undefined;

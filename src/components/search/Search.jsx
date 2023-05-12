@@ -5,7 +5,7 @@ import {
 import {useTranslation} from 'react-i18next';
 
 function Search() {
-  const {t,i18n} = useTranslation();
+  const {t} = useTranslation();
 
   return (
     <Stack direction="column" sx={{marginLeft:'1em',marginRight:'1em'}}>

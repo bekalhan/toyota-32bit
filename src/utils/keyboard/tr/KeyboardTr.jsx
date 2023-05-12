@@ -1,43 +1,40 @@
-import { height } from '@mui/system';
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 import "../../../index.css";
 
 function KeyboardTr({inputName,formik,setInputs,inputs,keyboard}) {
   const [layoutName, setLayoutName] = useState("default");
-
-  console.log("gelen input name :",inputName);
   
   useEffect(()=>{
     patchAll();
   },[inputs]);
 
   const patchAll = () =>{
-    if(inputName=="sicil_no"){
+    if(inputName==="sicil_no"){
       formik.setFieldValue("sicil_no",inputs.sicil_no);
-    }else if(inputName=="sifre"){
+    }else if(inputName==="sifre"){
       formik.setFieldValue("sifre",inputs.sifre);
-    }else if(inputName=="montaj_no"){
+    }else if(inputName==="montaj_no"){
       formik.setFieldValue("montaj_no",inputs.montaj_no);
-    }else if(inputName=="aciklama"){
+    }else if(inputName==="aciklama"){
       formik.setFieldValue("aciklama",inputs.aciklama);
-    }else if(inputName=="yapilanIslem"){
+    }else if(inputName==="yapilanIslem"){
       formik.setFieldValue("yapilanIslem",inputs.yapilanIslem);
     }
   }
 
   const onChangeAll = (inputs) => {
     setInputs({...inputs});
-    if(inputName=="sicil_no"){
+    if(inputName==="sicil_no"){
       formik.setFieldValue("sicil_no",inputs.sicil_no);
-    }else if(inputName=="sifre"){
+    }else if(inputName==="sifre"){
       formik.setFieldValue("sifre",inputs.sifre);
-    }else if(inputName=="montaj_no"){
+    }else if(inputName==="montaj_no"){
       formik.setFieldValue("montaj_no",inputs.montaj_no);
-    }else if(inputName=="aciklama"){
+    }else if(inputName==="aciklama"){
       formik.setFieldValue("aciklama",inputs.aciklama);
-    }else if(inputName=="yapilanIslem"){
+    }else if(inputName==="yapilanIslem"){
       formik.setFieldValue("yapilanIslem",inputs.yapilanIslem);
     }
   };

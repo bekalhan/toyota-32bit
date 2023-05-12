@@ -7,13 +7,12 @@ import ScrollTop from '../../components/scrollTop/ScrollTop';
 
 
 function TerminalList() {
-    //custom
     const list = useRedux({name:"terminals",data:"terminalList",slice:getTerminalList()});
   return (
     <>
      <ScrollTop />
       <Header />
-      <TerminalGrid terminalList={list?.data?.Response?.data} />
+      <TerminalGrid terminalList={list?.Response?.data} />
     </>
   )
 }

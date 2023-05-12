@@ -13,7 +13,7 @@ import {useParams,useNavigate} from 'react-router-dom';
 function ErrorList() {
 
   let list = useRedux({name:"errorList",data:"errorList",slice:getErrorDataList()});  
-  let inactivity = useTime(5);
+  let inactivity = useTime(30);
   const navigate = useNavigate();
   const params = useParams();
 

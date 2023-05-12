@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid,Stack,Typography} from '@mui/material';
+import {Grid,Stack} from '@mui/material';
 import Date from './date/ChooseDate';
 import Shift from './shift/Shift';
 import { getShifts } from "../../../redux/slices/loginSlices";
@@ -10,14 +10,14 @@ import {useTranslation} from 'react-i18next';
 
 function DateShift({formik}) {
     let shifts = useRedux({name:"login",data:"shifts",slice:getShifts()});
-    const {t,i18n} = useTranslation();
+    const {t} = useTranslation();
   return (
     <Grid container sx={{marginTop:'1em',display:'flex',marginLeft:{lg:'0',md:'0',sm:'0',xs:'1em'}}}>
     <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.3}></Grid>
-        {shifts?.data?.Response?.data.length > 2 ? (
+        {shifts?.Response?.data.length > 2 ? (
                     <Grid item lg={8.2} md={8.2} sm={9} xs={12}>
                     <Grid container
-                    backgroundColor={()=>shifts?.data?.Response?.data?.map((el)=>(
+                    backgroundColor={()=>shifts?.Response?.data?.map((el)=>(
                         el?.shiftCode === formik?.values?.vardiya ? el.rgbColor : (
                             formik?.values?.vardiya==="M" ? '#12a6eb' : formik?.values?.vardiya === "K" ? '#ff0000' : formik?.values?.vardiya === "B" ? '#ffffff' : 'none'
                         )
@@ -29,7 +29,7 @@ function DateShift({formik}) {
                         <Grid item lg={8} md={8} sm={7} xs={7}>
                             <Stack direction='row'>
                                 <Date formik={formik} />
-                                <Shift formik={formik} shifts={shifts?.data?.Response?.data} />
+                                <Shift formik={formik} shifts={shifts?.Response?.data} />
                             </Stack>
                         </Grid>
                         <Grid item lg={0.5} md={0.5} sm={1.5} xs={1.5}></Grid>

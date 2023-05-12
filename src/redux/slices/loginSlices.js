@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
-import logger from 'redux-logger'
 
 
 export const getShifts = createAsyncThunk("/shifts",async () =>{
@@ -13,13 +12,7 @@ export const getShifts = createAsyncThunk("/shifts",async () =>{
 });
 
 export const userLogin = createAsyncThunk("/user-login",async (info) => {
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  };
   try{
-    console.log("info :",info);
     const data = await axios.get(`/login/${info.sicil_no}/${info.sifre}/${info.montaj_no}`)
     if(data?.data?.Response?.type==="Success"){
       localStorage.setItem("userInfo", JSON.stringify(data));
@@ -66,7 +59,8 @@ const loginSlice = createSlice({
         state.loading = true;
       });
       builder.addCase(getShifts.fulfilled, (state, action) => {
-        state.shifts = action?.payload;
+        console.log("action : ",action.payload);
+        state.shifts = action?.payload?.data;
         state.loading = false;
         state.appErr = undefined;
         state.serverErr = undefined;

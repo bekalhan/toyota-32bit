@@ -4,8 +4,7 @@ import {useTranslation} from 'react-i18next';
 
 
 function ValidationMessages({formik,name}) {
-    const {t,i18n} = useTranslation();
-
+    const {t} = useTranslation();
 
     const determineName = () =>{
         switch(name){
@@ -13,17 +12,14 @@ function ValidationMessages({formik,name}) {
                 return(
                     <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.sicil_no && formik.errors.sicil_no}</Typography>
                 )
-                break;
             case 'sifre':
                 return(
                     <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.sifre && formik.errors.sifre}</Typography>
                 )
-                break;
             case 'montaj_no':
                 return(
                     <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.montaj_no && formik.errors.montaj_no}</Typography>
                 )
-                break;
             case 'invalid_credentials':
                 return(
                     <Typography sx={{color:'red',marginBottom:'2em'}}>{t('tummesaj')}</Typography>
@@ -36,7 +32,9 @@ function ValidationMessages({formik,name}) {
                 return(
                     <Typography sx={{color:'red',marginBottom:'2em'}}>{formik.touched.yapilanIslem && formik.errors.yapilanIslem}</Typography>
                 )
-            break;
+            default: return(
+                ""
+            )
         }
     }
   return (

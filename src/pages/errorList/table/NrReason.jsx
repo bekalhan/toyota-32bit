@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import {useRedux} from '../../../hooks/useRedux';
-import {getErrorDataList} from '../../../redux/slices/errorList';
+import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Typography , Box , Stack , FormControl , InputLabel , NativeSelect , InputBase} from '@mui/material'
+import { FormControl  , NativeSelect , InputBase} from '@mui/material'
 
 
 function NrReason({control,list,defaultValue}) {
-    //let list = useRedux({name:"errorList",data:"errorList",slice:getErrorDataList()});  
 
     const BootstrapInput = styled(InputBase)(({ theme }) => ({ 
         'label + &': {
@@ -42,12 +39,6 @@ function NrReason({control,list,defaultValue}) {
         },
       }));
 
-      const randomObjectIndex = () => {
-        let number = Math.floor(Math.random() * 11);
-        return number;
-      }
-
-
   return (
     control ?
     <FormControl variant="standard">
@@ -59,9 +50,9 @@ function NrReason({control,list,defaultValue}) {
       size='small'
       sx={{height:'20px',width:'120px'}}
     >
-    <option selected>{defaultValue?.nrReasonAbb}</option>
+    <option value="default">{defaultValue?.nrReasonAbb}</option>
     {list?.map((el)=>(
-      <option value={el.nrId}>{el?.nrReasonAbb}</option>
+      <option value={el.nrId} key={el.nrId}>{el?.nrReasonAbb}</option>
     ))}
     </NativeSelect>
   </FormControl> :     
@@ -76,5 +67,4 @@ function NrReason({control,list,defaultValue}) {
       </FormControl>
   )
 }
-
-export default NrReason
+export default NrReason;

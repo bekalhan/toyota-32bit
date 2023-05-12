@@ -1,14 +1,11 @@
-import { createAsyncThunk, createSlice, createAction } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getTerminalList =  createAsyncThunk("/terminal-list",async ()=>{
     try{
-      console.log("girdiii");
         const data = await axios.get(`/terminal-list`);
-        console.log("data :",data);
         return data;
     }catch(error){
-      console.log(error);
         if (!error?.response) throw error;
     }
 });
@@ -29,11 +26,11 @@ const terminalSlice = createSlice({
     },
     extraReducers : builder =>{
     //get terminal list
-    builder.addCase(getTerminalList.pending, (state, action) => {
+    builder.addCase(getTerminalList.pending, (state) => {
         state.loading = true;
       });
       builder.addCase(getTerminalList.fulfilled, (state, action) => {
-        state.terminalList = action?.payload;
+        state.terminalList = action?.payload?.data;
         state.loading = false;
         state.appErr = undefined;
         state.serverErr = undefined;
@@ -48,7 +45,8 @@ const terminalSlice = createSlice({
         state.loading = true;
       });
       builder.addCase(getSpeTerminal.fulfilled, (state, action) => {
-        state.terminal = action?.payload;
+        console.log("speee : ",action.payload)
+        state.terminal = action?.payload?.data;
         state.loading = false;
         state.appErr = undefined;
         state.serverErr = undefined;

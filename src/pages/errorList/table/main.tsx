@@ -30,13 +30,6 @@ function Main() {
     }
   }
 
-  const randomNumber = () => {
-    let number = Math.floor(Math.random() * 11);
-    console.log("üretilen sayı : ",number);
-    return number;
-  }
-
-
   const columns = React.useMemo<ColumnDef<Error>[]>(
     () => [
       {
@@ -73,7 +66,7 @@ function Main() {
         <Typography sx={{fontWeight:'bold',color:`${getColor(info.row.original.renk)}`,textAlign:'center',padding:0.5}}>{info.row.original.colorCode}</Typography>
       </Box>,
         header: () => <Typography sx={{fontWeight:'bold',padding:1}}>Renk</Typography>,
-        size:33,
+        size:23,
       },
       {
         accessorFn: row => row.modelCode,
@@ -170,7 +163,6 @@ function Main() {
         accessorFn: row => row.nrReasonId,
         id: 'nrReasonId',
         cell: info =>info.getValue() !== 0 ?(
-          //  console.log("test : ",info.row.original)
            <NrReason control={true} list={info.row.original.nrReasonList} defaultValue={info.row.original.nrReasonList[info.row.original.random]} />
         ):<NrReason control={false} list={info.row.original.nrReasonList} defaultValue={info.row.original.nrReasonList[info.row.original.random]} />,
         header: () => <span>NR REASON</span>,
@@ -222,6 +214,7 @@ function Main() {
   })
 
 
+
   const tableContainerRef = React.useRef<HTMLDivElement>(null)
 
 
@@ -237,7 +230,7 @@ function Main() {
   const paddingBottom =
     virtualRows.length > 0
       ? totalSize - (virtualRows?.[virtualRows.length - 1]?.end || 0)
-      : 0
+      : 0 
 
   return (
     <div className="all" id='all'>

@@ -427,11 +427,11 @@ h1 span{
     width: 690px !important;
   }
   .list{
-    margin-left: 8em !important;
+    margin-left: 6em !important;
     margin-top: 0.7em !important;
   }
   .txt-vardiya{
-    margin-left: 2em !important;
+    margin-left: 4em !important;
     font-size: 18px;
     font-weight: bold;
     margin-top: 1.5em;
@@ -642,7 +642,7 @@ html {
     border-spacing: 0;
     font-family: arial, sans-serif;
     table-layout: fixed;
-    width: 400%;
+    width: 300%;
     height: 1200px;
   }
 }
@@ -654,18 +654,39 @@ html {
     border-spacing: 0;
     font-family: arial, sans-serif;
     table-layout: fixed;
-    width: 500%;
+    width: 400%;
     height: 1200px;
   }
 }
-
-@media only screen and (max-width: 600px) {
+@media screen and (min-width:500px) and (max-width:600px),screen and (min-device-width:500px) and (max-device-width:600px) {
   table {
     border-collapse: collapse;
     border-spacing: 0;
     font-family: arial, sans-serif;
     table-layout: fixed;
-    width: 150%;
+    width: 500%;
+    height: 1200px;
+  }
+}
+
+@media screen and (min-width:400px) and (max-width:500px),screen and (min-device-width:400px) and (max-device-width:500px) {
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial, sans-serif;
+    table-layout: fixed;
+    width: 600%;
+    height: 1200px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: arial, sans-serif;
+    table-layout: fixed;
+    width: 750%;
     height: 1200px;
   }
 }

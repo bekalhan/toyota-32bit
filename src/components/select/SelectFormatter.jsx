@@ -41,9 +41,9 @@ function SelectFormatter(params) {
       <MenuItem disabled value="">
           <em>{params.defaultName}</em>
       </MenuItem>
-        {params?.list?.map((e) => (
+        {params?.list?.map((e,index) => (
             <MenuItem
-            key={e?.[params.keys]}
+            key={index}
             value={e?.[params.value]}
             >
             {e?.[params.value]}

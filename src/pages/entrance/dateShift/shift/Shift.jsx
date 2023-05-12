@@ -5,7 +5,7 @@ import {useTranslation} from 'react-i18next';
 
 
 function Shift({formik,shifts}) { 
-  const {t,i18n} = useTranslation();
+  const {t} = useTranslation();
 
   return (
     <Stack direction='row'>

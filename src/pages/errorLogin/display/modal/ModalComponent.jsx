@@ -119,8 +119,8 @@ function ModalComponent({open,handleClose}) {
                     <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                       <SelectFormatter name={"errorRes"}
                       select={select} onChange={setSelect}
-                        list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList} keys={"dataCode"}
-                        value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue}
+                        list={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList}
+                        value={"dataValue"} defaultName={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue}
                         format={"40-40-40-40"}
                         />
                     </FormControl>
@@ -135,8 +135,8 @@ function ModalComponent({open,handleClose}) {
                     <FormControl sx={{width:{lg:'200px',md:'200px',sm:'200px',xs:'300px'},backgroundColor:'white'}}>
                                 <SelectFormatter name={"errorReason"}
                                 select={select} onChange={setSelect}
-                                list={errorButtonData2?.data?.Response?.data[0]} key={"nrId"}
-                                value={"nrReasonAbb"} defaultName={errorButtonData2?.data?.Response?.data[0][0]?.nrReasonAbb} format={"40-40-40-40"}
+                                list={errorButtonData2?.Response?.data[0]}
+                                value={"nrReasonAbb"} defaultName={errorButtonData2?.Response?.data[0][0]?.nrReasonAbb} format={"40-40-40-40"}
                                 />
                     </FormControl>
                 </Grid>
@@ -150,8 +150,8 @@ function ModalComponent({open,handleClose}) {
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                                   <SelectFormatter name={"errorClass"}
                                     select={select} onChange={setSelect}
-                                    list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList} keys={"dataCode"}
-                                    value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList[0]?.dataValue} 
+                                    list={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList}
+                                    value={"dataValue"} defaultName={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList[0]?.dataValue} 
                                     format={"40-40-40-40"}
                                     />
                     </FormControl>
@@ -176,8 +176,8 @@ function ModalComponent({open,handleClose}) {
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                             <SelectFormatter name={"errorExit"}
                                     select={select} onChange={setSelect}
-                                    list={errorButtonData?.data?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList} keys={"dataCode"}
-                                    value={"dataValue"} defaultName={errorButtonData?.data?.Response?.data[0]?.requiredFieldsByInspectionDTOList[0]?.errDetailComboBoxValueDTOList[0]?.dataValue}ü
+                                    list={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList}
+                                    value={"dataValue"} defaultName={errorButtonData?.Response?.data[0]?.requiredFieldsByInspectionDTOList[0]?.errDetailComboBoxValueDTOList[0]?.dataValue}ü
                                     format={"40-40-40-40"}
                                     />
                     </FormControl>

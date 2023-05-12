@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react';
-import {Grid,Typography,FormControl} from '@mui/material';
+import React from 'react';
+import {Grid,FormControl} from '@mui/material';
 import {useParams} from 'react-router-dom';
 import { getSpeTerminal } from "../../../../redux/slices/terminalSlices";
 import {useRedux} from '../../../../hooks/useRedux';
@@ -14,7 +14,7 @@ function TerminalList() {
     //use react router params
     const params = useParams();
 
-    const {t,i18n} = useTranslation();
+    const {t} = useTranslation();
 
     let terminal = useRedux({name:"terminals",data:"terminal",slice:getSpeTerminal(params)});
     const [select,setSelect] = useSelect({personName:[]});
@@ -31,8 +31,8 @@ function TerminalList() {
         <FormControl className='txt-field'>
                     <SelectFormatter name={"personName"}
                       select={select} onChange={setSelect}
-                        list={terminal?.data?.Response?.data} keys={"termName"}
-                        value={"termName"} defaultName={terminal?.data?.Response?.data[0]?.termName} format={"50-50-40-40"} />
+                        list={terminal?.Response?.data}
+                        value={"termName"} defaultName={terminal?.Response?.data[0]?.termName} format={"50-50-40-40"} />
                 </FormControl>
         {/* select dropdown end */}
     </Grid>

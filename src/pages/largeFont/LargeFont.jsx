@@ -51,8 +51,8 @@ function LargeFont({status}) {
       </div>
       <div className="bottom">
           <Stack direction="column" sx={{marginLeft:{lg:'2em',md:'2em',sm:'1em',xs:'0'}}}>
-            {fontData?.data?.Response?.data?.map((el)=>(
-              <Typography sx={{fontWeight:'bold',fontSize:{lg:'24px',md:'22px',sm:'20px',xs:'18px'},marginTop:'0.4em'}}>{el?.partName} - {el?.defectName}</Typography>
+            {fontData?.Response?.data?.map((el,index)=>(
+              <Typography key={index} sx={{fontWeight:'bold',fontSize:{lg:'24px',md:'22px',sm:'20px',xs:'18px'},marginTop:'0.4em'}}>{el?.partName} - {el?.defectName}</Typography>
             ))}
           </Stack>
       </div>

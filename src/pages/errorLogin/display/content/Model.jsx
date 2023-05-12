@@ -32,7 +32,7 @@ function Model() {
     loading ? <Loading />: 
     clicked ?
     <>
-        <ChoosedError error={clickedError} defects={errors?.data?.Response?.data[0].partDefects} /> 
+        <ChoosedError error={clickedError} defects={errors?.Response?.data[0].partDefects} /> 
     </> 
 :
     <Box sx={{overflowX:'scroll',width:'100%',height:'600px',position:'relative'}}>
@@ -44,7 +44,7 @@ function Model() {
     }}
     className='pic2'
      />
-     {errors?.data?.Response?.data[0].defectButtonRecords?.map((e)=>(
+     {errors?.Response?.data[0].defectButtonRecords?.map((e,index)=>(
            <Box sx={{position:'absolute',borderRadius:'8px',border:`3px solid ${e.boxColor}`,
            justifyContent:'center',
            cursor:'pointer'
@@ -53,6 +53,7 @@ function Model() {
            width={e.boxWidth}
            left={e.boxX+20} top={e.boxY}
            onClick={()=>handleClick(e.childPicID,e)}
+           key={index}
            >
                <Typography sx={{maxWidth:'100%',backgroundColor:'white',color:`${e.labelColor}`,fontSize:'11px',display:'flex',justifyContent:'center'}}>{e.labelText}</Typography>
            </Box>
