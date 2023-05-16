@@ -1,4 +1,129 @@
-# Getting Started with Create React App
+# Toyota-32bit
+
+
+## **_Information_**
+
+> An application for error listing display and error entry using React.js , Mui and Redux
+
+<br>
+
+## **_Configuration and Setup_**
+<br>
+
+> In order to run this project locally, simply fork and clone the repository or download as zip and unzip on your machine.
+
+<br>
+
+* Open the project in your prefered code editor.
+* Go to terminal -> New terminal
+* Follow these steps
+
+<br>
+
+> In the terminal
+
+```bash
+npm install (to install dependencies)
+npm run start (to start the project)
+```
+
+<br> <br>
+
+## **_Technologies Used_**
+
+* [React](https://react.dev/learn) The library for web and native user interfaces
+
+* [Mui](https://mui.com) MUI offers a comprehensive suite of UI tools to help you ship new features faster.
+
+<br>
+
+### **_Mui installation_**
+
+#### npm:
+
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+```
+
+#### yarn:
+
+```bash
+yarn add @mui/material @emotion/react @emotion/styled
+```
+<br>
+
+* [Mui Icons](https://mui.com/material-ui/material-icons/) includes the 2,100+ official Material Icons converted to SvgIcon components. It depends on @mui/material, which requires Emotion packages
+
+<br>
+
+### **_Mui Icons installation_**
+
+#### npm:
+
+```bash
+npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+```
+
+<br>
+
+* [React hooks](https://reactjs.org/docs/hooks-intro.html) for managing application
+
+* [react-router-dom](https://www.npmjs.com/package/react-router-dom) for managing router
+
+<br>
+
+### **_react-router-dom installation_**
+
+#### npm:
+
+```bash
+npm i react-router-dom
+```
+
+* [Redux-toolkit](https://redux-toolkit.js.org) The official, opinionated, batteries-included toolset for efficient Redux development
+
+<br>
+
+### **_Redux Toolkit installation_**
+
+#### npm:
+
+```bash
+npm install @reduxjs/toolkit
+```
+
+* [Axios](https://www.npmjs.com/package/axios) for Api calls
+
+<br>
+
+### **_Axios installation_**
+
+#### npm:
+
+```bash
+npm install axios
+```
+
+<br>
+
+* [Css](https://developer.mozilla.org/en-US/docs/Web/CSS) for UI
+
+* [react-simple-keyboard](https://www.npmjs.com/package/react-simple-keyboard) for virtual keyboard
+
+* [Formik](https://formik.org/docs/guides/validation) Formik is designed to manage forms with complex validation with ease
+
+* [Yup](https://www.npmjs.com/package/yup) Yup is a schema builder for runtime value parsing and validation
+
+* [Tanstack-table](https://tanstack.com/table/v8/docs/adapters/react-table) for react table
+
+* [react-lineto](https://www.npmjs.com/package/react-lineto) for draw a line
+
+* [i18n](https://www.npmjs.com/package/i18n) for multi language
+
+<br><br>
+
+
+## **_Getting Started with Create React App_**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -68,3 +193,83 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## **_Brief Pictures_**
+Terminal List
+
+![Resim](./src/img/brief1.png)
+
+<br>
+
+Terminal Login
+
+![Resim](./src/img/brief2.png)
+
+<br>
+
+Error Login
+
+![Resim](./src/img/brief3.png)
+
+<br>
+
+Modal
+
+![Resim](./src/img/brief4.png)
+
+<br>
+
+Large Font
+
+![Resim](./src/img/brief5.png)
+
+<br>
+
+Error List
+
+![Resim](./src/img/brief6.png)
+
+<br>
+
+Not Found
+
+![Resim](./src/img/brief7.png)
+
+<br>
+
+UnAuthorize
+
+![Resim](./src/img/brief8.png)
+
+<br>
+<br>
+
+### **_Developer_**
+
+* [Github](https://github.com/bekalhan) This is my github profile
+
+* [Linkedln](https://www.linkedin.com/in/berat-kalhan-76a1391ba/) This is my  linkedln profile
+
+* Email => beratkalhan99@gmail.com
+
+
+<br><br>
+
+### **_Other Projects_**
+
+* [Getir Clone](https://github.com/bekalhan/getir-clone) => Try to make a new getir 
+
+* [Blog Api](https://github.com/bekalhan/REBlog) => Blog api includes banned system , follow and unfollow , who view my profile and more using with nodejs
+
+* [Blog UI](https://github.com/bekalhan/REBlog-Client) => Blog UI with mui
+
+* [E-commerce App](https://github.com/bekalhan/technology) => making a e-commerce app with mern stack
+
+* [Asp.Net Mvc](https://github.com/bekalhan/aspnet-mvc)
+
+
+
+
+
+
