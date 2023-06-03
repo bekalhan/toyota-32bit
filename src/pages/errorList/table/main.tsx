@@ -22,7 +22,7 @@ import { useVirtual } from 'react-virtual'
 function Main() {
   const [sorting, setSorting] = React.useState<SortingState>([])
 
-  //set color according to background color
+  //set color according to background
   const getColor = (code:string) => {
     if(code === "#d7dfe3" || code === "#fffefe" || code === "#f6f6f6" || code === "#ffffff"){
       return "black";
@@ -31,7 +31,6 @@ function Main() {
     }
   }
 
-  //Table columns
   const columns = React.useMemo<ColumnDef<Error>[]>(
     () => [
       {
@@ -201,7 +200,6 @@ function Main() {
     []
   )
 
-  //how many data?
   const [data] = React.useState(() => makeData(1000))
 
   const table = useReactTable({
@@ -216,10 +214,11 @@ function Main() {
     debugTable: true,
   })
 
+
+
   const tableContainerRef = React.useRef<HTMLDivElement>(null)
 
 
-  //virtualize
   const { rows } = table.getRowModel()
   const rowVirtualizer = useVirtual({
     parentRef: tableContainerRef,
