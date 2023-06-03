@@ -9,6 +9,7 @@ function Shift({formik,shifts}) {
 
   return (
     <Stack direction='row'>
+      {/* SHİFTS */}
         <Box>
             <div className='txt-vardiya'>{t('vardiya')}</div>
         </Box>
@@ -17,10 +18,10 @@ function Shift({formik,shifts}) {
                     <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={formik.values.vardiya}
-                    onChange={formik.handleChange("vardiya")}
-                    onBlur={formik.handleBlur("vardiya")}
-                    sx={{width:{lg:'100px',md:'80px'},height:{lg:'55px',md:'55px',sm:'42px',xs:'40px'},marginTop:{lg:'0',md:'10px',sm:'10px',xs:'10px'}}}
+                    value={formik.values.shift}
+                    onChange={formik.handleChange("shift")}
+                    onBlur={formik.handleBlur("shift")}
+                    sx={{width:{lg:'100px',md:'80px'},height:{lg:'55px',md:'55px',sm:'40px',xs:'40px'},marginTop:{lg:'0',md:'0.6em',sm:'1em',xs:'0.7em'}}}
                     >
                       {shifts?.map((shift)=>(
                         <MenuItem value={shift.shiftCode} key={shift.shiftId}>{shift.shiftCode}</MenuItem>

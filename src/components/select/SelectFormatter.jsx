@@ -42,12 +42,15 @@ function SelectFormatter(params) {
           <em>{params.defaultName}</em>
       </MenuItem>
         {params?.list?.map((e,index) => (
+          index!== 0 ? (
             <MenuItem
             key={index}
             value={e?.[params.value]}
+            sx={{backgroundColor:'#c6ffc7'}}
             >
             {e?.[params.value]}
             </MenuItem>
+          ):null
         ))}
         </Select>
     ) : (

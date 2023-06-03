@@ -14,8 +14,10 @@ function TerminalList() {
     //use react router params
     const params = useParams();
 
+    //mulit language
     const {t} = useTranslation();
 
+    //custom redux,select hook
     let terminal = useRedux({name:"terminals",data:"terminal",slice:getSpeTerminal(params)});
     const [select,setSelect] = useSelect({personName:[]});
 

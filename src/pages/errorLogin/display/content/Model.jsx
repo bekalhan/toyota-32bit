@@ -23,6 +23,7 @@ function Model() {
     }
   }
 
+  //use redux custom hook
    let obj = useRedux({name:"error",data:["errors","loading","click"],slice:getErrors()});
    let errors = obj[0];
    let loading = obj[1];
@@ -32,10 +33,13 @@ function Model() {
     loading ? <Loading />: 
     clicked ?
     <>
+        {/* IF ERROR HAS BEEN CHOOSED */}
         <ChoosedError error={clickedError} defects={errors?.Response?.data[0].partDefects} /> 
     </> 
 :
+
     <Box sx={{overflowX:'scroll',width:'100%',height:'600px',position:'relative'}}>
+      {/* DUMMY PICTURE WİTH DATAS */}
      <Avatar
      variant='square'
      src={car}

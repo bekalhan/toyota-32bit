@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 import '../../../../../index.css';
 
 function Test({error,defects}) {
+    // set x and y for catch the scroll movements
     const [point,setPoint] = useState({x:"",y:"",offx:"",offy:""});
     const [ind,setInd] = useState({x:"",y:"",offx:"",offy:""});
 
@@ -52,8 +53,11 @@ function Test({error,defects}) {
   }
 
 
+  //choosed error
   let choosedError = useRedux({name:"error",data:"choosedError"});
+  //when click clena button
   let clean = useRedux({name:"error",data:"clean"});
+  //catch page scroll
   let allScroll = useRedux({name:"error",data:"scroll"});
 
   return (

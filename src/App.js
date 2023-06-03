@@ -14,11 +14,15 @@ import {ToastContainer} from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import React from 'react';
 
+//mui theme
+import {ThemeProvider} from '@mui/material';
+import theme from './theme/theme';
+
 
 function App() {
   return (
-    <>
-    <Box sx={{backgroundColor:'#c6ffc7',height:`${window.innerHeight}px`}}>
+    <ThemeProvider theme={theme}>
+    <Box>
     <HashRouter>
         <Routes>
           <Route path="cvqsterminal">
@@ -37,7 +41,7 @@ function App() {
     </HashRouter>
     </Box>
     <ToastContainer />
-    </>
+    </ThemeProvider>
   );
 }
 

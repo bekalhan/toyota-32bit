@@ -5,27 +5,31 @@ import {
 import { useNavigate } from "react-router-dom";
 import '../../../index.css';
 import {useTranslation} from 'react-i18next';
+import {useTheme} from '@mui/material';
 
 function TerminalGrid({terminalList}) {
+    //navigate and mulit language
     const navigate = useNavigate();
     const {t} = useTranslation();
+    //mui theme
+    const theme = useTheme();
 
   return (
-    <Box sx={{backgroundColor:'#c6ffc7',paddingTop:'3em'}}>
+    <Box sx={{paddingTop:'3em'}}>
     <Grid container>
-       <Grid item lg={12} md={12} sm={12} xs={12} sx={{border:'1px solid #b7ecba'}}>
+       <Grid item lg={12} md={12} sm={12} xs={12} sx={{border:`1px solid ${theme.palette.custom.borderColor}`}}>
          <Box sx={{display:'flex',justifyContent:'center',padding:1}}>
-             <Typography sx={{textDecoration:'underline',color:'#d23d42',fontSize:{lg:'16px'}}}>{t('tumterminaller')}</Typography>
+             <Typography sx={{textDecoration:'underline',color:'#d23d42',fontSize:{lg:'15px'}}}>{t('tumterminaller')}</Typography>
          </Box>
        </Grid>
        <Grid item lg={12} md={12} sm={12} xs={12}>
            <Grid container sx={{marginTop:'0.2px'}}>
-             <Grid item lg={2} md={2} sm={4} xs={4} sx={{border:'2px solid #b7ecba',padding:0.5}}>
+             <Grid item lg={2} md={2} sm={4} xs={4} sx={{border:`1px solid ${theme.palette.custom.borderColor}`,padding:0.5}}>
                <Box sx={{display:'flex',justifyContent:'center'}}>
                    <Typography sx={{color:'#d23d42',fontSize:{lg:'15px'}}}>{t('bolumbazinda')}</Typography>
                </Box>
              </Grid>
-             <Grid item lg={10} md={10} sm={8} xs={8} sx={{border:'2px solid #b7ecba',padding:0.5}}>
+             <Grid item lg={10} md={10} sm={8} xs={8} sx={{border:`1px solid ${theme.palette.custom.borderColor}`,padding:0.5}}>
                  <Box sx={{display:'flex',justifyContent:'center'}}>
                     <Typography sx={{color:'#d23d42',fontSize:{lg:'15px'}}}>{t('filtrebazinda')}</Typography>
                  </Box>
@@ -35,16 +39,16 @@ function TerminalGrid({terminalList}) {
        {terminalList?.map((terminal,index)=>(
             <Grid key={index} item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}}>
                 <Grid container sx={{marginTop:'0.2px'}}>
-                    <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:'2px solid #b7ecba'}} className='terminal'
+                    <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:`1px solid ${theme.palette.custom.borderColor}`}} className='terminal'
                     >
                     <Box sx={{display:'flex',justifyContent:'center'}}>
                         <Typography sx={{color:'#d34555',fontSize:{lg:'15px'},marginTop:{lg:'1.5em',md:'0.7em',sm:'0'}}}>({terminal?.depCode}){terminal?.depName}</Typography>
                     </Box>
                     </Grid>
-                    <Grid item lg={10} md={10} sm={12} xs={12} sx={{border:'2px solid #b7ecba',padding:1,display:'flex'}} >
+                    <Grid item lg={10} md={10} sm={12} xs={12} sx={{border:`1px solid ${theme.palette.custom.borderColor}`,padding:0.4,display:'flex'}} >
                         <Grid container sx={{justifyContent:{lg:'flex-start',md:'flex-start',sm:'center',xs:'center'}}}>
                         {terminal?.filterBaseds?.map((e,index)=>(
-                        <Grid item lg={1.5} md={2} sm={3} xs={3} key={index} sx={{borderRadius:'10px',border:'2px solid #b7ecba',height:'50px',marginTop:'0.4em',marginLeft:'0.7em'}} className='terminal'
+                        <Grid item lg={1.6} md={2} sm={3} xs={3} key={index} sx={{borderRadius:'10px',border:`1px solid ${theme.palette.custom.borderColor}`,height:'50px',marginTop:'0.4em',marginLeft:'0.7em'}} className='terminal'
                         onClick={()=> navigate(`/cvqsterminal/terminal/${terminal?.depCode}/${e?.filterCode}`)}
                         >
                             <Stack direction='column'>

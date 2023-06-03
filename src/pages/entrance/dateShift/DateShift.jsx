@@ -9,17 +9,20 @@ import {useTranslation} from 'react-i18next';
 
 
 function DateShift({formik}) {
+    //redux hook
     let shifts = useRedux({name:"login",data:"shifts",slice:getShifts()});
     const {t} = useTranslation();
+
   return (
     <Grid container sx={{marginTop:'1em',display:'flex',marginLeft:{lg:'0',md:'0',sm:'0',xs:'1em'}}}>
     <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.3}></Grid>
         {shifts?.Response?.data.length > 2 ? (
                     <Grid item lg={8.2} md={8.2} sm={9} xs={12}>
+                    {/* IMPORT DATE AND SHIFT */}
                     <Grid container
                     backgroundColor={()=>shifts?.Response?.data?.map((el)=>(
-                        el?.shiftCode === formik?.values?.vardiya ? el.rgbColor : (
-                            formik?.values?.vardiya==="M" ? '#12a6eb' : formik?.values?.vardiya === "K" ? '#ff0000' : formik?.values?.vardiya === "B" ? '#ffffff' : 'none'
+                        el?.shiftCode === formik?.values?.shift ? el.rgbColor : (
+                            formik?.values?.shift==="M" ? '#12a6eb' : formik?.values?.shift === "K" ? '#ff0000' : formik?.values?.shift === "B" ? '#ffffff' : 'none'
                         )
                     ))}
                     sx={{height:'80px',borderRadius:'12px'}} className='bkg'>

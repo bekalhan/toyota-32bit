@@ -3,7 +3,6 @@ import axios from "axios";
 
 export const getErrorDataList = createAsyncThunk("/error-list",async () =>{
     try{
-      console.log("error list slices");
         const data = await axios.get(`/error-list`);
         let list = data?.data?.Response?.data[0];
         return list;

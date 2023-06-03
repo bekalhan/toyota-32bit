@@ -7,6 +7,7 @@ import ScrollTop from '../../components/scrollTop/ScrollTop';
 
 
 function TerminalList() {
+    //get terminal list using custom redux hook
     const list = useRedux({name:"terminals",data:"terminalList",slice:getTerminalList()});
   return (
     <>

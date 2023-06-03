@@ -6,6 +6,10 @@ input {
     border: none;
     box-sizing: border-box;
   }
+
+  body{
+    background-color: #c6ffc7;
+  }
   
 
   @media screen and (min-width:1000px) {
@@ -520,7 +524,7 @@ h1 span{
     size: small ;
   }
   .txt-vardiya{
-    margin-left: 1.6em !important;
+    margin-left: 0.7em !important;
     font-size: 18px;
     font-weight: bold;
     margin-top: 1.2em;

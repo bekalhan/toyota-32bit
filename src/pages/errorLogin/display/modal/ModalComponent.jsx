@@ -13,6 +13,8 @@ import SelectFormatter from '../../../../components/select/SelectFormatter';
 import Loading from '../../../../utils/loading/Loading';
 import {useTranslation} from 'react-i18next';
 
+
+//MODAL STYLE
 const style = {
     position: 'absolute',
     top: '50%',
@@ -27,9 +29,10 @@ const style = {
     overflow:'auto'
   };  
 
+  // yup schema
 const formSchema = Yup.object({
-  aciklama : Yup.string().required("Lütfen bir açıklama giriniz"),
-  yapilanIslem : Yup.string().required("Lütfen yapılan işlemi giriniz"),
+  desc : Yup.string().required("Lütfen bir açıklama giriniz"),
+  transaction : Yup.string().required("Lütfen yapılan işlemi giriniz"),
 });
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -45,8 +48,8 @@ function ModalComponent({open,handleClose}) {
   //formik
   const formik = useFormik({
         initialValues: {
-        aciklama: "",
-        yapilanIslem: "",
+        desc: "",
+        transaction: "",
         },
         onSubmit: values => {
           values.errorRes = select.errorRes;
@@ -63,10 +66,12 @@ function ModalComponent({open,handleClose}) {
         validationSchema: formSchema,
     });
 
+  //use redux custom hook
   let errorButtonData = useRedux({name:"error",data:"errorButtonData",slice:getErrorButtonData()});
   let errorButtonData2 = useRedux({name:"error",data:"errorButtonData2",slice:getErrorButtonData2()});
   const {t,i18n} = useTranslation();
 
+  //select custom hook
   const [select,setSelect] = useSelect({errorRes:[],errorReason:[],errorClass:[],errorExit:[],errorSub:[]});
 
   //for keyboard
@@ -90,6 +95,7 @@ function ModalComponent({open,handleClose}) {
 
   return (
   errorButtonData?.length !== 0 && errorButtonData2.length !== 0 ?
+  //Modal
   <Modal
     open={open}
     onClose={handleClose}
@@ -190,15 +196,15 @@ function ModalComponent({open,handleClose}) {
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={9.5} md={9.5} sm={8.5} xs={9}>
               <TextField
-                value={formik.values.aciklama}
-                onBlur={formik.handleBlur("aciklama")}
+                value={formik.values.desc}
+                onBlur={formik.handleBlur("desc")}
                 onChange={onChangeInput}
-                onFocus={() => setInputName("aciklama")}
+                onFocus={() => setInputName("desc")}
                 id="outlined-basic" label="örnek açıklama" variant="outlined" sx={{width:'100%',backgroundColor:'white'}} size='small' />
 
               </Grid>
             </Grid>
-            <ValidationMessages formik={formik} name="aciklama" />
+            <ValidationMessages formik={formik} name="desc" />
             <Grid container sx={{marginTop:'0.4em'}}>
               <Grid item lg={1.5} md={1.5} sm={2.5} xs={2} sx={{marginTop:'0.5em'}}>
                         <Typography sx={{fontWeight:'bold',color:'red'}}>{t('yapilanislem')} *</Typography>
@@ -206,14 +212,14 @@ function ModalComponent({open,handleClose}) {
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={9.5} md={9.5} sm={8.5} xs={9}>
               <TextField
-                value={formik.values.yapilanIslem}
-                onBlur={formik.handleBlur("yapilanIslem")}
+                value={formik.values.transaction}
+                onBlur={formik.handleBlur("transaction")}
                 onChange={onChangeInput}
-                onFocus={() => setInputName("yapilanIslem")}
+                onFocus={() => setInputName("transaction")}
                   id="outlined-basic" label="düzenleme yapıldı" variant="outlined" sx={{width:'100%',backgroundColor:'white'}} size='small' />
               </Grid>
             </Grid>
-            <ValidationMessages formik={formik} name="yapilanIslem" />
+            <ValidationMessages formik={formik} name="transaction" />
             <Grid container sx={{marginTop:'0.4em'}}>
               <Grid item lg={1.5} md={1.5} sm={2.5} xs={2} sx={{marginTop:'0.5em'}}>
                       <Typography sx={{fontWeight:'bold',color:'red'}}>{t('altsorumlu')} *</Typography>

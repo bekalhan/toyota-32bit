@@ -14,17 +14,23 @@ import { useEffect } from 'react';
 import {changeScroll} from '../../redux/slices/errorSlices';
 import { useDispatch } from 'react-redux';
 import {useTranslation} from 'react-i18next';
+import theme from 'theme/theme';
 
 
 function ErrorLogin() {
 let errorName = useRedux({name:"error",data:"errorName",slice:""});
 let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
 const [scroll,setScroll] = useState({left:"",top:""});
+
+//inactivity custom hook
 let inactivity = useTime(30);
 const {t} = useTranslation();
 
+//mui theme
+
 const dispatch = useDispatch();
 
+//for audio
 const handleAudio = () => {
         if(!inactivity){
             return(
@@ -35,6 +41,7 @@ const handleAudio = () => {
         }
 }
 
+//catch event for line
 const handleScroll = (event) => {
     setScroll({left:event.currentTarget.scrollLeft,top:event.currentTarget.scrollTop});
 }
@@ -48,15 +55,18 @@ useEffect(()=>{
     <Box sx={{display:'none'}}>
         {handleAudio()}
     </Box>
+    {/* LARGE FONT OR ERROR LOGİN PAGE */}
     {largeFont ? <LargeFont status={inactivity} /> :
-    <Box sx={{display:'flex',backgroundColor:'#c6ffc7',height:'95%',overflow:'auto',justifyContent:'center',width:'100%'}} onScroll={handleScroll}>
+    <Box sx={{display:'flex',height:'95%',justifyContent:'center',width:'100%'}} onScroll={handleScroll}>
         <ScrollTop />
         <Grid container sx={{display:'flex',justifyContent:'center'}} className='pic'>
-            <Grid item lg={10} md={12} sm={12} xs={12} sx={{border:'2px solid #b7ecba',borderRadius:'10px'}}>
+            <Grid item lg={10} md={12} sm={12} xs={12} sx={{border:`2px solid ${theme.palette.custom.borderColor}`,borderRadius:'10px',height:'800px'}}>
                 <Grid container>
+                    {/* HEADER DATA */}
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                         <HeaderData name="error" />
                     </Grid>
+                    {/* PICTURE AND BUTTONS */}
                     <Grid item lg={12} sx={{width:'100%'}}>
                         <Grid container>
                             <Grid item lg={9.3} md={9.5} sm={12} xs={12}>
@@ -67,10 +77,12 @@ useEffect(()=>{
                             </Grid>
                         </Grid>
                     </Grid>
+                    {/* BOTTOM BUTTONS */}
                     <Grid item lg={9.3} md={9.5} sm={12} xs={12}>
                         <ButtomButtons />
                     </Grid>
                 </Grid>
+                {/* SUPPORT */}
                 <Grid item lg={12} md={12} sm={12} xs={12}>
                     {errorName !==undefined ?(
                     <Grid container sx={{marginTop:'1em'}}>

@@ -13,7 +13,10 @@ import {changeFontStatus} from '../../redux/slices/largeFont';
 import { useDispatch } from 'react-redux';
 
 function LargeFont({status}) {
+
+  //custom redux hook
   const fontData = useRedux({name:"font",data:"fontData",slice:getFontData()});
+  //custom inactivity hook
   let inactivity = useTime(5);
   const dispatch = useDispatch();
 

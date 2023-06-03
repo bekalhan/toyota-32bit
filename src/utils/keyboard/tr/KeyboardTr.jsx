@@ -11,31 +11,31 @@ function KeyboardTr({inputName,formik,setInputs,inputs,keyboard}) {
   },[inputs]);
 
   const patchAll = () =>{
-    if(inputName==="sicil_no"){
-      formik.setFieldValue("sicil_no",inputs.sicil_no);
-    }else if(inputName==="sifre"){
-      formik.setFieldValue("sifre",inputs.sifre);
-    }else if(inputName==="montaj_no"){
-      formik.setFieldValue("montaj_no",inputs.montaj_no);
-    }else if(inputName==="aciklama"){
-      formik.setFieldValue("aciklama",inputs.aciklama);
-    }else if(inputName==="yapilanIslem"){
-      formik.setFieldValue("yapilanIslem",inputs.yapilanIslem);
+    if(inputName==="s_no"){
+      formik.setFieldValue("s_no",inputs.s_no);
+    }else if(inputName==="password"){
+      formik.setFieldValue("password",inputs.password);
+    }else if(inputName==="m_no"){
+      formik.setFieldValue("m_no",inputs.m_no);
+    }else if(inputName==="desc"){
+      formik.setFieldValue("desc",inputs.desc);
+    }else if(inputName==="transaction"){
+      formik.setFieldValue("transaction",inputs.transaction);
     }
   }
 
   const onChangeAll = (inputs) => {
     setInputs({...inputs});
-    if(inputName==="sicil_no"){
-      formik.setFieldValue("sicil_no",inputs.sicil_no);
-    }else if(inputName==="sifre"){
-      formik.setFieldValue("sifre",inputs.sifre);
-    }else if(inputName==="montaj_no"){
-      formik.setFieldValue("montaj_no",inputs.montaj_no);
-    }else if(inputName==="aciklama"){
-      formik.setFieldValue("aciklama",inputs.aciklama);
-    }else if(inputName==="yapilanIslem"){
-      formik.setFieldValue("yapilanIslem",inputs.yapilanIslem);
+    if(inputName==="s_no"){
+      formik.setFieldValue("s_no",inputs.s_no);
+    }else if(inputName==="password"){
+      formik.setFieldValue("password",inputs.password);
+    }else if(inputName==="m_no"){
+      formik.setFieldValue("m_no",inputs.m_no);
+    }else if(inputName==="desc"){
+      formik.setFieldValue("desc",inputs.desc);
+    }else if(inputName==="transaction"){
+      formik.setFieldValue("transaction",inputs.transaction);
     }
   };
 

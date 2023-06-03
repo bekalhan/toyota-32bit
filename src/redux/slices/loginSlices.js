@@ -13,7 +13,7 @@ export const getShifts = createAsyncThunk("/shifts",async () =>{
 
 export const userLogin = createAsyncThunk("/user-login",async (info) => {
   try{
-    const data = await axios.get(`/login/${info.sicil_no}/${info.sifre}/${info.montaj_no}`)
+    const data = await axios.get(`/login/${info.s_no}/${info.password}/${info.m_no}`)
     if(data?.data?.Response?.type==="Success"){
       localStorage.setItem("userInfo", JSON.stringify(data));
     }

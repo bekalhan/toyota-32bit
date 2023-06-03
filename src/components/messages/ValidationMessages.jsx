@@ -8,17 +8,17 @@ function ValidationMessages({formik,name}) {
 
     const determineName = () =>{
         switch(name){
-            case 'sicil_no':
+            case 's_no':
                 return(
-                    <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.sicil_no && formik.errors.sicil_no}</Typography>
+                    <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.s_no && formik.errors.s_no}</Typography>
                 )
-            case 'sifre':
+            case 'password':
                 return(
-                    <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.sifre && formik.errors.sifre}</Typography>
+                    <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.password && formik.errors.password}</Typography>
                 )
-            case 'montaj_no':
+            case 'm_no':
                 return(
-                    <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.montaj_no && formik.errors.montaj_no}</Typography>
+                    <Typography sx={{marginLeft:{lg:'9rem',md:'8rem',sm:'6.2rem',xs:'1.5rem'},color:'red'}}>{formik.touched.m_no && formik.errors.m_no}</Typography>
                 )
             case 'invalid_credentials':
                 return(

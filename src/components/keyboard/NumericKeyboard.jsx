@@ -9,12 +9,12 @@ function NumericKeyboard({inputName,formik,setInputs,inputs,keyboard}) {
   
   useEffect(()=>{
     const patchAll = () =>{
-      if(inputName==="sicil_no"){
-        formik.setFieldValue("sicil_no",inputs.sicil_no);
-      }else if(inputName==="sifre"){
-        formik.setFieldValue("sifre",inputs.sifre);
-      }else if(inputName==="montaj_no"){
-        formik.setFieldValue("montaj_no",inputs.montaj_no);
+      if(inputName==="s_no"){
+        formik.setFieldValue("s_no",inputs.s_no);
+      }else if(inputName==="password"){
+        formik.setFieldValue("password",inputs.password);
+      }else if(inputName==="m_no"){
+        formik.setFieldValue("m_no",inputs.m_no);
       }
     }
     patchAll();
@@ -24,12 +24,12 @@ function NumericKeyboard({inputName,formik,setInputs,inputs,keyboard}) {
 
   const onChangeAll = (inputs) => {
     setInputs({...inputs});
-    if(inputName==="sicil_no"){
-      formik.setFieldValue("sicil_no",inputs.sicil_no);
-    }else if(inputName==="sifre"){
-      formik.setFieldValue("sifre",inputs.sifre);
-    }else if(inputName==="montaj_no"){
-      formik.setFieldValue("montaj_no",inputs.montaj_no);
+    if(inputName==="s_no"){
+      formik.setFieldValue("s_no",inputs.s_no);
+    }else if(inputName==="password"){
+      formik.setFieldValue("password",inputs.password);
+    }else if(inputName==="m_no"){
+      formik.setFieldValue("m_no",inputs.m_no);
     }
   };
 
