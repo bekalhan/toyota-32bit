@@ -18,7 +18,7 @@ function Header() {
     <>
       <ChangeLanguage open={open} handleClose={handleClose} />
         <AppBar position='relative'>
-          <Toolbar sx={{display:'flex',justifyContent:{lg:'space-between',md:'space-between',sm:'space-between',xs:'center'},backgroundColor:'#c6ffc7'}}>
+          <Toolbar sx={{display:'flex',justifyContent:{lg:'space-between',md:'space-between',sm:'space-between',xs:'center'},backgroundColor:'#c6ffc7',alignItems:'center'}}>
               <Stack direction='column' sx={{justifyContent:'center'}}>
                 <Typography sx={{color:'black',fontSize:{lg:'22px',md:'20px',sm:'18px',xs:'22px'},marginTop:{xs:'0.3em'}}}>
                   Complete Vehicle Quality
@@ -27,8 +27,8 @@ function Header() {
                   <DrawerMenu />
                 </Box>
               </Stack>
-              <Stack direction="row" sx={{color:'red',display:{lg:'flex',md:'flex',sm:'flex',xs:'none'}}}>
-              <Stack direction="row" sx={{marginLeft:'1em',cursor:'pointer'}} onClick={()=>handleOpen()}>
+              <Stack direction="row" sx={{color:'red',display:{lg:'flex',md:'flex',sm:'flex',xs:'none'},alignItems:'center'}}>
+              <Stack direction="row" sx={{marginLeft:'1em',cursor:'pointer',marginBottom:'0.3em'}} onClick={()=>handleOpen()}>
                     <LanguageIcon />
                     {i18n.language === 'tr' ?(<Typography >{t('headerdilturk')}</Typography>) : i18n.language === 'en' ? (<Typography >{t('headerdiling')}</Typography>): 
                     i18n.language === 'fr' ? (<Typography>{t('headerdilfra')}</Typography>) : i18n.language === 'ae' ? (<Typography>{t('headerdilara')}</Typography>):null}
