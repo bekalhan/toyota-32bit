@@ -7,7 +7,6 @@ import '../../../../../index.css';
 import ScrollButton from '../../../../../components/scrollButton/ScrollButton';
 import {useRedux} from '../../../../../hooks/useRedux';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 function MenuItems(params) {
   const open = Boolean(params.anchorEl);

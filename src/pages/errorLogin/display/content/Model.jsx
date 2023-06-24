@@ -28,6 +28,8 @@ function Model() {
    let errors = obj[0];
    let loading = obj[1];
    let clicked = obj[2];   
+
+   console.log("loading : ",loading)
   
   return (
     loading ? <Loading />: 

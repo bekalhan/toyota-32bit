@@ -24,13 +24,13 @@ function ValidationMessages({formik,name}) {
                 return(
                     <Typography sx={{color:'red',marginBottom:'2em'}}>{t('tummesaj')}</Typography>
                 )
-            case 'aciklama':
+            case 'desc':
                 return(
-                    <Typography sx={{color:'red',marginBottom:'2em'}}>{formik.touched.aciklama && formik.errors.aciklama}</Typography>
+                    <Typography sx={{color:'red',marginBottom:'2em'}}>{formik.touched.desc && formik.errors.desc}</Typography>
                 )
-            case 'yapilanIslem':
+            case 'transaction':
                 return(
-                    <Typography sx={{color:'red',marginBottom:'2em'}}>{formik.touched.yapilanIslem && formik.errors.yapilanIslem}</Typography>
+                    <Typography sx={{color:'red',marginBottom:'2em'}}>{formik.touched.transaction && formik.errors.transaction}</Typography>
                 )
             default: return(
                 ""

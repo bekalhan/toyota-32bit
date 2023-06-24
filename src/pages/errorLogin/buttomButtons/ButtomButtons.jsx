@@ -25,14 +25,19 @@ function ButtomButtons() {
     let choosedError = useRedux({name:"error",data:"choosedError"});
     let click = useRedux({name:"error",data:"click"});
 
+
     const resetStatus = () => {
+        // if clicked any box then reset
         if(choosedError!==undefined){
             dispatch(changeClean());
         }
+        //reset error
         dispatch(changeError(undefined));
+        //reset error name
         dispatch(changeErrorName(undefined));
     }
 
+    //return first picture
     const resetPic = () => {
         if(click){
             dispatch(changeClick());
@@ -58,12 +63,14 @@ function ButtomButtons() {
         <Grid item lg={1.9} md={1.9} sm={5.6} xs={5.3} sx={{border:`1.5px solid ${theme.palette.custom.darkBorder}`,borderRadius:'7px',justifyContent:'center',height:'60px',marginLeft:'0.3em',display:'flex',alignItems:'center'}} className="item" onClick={()=>{navigate(`/cvqsterminal/terminal/defcorrect/${params?.depcode}/${params?.filtercode}`)}} >
             <Typography sx={{display:'flex',justifyContent:'center',fontWeight:'bold'}}>{t('hatalistesi')}</Typography>
         </Grid>
+        {/* reset choosed error and gif */}
         <Grid item lg={1.9} md={1.9} sm={5.6} xs={5.3} sx={{border:`1.5px solid ${theme.palette.custom.darkBorder}`,borderRadius:'7px',justifyContent:'center',height:'60px',marginLeft:'0.3em',display:'flex',alignItems:'center'}}
         onClick={()=>{resetStatus()}}
         className="item"
         >
             <Typography sx={{display:'flex',justifyContent:'center',fontWeight:'bold'}}>{t('temizle')}</Typography>
         </Grid>
+        {/* transition to large font */}
         <Grid item lg={1.9} md={1.9} sm={11.3} xs={10.8} sx={{border:`1.5px solid ${theme.palette.custom.darkBorder}`,borderRadius:'7px',justifyContent:'center',height:'60px',marginLeft:'0.3em',display:'flex',alignItems:'center'}} className="item" onClick={()=>dispatch(changeFontStatus())}>
             <Typography
              sx={{display:'flex',justifyContent:'center',fontWeight:'bold'}}

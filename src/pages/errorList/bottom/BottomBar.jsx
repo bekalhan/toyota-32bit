@@ -6,6 +6,7 @@ import {useTranslation} from 'react-i18next';
 
 
 function BottomBar() {
+    console.log("bottom bar");
     const {t,i18n} = useTranslation();
   return (
     <Grid container sx={{height:'100%',width:'2100px'}} className='bt4'>

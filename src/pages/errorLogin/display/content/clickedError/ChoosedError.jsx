@@ -74,7 +74,9 @@ function Test({error,defects}) {
     {/* add line according to choosed coordinates */}
      {point.x !== "" && choosedError === undefined && clean === false? (
       <>
+          {/*Screen large and medium  */}
           <Line x0={point.offx+error.boxX+60 - scroll.left - allScroll.x} y0={(218-allScroll.y) + error.boxY + 50 - scroll.top } x1={point.x - scroll.left - allScroll.x} y1={point.y+210-allScroll.y-scroll.top} className='line' />
+          {/* screen small */}
           <Line x0={point.offx+error.boxX+60 - scroll.left - allScroll.x} y0={(60-allScroll.y) + error.boxY + 50 - scroll.top } x1={point.x - scroll.left - allScroll.x} y1={point.y+60-allScroll.y-scroll.top} className='line2' />
       </>
      ):null}

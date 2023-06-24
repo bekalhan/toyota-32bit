@@ -44,12 +44,19 @@ const errorSlice = createSlice({
         errors : [],
         errorButtonData : [],
         errorButtonData2 : [],
+        //for choosed box
         choosedError : undefined,
+        //for bottom text
         errorName:undefined,
+        //for right buttons 
         clickError:undefined,
+        //for inactivity red background
         status:true,
+        //for clean chooses error
         clean:false,
+        //for when click the error
         click:false,
+        //for all page scroll
         scroll:{x:0,y:0}
     },
     reducers:{

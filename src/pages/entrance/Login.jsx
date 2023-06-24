@@ -94,7 +94,7 @@ function Login() {
         <Box sx={{height:'max-content',width:{lg:'100%',md:'100%',sm:'100%',xs:'500px'}}}>
         <ScrollTop />
         <Grid container sx={{justifyContent:'center'}}>
-            <Grid item lg={9} md={10} sm={12} xs={12} sx={{border:`2px solid ${theme.palette.custom.borderColor}`,height:{lg:'850px',md:'900px',sm:'800px',xs:'800px'},borderRadius:'12px'}}>
+            <Grid item lg={9} md={10} sm={12} xs={12} sx={{border:`2px solid ${theme.palette.custom.borderColor}`,height:{lg:'880px',md:'900px',sm:'800px',xs:'800px'},borderRadius:'12px'}}>
                 <Stack direction='column' sx={{width:'100%',display:'flex'}}>
                     {/* HEADER */}
                     <Box sx={{justifyContent:'center',display:'flex'}}>

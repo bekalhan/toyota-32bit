@@ -21,7 +21,7 @@ function LargeFont({status}) {
   const dispatch = useDispatch();
 
   return (
-    <Box sx={{width:'100%',height:'120%',paddingTop:'2em',backgroundColor:status ? '#c6ffc7' : '#d5584a',justifyContent:'center'}}>
+    <Box sx={{width:'100%',height:'1000px',paddingTop:'2em',backgroundColor:status ? '#c6ffc7' : '#d5584a',justifyContent:'center'}}>
      {!inactivity?(
         <Box sx={{justifyContent:'flex-end',display:'flex',marginRight:'3em'}}>
           <Button sx={{border:'2px solid gray',color:'black',width:'100px',fontWeight:'bold',height:'50px'}} onClick={()=>dispatch(changeFontStatus())}>GERİ</Button>

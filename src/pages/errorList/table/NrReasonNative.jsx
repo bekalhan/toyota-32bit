@@ -3,7 +3,7 @@ import { styled } from '@mui/material/styles';
 import { FormControl  , NativeSelect , InputBase} from '@mui/material'
 
 
-function NrReason({control,list,defaultValue}) {
+function NrReasonNative({control,list,defaultValue}) {
 
     const BootstrapInput = styled(InputBase)(({ theme }) => ({ 
         'label + &': {
@@ -16,7 +16,6 @@ function NrReason({control,list,defaultValue}) {
           border: '1px solid #ced4da',
           fontSize: 12,
           fontWeight: '500',
-          paddingLeft:'0.3em',
           transition: theme.transitions.create(['border-color', 'box-shadow']),
           // Use the system font instead of the default Roboto font.
           fontFamily: [
@@ -48,7 +47,7 @@ function NrReason({control,list,defaultValue}) {
       // onChange={handleChange}
       input={<BootstrapInput />}
       size='small'
-      sx={{height:'20px',width:'120px'}}
+      sx={{height:'12px',width:'100px'}}
     >
     <option value="default">{defaultValue?.nrReasonAbb}</option>
     {list?.map((el)=>(
@@ -61,10 +60,10 @@ function NrReason({control,list,defaultValue}) {
           id="demo-customized-select-native"
           input={<BootstrapInput />}
           size='small'
-          sx={{height:'20px',width:'120px'}}
+          sx={{height:'12px',width:'110px'}}
         >
         </NativeSelect>
       </FormControl>
   )
 }
-export default NrReason;
+export default NrReasonNative;

@@ -5,9 +5,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Box } from '@mui/material';
 
 function ScrollButton({name,anc}) {
-
     const scrollTopToBottom = () =>{
         const element = document.getElementById(anc);
+        console.log("element : ",element);
         element.scrollTop += 30;
       }
   
