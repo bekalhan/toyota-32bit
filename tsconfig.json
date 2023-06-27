@@ -35,7 +35,7 @@
       "**/*.tsx",
       "**/**/*.ts",
       "**/**/*.tsx"
-, "src/App.js", "src/pages/entrance/Login.jsx", "src/pages/errorList/table/TableMain.jsx"    ],
+, "src/App.js", "src/pages/entrance/Login.jsx", "src/pages/defectList/table/TableMain.jsx"    ],
     "exclude": [
       "node_modules"
     ]

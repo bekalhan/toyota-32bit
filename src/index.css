@@ -592,21 +592,40 @@ h1 span{
 /* end */
 
 
-@media screen and (min-width:900px) and (max-width:2800px),screen and (min-device-width:900px) and (max-device-width:2800px) {
+@media screen and (min-width:1200px) and (max-width:2800px),screen and (min-device-width:1200px) and (max-device-width:2800px) {
+  .line{
+  visibility: visible;
+  }
+  .line2{
+    visibility: hidden;
+  }
+  .line3{
+    visibility:hidden;
+  }
+}
+
+@media screen and (min-width:900px) and (max-width:1200px),screen and (min-device-width:900px) and (max-device-width:1200px) {
   .line{
   visibility: hidden;
   }
   .line2{
     visibility: visible;
   }
+  .line3{
+    visibility: hidden;
+  }
+
 }
 
 @media screen and (min-width:0px) and (max-width:900px),screen and (min-device-width:0px) and (max-device-width:900px) {
+  .line3{
+    visibility: visible;
+  }
   .line2{
     visibility: hidden;
   }
   .line{
-    visibility: visible;
+    visibility: hidden;
   }
 }
 

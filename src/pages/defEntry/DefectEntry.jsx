@@ -11,14 +11,14 @@ import {useTime} from '../../hooks/useTime';
 import ses from '../../utils/audio/ses.mp3';
 import ScrollTop from '../../components/scrollTop/ScrollTop';
 import { useEffect } from 'react';
-import {changeScroll} from '../../redux/slices/errorSlices';
+import {changeScroll} from '../../redux/slices/defectSlices';
 import { useDispatch } from 'react-redux';
 import {useTranslation} from 'react-i18next';
 import theme from 'theme/theme';
 
 
-function ErrorLogin() {
-let errorName = useRedux({name:"error",data:"errorName",slice:""});
+function DefectEntry() {
+let choosedDefect = useRedux({name:"defect",data:"choosedDefect"});
 let largeFont = useRedux({name:"font",data:"largeFont",slice:""});
 const [scroll,setScroll] = useState({left:"",top:""});
 
@@ -55,7 +55,7 @@ useEffect(()=>{
     <Box sx={{display:'none'}}>
         {handleAudio()}
     </Box>
-    {/* LARGE FONT OR ERROR LOGİN PAGE */}
+    {/* LARGE FONT OR DEFECT ENTRY PAGE */}
     {largeFont ? <LargeFont status={inactivity} /> :
     <Box sx={{display:'flex',height:'95%',justifyContent:'center',width:'100%'}} onScroll={handleScroll}>
         <ScrollTop />
@@ -64,7 +64,7 @@ useEffect(()=>{
                 <Grid container>
                     {/* HEADER DATA */}
                     <Grid item lg={12} md={12} sm={12} xs={12}>
-                        <HeaderData name="error" />
+                        <HeaderData name="defect" />
                     </Grid>
                     {/* PICTURE AND BUTTONS */}
                     <Grid item lg={12} sx={{width:'100%'}}>
@@ -84,10 +84,10 @@ useEffect(()=>{
                 </Grid>
                 {/* SUPPORT */}
                 <Grid item lg={12} md={12} sm={12} xs={12}>
-                    {errorName !==undefined ?(
+                    {choosedDefect !==undefined ?(
                     <Grid container sx={{marginTop:'1em'}}>
                         <Grid item lg={6} sx={{display:'flex',justifyContent:'flex-start'}}>
-                            <Typography variant='h6' sx={{marginLeft:'0.6em',fontWeight:'bold'}}>{errorName}</Typography>
+                            <Typography variant='h6' sx={{marginLeft:'0.6em',fontWeight:'bold'}}>{choosedDefect}</Typography>
                         </Grid>
                         <Grid item lg={6} sx={{display:'flex',justifyContent:'flex-end'}}>
                                 <Stack direction="row" sx={{marginRight:'1em'}}>
@@ -114,4 +114,4 @@ useEffect(()=>{
   
   )
 }
-export default ErrorLogin;
+export default DefectEntry;

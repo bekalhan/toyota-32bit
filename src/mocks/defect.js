@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
-export const error = [
-    rest.get('/error-data',(req,res,ctx)=>{
+export const defect = [
+    rest.get('/defect-data',(req,res,ctx)=>{
         return res(
             ctx.json(
                 {Response:{
@@ -27,7 +27,7 @@ export const error = [
             )
         )
     }),
-    rest.get('/error-photo',(req,res,ctx)=>{
+    rest.get('/defect-photo',(req,res,ctx)=>{
         return res(
             ctx.json(
                 {Response:{
@@ -1477,7 +1477,7 @@ export const error = [
             )
         )
     }),
-    rest.get('/error-button',(req,res,ctx)=>{
+    rest.get('/defect-button',(req,res,ctx)=>{
       return res(
         ctx.json(
           {Response:{
@@ -1744,7 +1744,7 @@ export const error = [
         )
       )
     }),
-    rest.get('/error-button2',(req,res,ctx)=>{
+    rest.get('/defect-button2',(req,res,ctx)=>{
       return res(
         ctx.json(
           {Response:{
@@ -1807,6 +1807,154 @@ export const error = [
                 }
               ]
               
+            ]
+          }}
+        )
+      )
+    }),
+    rest.get('/defect-choosed',(req,res,ctx)=>{
+      return res(
+        ctx.json(
+          {Response:{
+            "data":[
+              [
+                {
+                  "ancName":"A/C TUBE",
+                  "defects":[
+                    {
+                      "name":"A/C TUBE",
+                      "coordinates":[
+                        {
+                          "x0":265,
+                          "x1":452,
+                          "y0":70,
+                          "y1":288
+                        }
+                      ],
+                      "boxX":92,
+                      "boxY":44
+                    }
+                  ]
+                },
+                {
+                  "ancName":"RR DIFFERENTIAL",
+                  "defects":[
+                    {
+                      "name":"ENGINE MOVING ROD BOLT",
+                      "coordinates":[
+                        {
+                          "x0":630,
+                          "x1":680,
+                          "y0":100,
+                          "y1":270
+                        }
+                      ],
+                      "boxX":450,
+                      "boxY":44
+                    },
+                    {
+                      "name":"ENGINE MOVING ROD INSULATOR BOLT",
+                      "coordinates":[
+                        {
+                          "x0":270,
+                          "x1":430,
+                          "y0":350,
+                          "y1":470,
+                        }
+                      ],
+                      "boxX":100,
+                      "boxY":300
+                    },
+                    {
+                      "name":"ENGINE MOVING CONTROL ROD",
+                      "coordinates":[
+                        {
+                          "x0":880,
+                          "x1":650,
+                          "y0":450,
+                          "y1":350,
+                        }
+                      ],
+                      "boxX":700,
+                      "boxY":400
+                    },
+                    
+                  ]
+                },
+                {
+                  "ancName":"TRANSAXLE * T/M OIL",
+                  "defects":[
+                    {
+                      "name":"TRANSAXLE * T/M OI",
+                      "coordinates":[
+                        {
+                          "x0":568,
+                          "x1":402,
+                          "y0":190,
+                          "y1":338
+                        }
+                      ],
+                      "boxX":392,
+                      "boxY":144
+                    }
+                  ]
+                },
+                {
+                  "ancName":"RH FR TIRE ÖN KISMI",
+                  "defects":[
+                    {
+                      "name":"RH FR TIRE ÖN KISMI",
+                      "coordinates":[
+                        {
+                          "x0":330,
+                          "x1":500,
+                          "y0":60,
+                          "y1":100
+                        }
+                      ],
+                      "boxX":162,
+                      "boxY":224
+                    }
+                  ]
+                },
+                {
+                  "ancName":"E/G ARKA BÖLGESİ",
+                  "defects":[
+                    {
+                      "name":"E/G ARKA BÖLGESİ",
+                      "coordinates":[
+                        {
+                          "x0":545,
+                          "x1":352,
+                          "y0":80,
+                          "y1":100
+                        }
+                      ],
+                      "boxX":370,
+                      "boxY":240
+                    }
+                  ]
+                },
+                {
+                  "ancName":"LH FR TIRE ÖN KISMI",
+                  "defects":[
+                    {
+                      "name":"LH FR TIRE ÖN KISMI",
+                      "coordinates":[
+                        {
+                          "x0":770,
+                          "x1":452,
+                          "y0":60,
+                          "y1":400
+                        }
+                      ],
+                      "boxX":600,
+                      "boxY":220
+                    }
+                  ]
+                },
+                
+              ]
             ]
           }}
         )

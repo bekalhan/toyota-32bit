@@ -1,6 +1,6 @@
 import React,{useRef} from 'react';
 import { Grid,FormControlLabel,Checkbox,FormControl,Button , TextField, Typography,Box,Modal,Stack, Select} from '@mui/material';
-import {getErrorButtonData,getErrorButtonData2} from '../../../../redux/slices/errorSlices';
+import {getDefectButtonData,getDefectButtonData2} from '../../../../redux/slices/defectSlices';
 import { useState } from 'react';
 import VirtualKeyboard from '../../../../components/keyboard/VirtualKeyboard';
 import * as Yup from "yup";
@@ -52,11 +52,11 @@ function ModalComponent({open,handleClose}) {
         transaction: "",
         },
         onSubmit: values => {
-          values.errorRes = select.errorRes;
-          values.errorReason = select.errorReason;
-          values.errorClass = select.errorClass;
-          values.errorExit = select.errorExit;
-          values.errorSub = select.errorSub;
+          values.defectRes = select.defectRes;
+          values.defectReason = select.defectReason;
+          values.defectClass = select.defectClass;
+          values.defectExit = select.defectExit;
+          values.defectSub = select.defectSub;
           showToast();
           setTimeout(()=>{
             window.location.reload();   
@@ -67,12 +67,12 @@ function ModalComponent({open,handleClose}) {
     });
 
   //use redux custom hook
-  let errorButtonData = useRedux({name:"error",data:"errorButtonData",slice:getErrorButtonData()});
-  let errorButtonData2 = useRedux({name:"error",data:"errorButtonData2",slice:getErrorButtonData2()});
+  let defectButtonData = useRedux({name:"defect",data:"defectButtonData",slice:getDefectButtonData()});
+  let defectButtonData2 = useRedux({name:"defect",data:"defectButtonData2",slice:getDefectButtonData2()});
   const {t,i18n} = useTranslation();
 
   //select custom hook
-  const [select,setSelect] = useSelect({errorRes:[],errorReason:[],errorClass:[],errorExit:[],errorSub:[]});
+  const [select,setSelect] = useSelect({defectRes:[],defectReason:[],defectClass:[],defectExit:[],defectSub:[]});
 
   //for keyboard
   const onChangeInput = (event) => {
@@ -94,7 +94,7 @@ function ModalComponent({open,handleClose}) {
   }
 
   return (
-  errorButtonData?.length !== 0 && errorButtonData2.length !== 0 ?
+  defectButtonData?.length !== 0 && defectButtonData2.length !== 0 ?
   //Modal
   <Modal
     open={open}
@@ -123,10 +123,10 @@ function ModalComponent({open,handleClose}) {
                 <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
                 <Grid item lg={4} md={4} sm={4} xs={9}>
                     <FormControl sx={{width:'100%',backgroundColor:'white'}}>
-                      <SelectFormatter name={"errorRes"}
+                      <SelectFormatter name={"defectRes"}
                       select={select} onChange={setSelect}
-                        list={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList}
-                        value={"dataValue"} defaultName={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue}
+                        list={defectButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList}
+                        value={"dataValue"} defaultName={defectButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[5]?.errDetailComboBoxValueDTOList[0]?.dataValue}
                         format={"40-40-40-40"}
                         />
                     </FormControl>
@@ -139,10 +139,10 @@ function ModalComponent({open,handleClose}) {
                 </Grid>
                 <Grid item lg={3.3} md={3.3} sm={3.3} xs={8}>
                     <FormControl sx={{width:{lg:'200px',md:'200px',sm:'200px',xs:'300px'},backgroundColor:'white'}}>
-                                <SelectFormatter name={"errorReason"}
+                                <SelectFormatter name={"defectReason"}
                                 select={select} onChange={setSelect}
-                                list={errorButtonData2?.Response?.data[0]}
-                                value={"nrReasonAbb"} defaultName={errorButtonData2?.Response?.data[0][0]?.nrReasonAbb} format={"40-40-40-40"}
+                                list={defectButtonData2?.Response?.data[0]}
+                                value={"nrReasonAbb"} defaultName={defectButtonData2?.Response?.data[0][0]?.nrReasonAbb} format={"40-40-40-40"}
                                 />
                     </FormControl>
                 </Grid>
@@ -154,10 +154,10 @@ function ModalComponent({open,handleClose}) {
                   <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
                   <Grid item lg={4} md={4} sm={9.5} xs={9}>
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
-                                  <SelectFormatter name={"errorClass"}
+                                  <SelectFormatter name={"defectClass"}
                                     select={select} onChange={setSelect}
-                                    list={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList}
-                                    value={"dataValue"} defaultName={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList[0]?.dataValue} 
+                                    list={defectButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList}
+                                    value={"dataValue"} defaultName={defectButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[4].errDetailComboBoxValueDTOList[0]?.dataValue} 
                                     format={"40-40-40-40"}
                                     />
                     </FormControl>
@@ -180,10 +180,10 @@ function ModalComponent({open,handleClose}) {
               <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
               <Grid item lg={4} md={4} sm={8.5} xs={9}>
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
-                            <SelectFormatter name={"errorExit"}
+                            <SelectFormatter name={"defectExit"}
                                     select={select} onChange={setSelect}
-                                    list={errorButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList}
-                                    value={"dataValue"} defaultName={errorButtonData?.Response?.data[0]?.requiredFieldsByInspectionDTOList[0]?.errDetailComboBoxValueDTOList[0]?.dataValue}ü
+                                    list={defectButtonData?.Response?.data[0].requiredFieldsByInspectionDTOList[0].errDetailComboBoxValueDTOList}
+                                    value={"dataValue"} defaultName={defectButtonData?.Response?.data[0]?.requiredFieldsByInspectionDTOList[0]?.errDetailComboBoxValueDTOList[0]?.dataValue}ü
                                     format={"40-40-40-40"}
                                     />
                     </FormControl>

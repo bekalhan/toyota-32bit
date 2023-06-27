@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getErrorDataList = createAsyncThunk("/error-list",async () =>{
+export const getDefectDataList = createAsyncThunk("/defect-list",async () =>{
     try{
-        const data = await axios.get(`/error-list`);
+        const data = await axios.get(`/defect-list`);
         let list = data?.data?.Response?.data[0];
         return list;
     }catch(error){
@@ -11,33 +11,33 @@ export const getErrorDataList = createAsyncThunk("/error-list",async () =>{
     }
 });
 
-const errorList = createSlice({
-    name:'errorList',
+const defectList = createSlice({
+    name:'defectList',
     initialState:{
-        errorList:[],
+        defectList:[],
         count:-1,
-        searchBody:null
+        searchBody:''
     },
     reducers:{
       incCount(state){
         state.count += 1;
       },
       searchBody(state,action){
-        state.searchBody = action.paylaod;
+        state.searchBody = action.payload;
       }
     },
     extraReducers : builder =>{
     //get error data
-    builder.addCase(getErrorDataList.pending, (state, action) => {
+    builder.addCase(getDefectDataList.pending, (state, action) => {
         state.loading = true;
       });
-      builder.addCase(getErrorDataList.fulfilled, (state, action) => {
+      builder.addCase(getDefectDataList.fulfilled, (state, action) => {
         state.errorList = action?.payload;
         state.loading = false;
         state.appErr = undefined;
         state.serverErr = undefined;
       });
-      builder.addCase(getErrorDataList.rejected, (state, action) => {
+      builder.addCase(getDefectDataList.rejected, (state, action) => {
         state.loading = false;
         state.appErr = action?.payload?.message;
         state.serverErr = action?.error?.message;
@@ -45,6 +45,6 @@ const errorList = createSlice({
     }
 });
 
-export default errorList.reducer;
-export const {incCount} = errorList.actions
+export default defectList.reducer;
+export const {incCount,searchBody} = defectList.actions
 

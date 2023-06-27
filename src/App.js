@@ -1,8 +1,8 @@
 import TerminalList from "./pages/terminal/TerminalList";
 import Login from "./pages/entrance/Login";
-import ErrorLogin from "./pages/errorLogin/ErrorLogin";
+import ErrorLogin from "./pages/defEntry/DefectEntry";
 import NotFound from "./utils/notfound/NotFound";
-import ErrorList from "./pages/errorList/ErrorList";
+import ErrorList from "./pages/defectList/defectList";
 import PrivateRoute from "./pages/routes/PrivateRoute";
 import {Routes,Route} from 'react-router-dom';
 import {

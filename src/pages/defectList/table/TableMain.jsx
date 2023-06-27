@@ -2,7 +2,6 @@ import React,{useEffect, useState} from 'react';
 import { Typography , Box , Stack} from '@mui/material'
 import { LicenseInfo } from '@mui/x-license-pro';
 import { DataGridPremium } from '@mui/x-data-grid-premium';
-import { useDemoData } from '@mui/x-data-grid-generator';
 import SaveIcon from '@mui/icons-material/Save';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -11,6 +10,7 @@ import '../../../index.css';
 
 import {data} from '../../../mocks/Data';
 import NrReasonNative from './NrReasonNative';
+import { useRedux } from 'hooks/useRedux';
 
 LicenseInfo.setLicenseKey(
   "x0jTPl0USVkVZV0SsMjM1kDNyADM5cjM2ETPZJVSQhVRsIDN0YTM6IVREJ1T0b9586ef25c9853decfa7709eee27a1e"
@@ -20,6 +20,8 @@ LicenseInfo.setLicenseKey(
 const TableMain = () => {
   const [row,setRow] = useState([]);
 
+  //redux hook
+  const body = useRedux({name:"defectList",data:"searchBody",slice:''});
 
   useEffect(()=>{
     rows();
@@ -46,6 +48,7 @@ const TableMain = () => {
       headerName: "Bildiren",
       width: 70,      
       headerClassName: 'super-app-theme--header',
+      
     },
     {
       field: "bodyNo",

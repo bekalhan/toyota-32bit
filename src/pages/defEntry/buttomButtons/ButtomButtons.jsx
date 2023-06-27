@@ -5,7 +5,7 @@ import {
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { useDispatch } from 'react-redux';
 import {changeFontStatus} from '../../../redux/slices/largeFont';
-import {changeClean,changeError ,changeErrorName,changeClick , changeChoosedError} from '../../../redux/slices/errorSlices';
+import {changeClean,changeDefect ,changeDefectName,changeClick , changeChoosedDefect} from '../../../redux/slices/defectSlices';
 import {logoutAction} from '../../../redux/slices/loginSlices';
 import {useRedux} from '../../../hooks/useRedux';
 import {useParams,useNavigate} from 'react-router-dom';
@@ -22,26 +22,28 @@ function ButtomButtons() {
     const theme = useTheme();
 
     //useRedux
-    let choosedError = useRedux({name:"error",data:"choosedError"});
-    let click = useRedux({name:"error",data:"click"});
+    let choosedDefect = useRedux({name:"defect",data:"choosedDefect"});
+    let click = useRedux({name:"defect",data:"click"});
+    let clean = useRedux({name:"defect",data:"clean"});
+
 
 
     const resetStatus = () => {
         // if clicked any box then reset
-        if(choosedError!==undefined){
+        if(!clean){
             dispatch(changeClean());
         }
-        //reset error
-        dispatch(changeError(undefined));
-        //reset error name
-        dispatch(changeErrorName(undefined));
+        //reset defect
+        dispatch(changeDefect(undefined));
+        //reset defect name
+        dispatch(changeDefectName(undefined));
     }
 
     //return first picture
     const resetPic = () => {
         if(click){
             dispatch(changeClick());
-            dispatch(changeChoosedError(undefined))
+            dispatch(changeChoosedDefect(undefined))
         }
     }
 
@@ -63,7 +65,7 @@ function ButtomButtons() {
         <Grid item lg={1.9} md={1.9} sm={5.6} xs={5.3} sx={{border:`1.5px solid ${theme.palette.custom.darkBorder}`,borderRadius:'7px',justifyContent:'center',height:'60px',marginLeft:'0.3em',display:'flex',alignItems:'center'}} className="item" onClick={()=>{navigate(`/cvqsterminal/terminal/defcorrect/${params?.depcode}/${params?.filtercode}`)}} >
             <Typography sx={{display:'flex',justifyContent:'center',fontWeight:'bold'}}>{t('hatalistesi')}</Typography>
         </Grid>
-        {/* reset choosed error and gif */}
+        {/* reset choosed defect and gif */}
         <Grid item lg={1.9} md={1.9} sm={5.6} xs={5.3} sx={{border:`1.5px solid ${theme.palette.custom.darkBorder}`,borderRadius:'7px',justifyContent:'center',height:'60px',marginLeft:'0.3em',display:'flex',alignItems:'center'}}
         onClick={()=>{resetStatus()}}
         className="item"

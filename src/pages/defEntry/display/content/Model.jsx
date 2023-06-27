@@ -1,42 +1,42 @@
 import { Avatar,Box,Typography} from '@mui/material'
 import React, { useState } from 'react';
 import car from '../../../../img/car4.jpg';
-import {getErrors,changeChoosedError,changeClick} from '../../../../redux/slices/errorSlices';
+import {getDefects,changeChoosedDefect,changeClick} from '../../../../redux/slices/defectSlices';
 import Loading from '../../../../utils/loading/Loading';
-import ChoosedError from './clickedError/ChoosedError';
+import ChoosedDefect from './clickedDefect/ChoosedDefect';
 import {useRedux} from '../../../../hooks/useRedux';
 import '../../../../index.css';
 import { useDispatch } from 'react-redux';
 
+
 function Model() {
   //react useState
-  const [clickedError,setClickedError] = useState([]);
+  const [clickedDefect,setClickedDefect] = useState([]);
   
   //dispatch
   const dispatch = useDispatch();
 
-  const handleClick = (childNum,error) => {
-    dispatch(changeChoosedError(error.labelText));
+  const handleClick = (childNum,defect) => {
+    dispatch(changeChoosedDefect(defect.labelText));
     if(childNum!==0){
       dispatch(changeClick());
-      setClickedError(error);
+      setClickedDefect(defect);
     }
   }
 
   //use redux custom hook
-   let obj = useRedux({name:"error",data:["errors","loading","click"],slice:getErrors()});
-   let errors = obj[0];
+   let obj = useRedux({name:"defect",data:["defects","loading","click"],slice:getDefects()});
+   let defects = obj[0];
    let loading = obj[1];
    let clicked = obj[2];   
-
-   console.log("loading : ",loading)
   
   return (
     loading ? <Loading />: 
     clicked ?
     <>
-        {/* IF ERROR HAS BEEN CHOOSED */}
-        <ChoosedError error={clickedError} defects={errors?.Response?.data[0].partDefects} /> 
+        {/* IF DEFECT HAS BEEN CHOOSED */}
+        <ChoosedDefect defect={clickedDefect} defects={defects?.Response?.data[0].partDefects} /> 
+
     </> 
 :
 
@@ -50,7 +50,7 @@ function Model() {
     }}
     className='pic2'
      />
-     {errors?.Response?.data[0].defectButtonRecords?.map((e,index)=>(
+     {defects?.Response?.data[0].defectButtonRecords?.map((e,index)=>(
            <Box sx={{position:'absolute',borderRadius:'8px',border:`3px solid ${e.boxColor}`,
            justifyContent:'center',
            cursor:'pointer'

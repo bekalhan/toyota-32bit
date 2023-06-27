@@ -17,14 +17,15 @@ function Buttons({status}) {
     }
     const handleClose = () => setOpen(false);
 
-    let choosedError = useRedux({name:"error",data:"choosedError"});
-    let error = useRedux({name:"error",data:"clickError"});
+    let choosedDefect = useRedux({name:"defect",data:"choosedDefect"});
+    let defectName = useRedux({name:"defect",data:"defectName"});
+    let defect = useRedux({name:"defect",data:"clickDefect"});
     const {t,i18n} = useTranslation();
 
 
   return (
     <Stack direction="column">
-        {error === undefined?(
+        {defect === undefined?(
             <>
             <Box sx={{display:'flex'}}>
             <Stack direction="row" sx={{justifyContent:'center',width:'100%'}}>
@@ -41,7 +42,7 @@ function Buttons({status}) {
         <Stack direction="column" sx={{marginLeft:'1em',marginRight:'1em'}}>
             <Button disabled sx={{border:'1px solid gray',padding:2}}><Typography sx={{fontWeight:'bold'}}>{t('hizlikaydet')}</Typography></Button>
             <Button disabled sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}}><Typography sx={{fontWeight:'bold'}}>{t('kaydetvegec')}</Typography></Button>
-            {choosedError === undefined ?(
+            {choosedDefect === undefined ?(
              <Button sx={{border:'1px solid gray',padding:2,marginTop:'0.3em'}} disabled><Typography sx={{fontWeight:'bold'}}>{t('hatakayit')}</Typography></Button>
             ):(
                 <Button
@@ -56,7 +57,7 @@ function Buttons({status}) {
             <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black'}}><Typography sx={{fontWeight:'bold'}}>{t('sikgelenhata')}</Typography></Button>
             <Button  sx={{border:'1px solid gray',padding:2,marginTop:'0.3em',color:'black',backgroundColor:status ? null : '#ff1b00'}}><Typography sx={{fontWeight:'bold'}}>{t('manifest')}</Typography></Button>
         </Stack></>
-        ): error !==undefined ? (
+        ): defect !==undefined ? (
         <>
             <Box>
                  <Typography sx={{fontWeight:'bold',marginLeft:'0.5em',marginRight:'0.5em',display:{lg:'block',md:'block',sm:'flex',xs:'flex'},justifyContent:'center'}}>{t('onceki')}</Typography>
@@ -65,7 +66,7 @@ function Buttons({status}) {
                  </Box>
             </Box>
             <Stack sx={{marginLeft:'0.5em',marginRight:'0.5em'}}>
-            {choosedError === undefined ?(
+            {defectName === undefined ?(
              <Button sx={{border:'1px solid gray',padding:3,marginTop:'0.3em'}} disabled><Typography sx={{fontWeight:'bold'}}>{t('hatakayit')}</Typography></Button>
             ):(
                 <Button

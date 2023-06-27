@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
-export const errorList = [
-    rest.get('/error-list',(req,res,ctx)=>{
+export const defectList = [
+    rest.get('/defect-list',(req,res,ctx)=>{
         
         let data = [{
             "type": "SUCCESS",

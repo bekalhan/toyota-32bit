@@ -2,7 +2,7 @@ import { Box, Button, Typography , Stack } from '@mui/material';
 import React from 'react';
 import BottomBar from './bottom/BottomBar';
 import {useRedux} from '../../hooks/useRedux';
-import {getErrorDataList} from '../../redux/slices/errorList';
+import {getDefectDataList} from '../../redux/slices/defectList';
 import TableMain from './table/TableMain';
 import {useTime} from '../../hooks/useTime';
 import {useParams,useNavigate} from 'react-router-dom';
@@ -11,9 +11,9 @@ import TestTable from './table/TableMain';
 
 
 
-function ErrorList() {
+function DefectList() {
 
-  let list = useRedux({name:"errorList",data:"errorList",slice:getErrorDataList()});  
+  let list = useRedux({name:"defectList",data:"defectList",slice:getDefectDataList()});  
   let inactivity = useTime(30);
   const navigate = useNavigate();
   const params = useParams();
@@ -26,7 +26,7 @@ function ErrorList() {
         </Box>
       ):null}
       <Box sx={{height:'650px'}}>
-          <TestTable />
+          <TableMain />
       </Box>
       <Box sx={{height:'3%',backgroundColor:'#c6ffc7',border:'1px solid black',display:'flex',justifyContent:'flex-end'}}>
           <Typography sx={{fontSize:'15px',marginRight:'1em'}}>Total rows : {list?.defectList?.length}</Typography>
@@ -38,4 +38,4 @@ function ErrorList() {
   )
 }
 
-export default ErrorList;
+export default DefectList;

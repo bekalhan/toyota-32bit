@@ -3,11 +3,20 @@ import {Button, Grid, TextField, Typography ,Box} from '@mui/material';
 import ScrollButton from '../../../components/scrollButton/ScrollButton';
 import '../../../index.css'; 
 import {useTranslation} from 'react-i18next';
+import {searchBody} from '../../../redux/slices/defectList';
+import {useDispatch , useSelector} from 'react-redux';
+
 
 
 function BottomBar() {
-    console.log("bottom bar");
-    const {t,i18n} = useTranslation();
+    const [body,setBody] = useState();
+    const {t} = useTranslation();
+    const dispatch = useDispatch();
+
+    const handleBody = () => {
+        dispatch(searchBody(body));
+    }
+
   return (
     <Grid container sx={{height:'100%',width:'2100px'}} className='bt4'>
         <Grid item sx={{border:'0.3px solid gray',padding:1.4,borderRadius:'8px',width:'500px'}} className='bt1'>
@@ -15,7 +24,7 @@ function BottomBar() {
                 <Grid item lg={12} md={12} sm={12} xs={12}>
                     <Grid container>
                         <Grid item lg={4} md={4} sm={4} xs={4}>
-                            <Typography sx={{fontWeight:'bold'}} variant='h6'>{t('montajno')}</Typography>
+                            <Typography sx={{fontWeight:'bold'}} variant='h6'>{t('montajno2')}</Typography>
                         </Grid>
                         <Grid item lg={8} md={8} sm={8} xs={8}>
                             <Grid container>
@@ -37,9 +46,9 @@ function BottomBar() {
                         <Grid item lg={8} md={8} sm={8} xs={8}>
                             <Grid container>
                                 <Grid item lg={8} md={8} sm={8} xs={8}>
-                                    <TextField size='small' sx={{width:'95%'}} />
+                                    <TextField size='small' sx={{width:'95%'}} onChange={(e)=>setBody(e.target.value)} />
                                 </Grid>
-                                <Grid item lg={4} md={4} sm={4} xs={4}>
+                                <Grid item lg={4} md={4} sm={4} xs={4}  onClick={()=>handleBody()}>
                                     <Button sx={{width:'100%',color:'black',backgroundColor:'white',border:'1px solid black',fontWeight:'bold'}} variant='contained'>{t('ara')}</Button>
                                 </Grid>
                             </Grid>                            
