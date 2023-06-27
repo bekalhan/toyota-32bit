@@ -1953,6 +1953,169 @@ export const defect = [
                     }
                   ]
                 },
+                {
+                  "ancName":"RH FR TIRE ARKA KISMI",
+                  "defects":[
+                    {
+                      "name":"RH FR TIRE ARKA KISMI",
+                      "coordinates":[
+                        {
+                          "x0":370,
+                          "x1":552,
+                          "y0":-50,
+                          "y1":100
+                        }
+                      ],
+                      "boxX":200,
+                      "boxY":220
+                    }
+                  ]
+                },
+                {
+                  "ancName":"FR SUSPENSION MEMBER",
+                  "defects":[
+                    {
+                      "name":"FR SUSPENSION MEMBER",
+                      "coordinates":[
+                        {
+                          "x0":470,
+                          "x1":652,
+                          "y0":-70,
+                          "y1":500
+                        }
+                      ],
+                      "boxX":300,
+                      "boxY":170
+                    }
+                  ]
+                },
+                {
+                  "ancName":"LH FR TIRE ARKA KISMI",
+                  "defects":[
+                    {
+                      "name":"LH FR TIRE ARKA KISMI",
+                      "coordinates":[
+                        {
+                          "x0":770,
+                          "x1":452,
+                          "y0":70,
+                          "y1":300
+                        }
+                      ],
+                      "boxX":600,
+                      "boxY":370
+                    }
+                  ]
+                },
+                {
+                  "ancName":"RR DIFFERENTIAL BÖLGESI",
+                  "defects":[
+                    {
+                      "name":"RR DIFFERENTIAL BÖLGESI",
+                      "coordinates":[
+                        {
+                          "x0":560,
+                          "x1":452,
+                          "y0":50,
+                          "y1":100
+                        }
+                      ],
+                      "boxX":380,
+                      "boxY":380
+                    }
+                  ]
+                },
+                {
+                  "ancName":"DWB LOCK NUT",
+                  "defects":[
+                    {
+                      "name":"DWB LOCK NUT",
+                      "coordinates":[
+                        {
+                          "x0":210,
+                          "x1":452,
+                          "y0":60,
+                          "y1":200
+                        }
+                      ],
+                      "boxX":40,
+                      "boxY":470
+                    }
+                  ]
+                },
+                {
+                  "ancName":"RH RR ABSORBER BODY BOLT",
+                  "defects":[
+                    {
+                      "name":"RH RR ABSORBER BODY BOLT",
+                      "coordinates":[
+                        {
+                          "x0":310,
+                          "x1":552,
+                          "y0":60,
+                          "y1":300
+                        }
+                      ],
+                      "boxX":140,
+                      "boxY":490
+                    }
+                  ]
+                },
+                {
+                  "ancName":"RH RR TIRE",
+                  "defects":[
+                    {
+                      "name":"RH RR TIRE",
+                      "coordinates":[
+                        {
+                          "x0":410,
+                          "x1":552,
+                          "y0":60,
+                          "y1":300
+                        }
+                      ],
+                      "boxX":240,
+                      "boxY":495
+                    }
+                  ]
+                },
+                {
+                  "ancName":"LH RR TIRE",
+                  "defects":[
+                    {
+                      "name":"LH RR TIRE",
+                      "coordinates":[
+                        {
+                          "x0":720,
+                          "x1":552,
+                          "y0":60,
+                          "y1":300
+                        }
+                      ],
+                      "boxX":540,
+                      "boxY":495
+                    }
+                  ]
+                },
+                {
+                  "ancName":"LH RR ABSORBER BODY BOLT",
+                  "defects":[
+                    {
+                      "name":"LH RR ABSORBER BODY BOLT",
+                      "coordinates":[
+                        {
+                          "x0":800,
+                          "x1":552,
+                          "y0":60,
+                          "y1":300
+                        }
+                      ],
+                      "boxX":630,
+                      "boxY":465
+                    }
+                  ]
+                },
+                
                 
               ]
             ]
