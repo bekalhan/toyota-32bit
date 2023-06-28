@@ -3,8 +3,64 @@
 
 ## **_Information_**
 
-> An application for error listing display and error entry using React.js , Mui and Redux
+*An application for defect listing display and defect entry using react.js material-ui redux and more.
+*With defect list screen you can display all defect in beautiful design and this screen fully responsive also you can
+configure language using this screen.
+*With entrance screen you can give your information as a input also you can set date and you can do these all things using 
+virtual keyboard and thism screen includes form validation.
+*With defect entry you can choose defect entry you can display defect with line also you can using modal popup and I want to specify this screen fully responsive.Lines never shifts when screen being larger or smaller.Also this screen includes inactivity when you do nothing along 30 seconds you get uncomfortable voice and some of the backgrounds of buttons which this screen turn into a red.
+*With defect list screen you can display 1000 datas maybe more that because I used material-ui data grid.Data grid using table
+virtualization in this case. Table virtualize doesnt render all data instead of just render which datas you see in the screen curently and when you scroll down to displaying other datas data grid also render this data.Data grid doing this operation prevent the crash the website.
 
+
+## **_Brief Pictures_**
+Terminal List
+
+![Resim](./src/img/brief1.png)
+
+<br>
+
+Terminal Login
+
+![Resim](./src/img/brief2.png)
+
+<br>
+
+Error Login
+
+![Resim](./src/img/brief3.png)
+
+<br>
+
+Modal
+
+![Resim](./src/img/brief4.png)
+
+<br>
+
+Large Font
+
+![Resim](./src/img/brief5.png)
+
+<br>
+
+Error List
+
+![Resim](./src/img/brief6.png)
+
+<br>
+
+Not Found
+
+![Resim](./src/img/brief7.png)
+
+<br>
+
+UnAuthorize
+
+![Resim](./src/img/brief8.png)
+
+<br>
 <br>
 
 ## **_Configuration and Setup_**
@@ -194,56 +250,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
-## **_Brief Pictures_**
-Terminal List
-
-![Resim](./src/img/brief1.png)
-
-<br>
-
-Terminal Login
-
-![Resim](./src/img/brief2.png)
-
-<br>
-
-Error Login
-
-![Resim](./src/img/brief3.png)
-
-<br>
-
-Modal
-
-![Resim](./src/img/brief4.png)
-
-<br>
-
-Large Font
-
-![Resim](./src/img/brief5.png)
-
-<br>
-
-Error List
-
-![Resim](./src/img/brief6.png)
-
-<br>
-
-Not Found
-
-![Resim](./src/img/brief7.png)
-
-<br>
-
-UnAuthorize
-
-![Resim](./src/img/brief8.png)
-
-<br>
-<br>
 
 ### **_Developer_**
 
