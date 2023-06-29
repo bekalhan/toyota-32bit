@@ -120,8 +120,8 @@ function ModalComponent({open,handleClose}) {
                 <Grid item lg={1.5} md={1.5} sm={1.5} xs={2}>
                    <Typography sx={{fontWeight:'bold'}}>{t('hatasorumlusu')}</Typography>
                 </Grid>
-                <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
-                <Grid item lg={4} md={4} sm={4} xs={9}>
+                <Grid item lg={1} md={1} sm={2} xs={1}></Grid>
+                <Grid item lg={4} md={4} sm={4} xs={4.3}>
                     <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                       <SelectFormatter name={"defectRes"}
                       select={select} onChange={setSelect}
@@ -131,14 +131,16 @@ function ModalComponent({open,handleClose}) {
                         />
                     </FormControl>
                 </Grid>
-                <Grid item lg={2.2} md={2.2} sm={2.2} xs={4}>
-                <FormControlLabel
-                      label="Harigami"
-                      control={<Checkbox {...label} sx={{ '& .MuiSvgIcon-root': { fontSize: 40 } }} />}
-                  />
+                <Grid item lg={2.2} md={2.2} sm={0.5} xs={0.4}>
+                  <Box sx={{display:{lg:'flex',md:'flex',sm:'none',xs:'none'}}}>
+                    <FormControlLabel
+                        label="Harigami"
+                        control={<Checkbox {...label} sx={{ '& .MuiSvgIcon-root': { fontSize: 40 } }} />}
+                    />
+                  </Box>
                 </Grid>
-                <Grid item lg={3.3} md={3.3} sm={3.3} xs={8}>
-                    <FormControl sx={{width:{lg:'200px',md:'200px',sm:'200px',xs:'300px'},backgroundColor:'white'}}>
+                <Grid item lg={3.3} md={3.3} sm={3.8} xs={4.3}>
+                    <FormControl sx={{width:{lg:'200px',md:'200px',sm:'100%',xs:'100%'},backgroundColor:'white'}}>
                                 <SelectFormatter name={"defectReason"}
                                 select={select} onChange={setSelect}
                                 list={defectButtonData2?.Response?.data[0]}
@@ -148,11 +150,11 @@ function ModalComponent({open,handleClose}) {
                 </Grid>
             </Grid>
             <Grid container>
-                  <Grid item lg={1.5} md={1.5} sm={1.5} xs={2}>
+                  <Grid item lg={1.5} md={1.5} sm={2.5} xs={2}>
                     <Typography sx={{fontWeight:'bold'}}>{t('hatasinifi')}</Typography>
                   </Grid>
                   <Grid item lg={1} md={1} sm={1} xs={1}></Grid>
-                  <Grid item lg={4} md={4} sm={9.5} xs={9}>
+                  <Grid item lg={4} md={4} sm={8.3} xs={9}>
                       <FormControl sx={{width:'100%',backgroundColor:'white'}}>
                                   <SelectFormatter name={"defectClass"}
                                     select={select} onChange={setSelect}
