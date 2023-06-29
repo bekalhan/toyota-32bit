@@ -16,7 +16,8 @@ const defectList = createSlice({
     initialState:{
         defectList:[],
         count:-1,
-        searchBody:''
+        searchBody:'',
+        searchAssy:''
     },
     reducers:{
       incCount(state){
@@ -24,6 +25,9 @@ const defectList = createSlice({
       },
       searchBody(state,action){
         state.searchBody = action.payload;
+      },
+      searchAssy(state,action){
+        state.searchAssy = action.payload;
       }
     },
     extraReducers : builder =>{
@@ -32,7 +36,7 @@ const defectList = createSlice({
         state.loading = true;
       });
       builder.addCase(getDefectDataList.fulfilled, (state, action) => {
-        state.errorList = action?.payload;
+        state.defectList = action?.payload;
         state.loading = false;
         state.appErr = undefined;
         state.serverErr = undefined;
@@ -46,5 +50,5 @@ const defectList = createSlice({
 });
 
 export default defectList.reducer;
-export const {incCount,searchBody} = defectList.actions
+export const {incCount,searchBody,searchAssy} = defectList.actions
 

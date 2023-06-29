@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { Typography , Box , Stack} from '@mui/material'
 import { LicenseInfo } from '@mui/x-license-pro';
-import { DataGridPremium } from '@mui/x-data-grid-premium';
+import { DataGridPro } from '@mui/x-data-grid-pro';
 import SaveIcon from '@mui/icons-material/Save';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -21,11 +21,12 @@ const TableMain = () => {
   const [row,setRow] = useState([]);
 
   //redux hook
-  const body = useRedux({name:"defectList",data:"searchBody",slice:''});
+  let body = useRedux({name:"defectList",data:"searchBody",slice:''});
+  let assyr = useRedux({name:"defectList",data:"searchAssy",slice:''});
 
   useEffect(()=>{
     rows();
-  },[data[0]?.data[0]?.defectList]);
+  },[data[0]?.data[0]?.defectList,body,assyr]);
 
     //set color according to background
     const getColor = (code) => {
@@ -223,41 +224,132 @@ const TableMain = () => {
 
   ];
 
-  const rows = () => [
+    //filter rows
+  const rows = () => {
+    if((body === undefined || body === "") && (assyr === "" || assyr==undefined)){
+      data[0]?.data[0]?.defectList?.map((el,index)=>{
+        setRow((prev)=>[
+          ...prev,
+          {
+            id:index,
+            depCode : el.depCode,
+            bodyNo : el.bodyNo,
+            assy:el.assyNo,
+            vinNo:el.vinNo,
+            renk:[el.rgbCode,el.colorExtCode],
+            modelCode:el.modelCode,
+            localId:el.localId,
+            partName:el.partName,
+            spot:el.spot,
+            gun:el.gun,
+            arc:el.arc,
+            arcGun:el.arcGun,
+            hata:el.defectName.substring(0,20),
+            rank:el.defrankCode,
+            saat:el.formattedDefectHour,
+            hataTuru:el.defectType,
+            hataSor:el.defrespName,
+            altSorumlu:'',
+            nrReason:[el.nrReasonId,data[0]?.data[0].nrReasonList]
+          }
+        ])
+      });
+    }else if(assyr==="" || assyr===undefined){
+      setRow([]);
+  
+      data[0]?.data[0].defectList?.filter(defect => defect?.bodyNo == body).map((el,index)=>{
+        setRow((prev)=>[
+          ...prev,
+          {
+            id:index,
+            depCode : el.depCode,
+            bodyNo : el.bodyNo,
+            assy:el.assyNo,
+            vinNo:el.vinNo,
+            renk:[el.rgbCode,el.colorExtCode],
+            modelCode:el.modelCode,
+            localId:el.localId,
+            partName:el.partName,
+            spot:el.spot,
+            gun:el.gun,
+            arc:el.arc,
+            arcGun:el.arcGun,
+            hata:el.defectName.substring(0,20),
+            rank:el.defrankCode,
+            saat:el.formattedDefectHour,
+            hataTuru:el.defectType,
+            hataSor:el.defrespName,
+            altSorumlu:'',
+            nrReason:[el.nrReasonId,data[0]?.data[0].nrReasonList]
+          }
+        ])
+      })
+    }else if(body==="" || body===undefined){
+      setRow([]);
+  
+      data[0]?.data[0].defectList?.filter(defect => defect?.assyNo == assyr).map((el,index)=>{
+        setRow((prev)=>[
+          ...prev,
+          {
+            id:index,
+            depCode : el.depCode,
+            bodyNo : el.bodyNo,
+            assy:el.assyNo,
+            vinNo:el.vinNo,
+            renk:[el.rgbCode,el.colorExtCode],
+            modelCode:el.modelCode,
+            localId:el.localId,
+            partName:el.partName,
+            spot:el.spot,
+            gun:el.gun,
+            arc:el.arc,
+            arcGun:el.arcGun,
+            hata:el.defectName.substring(0,20),
+            rank:el.defrankCode,
+            saat:el.formattedDefectHour,
+            hataTuru:el.defectType,
+            hataSor:el.defrespName,
+            altSorumlu:'',
+            nrReason:[el.nrReasonId,data[0]?.data[0].nrReasonList]
+          }
+        ])
+      })
+    }else{
+      setRow([]);
+      data[0]?.data[0].defectList?.filter(defect => defect?.bodyNo == body).filter(defect=>defect?.assyNo == assyr).map((el,index)=>{
+        setRow((prev)=>[
+          ...prev,
+          {
+            id:index,
+            depCode : el.depCode,
+            bodyNo : el.bodyNo,
+            assy:el.assyNo,
+            vinNo:el.vinNo,
+            renk:[el.rgbCode,el.colorExtCode],
+            modelCode:el.modelCode,
+            localId:el.localId,
+            partName:el.partName,
+            spot:el.spot,
+            gun:el.gun,
+            arc:el.arc,
+            arcGun:el.arcGun,
+            hata:el.defectName.substring(0,20),
+            rank:el.defrankCode,
+            saat:el.formattedDefectHour,
+            hataTuru:el.defectType,
+            hataSor:el.defrespName,
+            altSorumlu:'',
+            nrReason:[el.nrReasonId,data[0]?.data[0].nrReasonList]
+          }
+        ])
+      })  
+    }
 
-    data[0]?.data[0]?.defectList?.map((el,index)=>{
-      setRow((prev)=>[
-        ...prev,
-        {
-          id:index,
-          depCode : el.depCode,
-          bodyNo : el.bodyNo,
-          assy:el.assyNo,
-          vinNo:el.vinNo,
-          renk:[el.rgbCode,el.colorExtCode],
-          modelCode:el.modelCode,
-          localId:el.localId,
-          partName:el.partName,
-          spot:el.spot,
-          gun:el.gun,
-          arc:el.arc,
-          arcGun:el.arcGun,
-          hata:el.defectName.substring(0,20),
-          rank:el.defrankCode,
-          saat:el.formattedDefectHour,
-          hataTuru:el.defectType,
-          hataSor:el.defrespName,
-          altSorumlu:'',
-          nrReason:[el.nrReasonId,data[0]?.data[0].nrReasonList]
-        }
-      ])
-    })
-  ]
-
+  }
 
   return (
     <div  className='container' id='container'>
-    <DataGridPremium
+    <DataGridPro
         sx={{
           "& .MuiDataGrid-cell": {
             border: '0.5px solid black'

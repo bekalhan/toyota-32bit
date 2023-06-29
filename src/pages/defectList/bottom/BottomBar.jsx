@@ -1,20 +1,32 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import {Button, Grid, TextField, Typography ,Box} from '@mui/material';
 import ScrollButton from '../../../components/scrollButton/ScrollButton';
 import '../../../index.css'; 
 import {useTranslation} from 'react-i18next';
-import {searchBody} from '../../../redux/slices/defectList';
-import {useDispatch , useSelector} from 'react-redux';
+import {searchBody,searchAssy} from '../../../redux/slices/defectList';
+import {useDispatch} from 'react-redux';
 
 
 
 function BottomBar() {
     const [body,setBody] = useState();
+    const [assy,setAssy] = useState();
     const {t} = useTranslation();
     const dispatch = useDispatch();
 
+    //data[0]?.data[0]?.defectList,body
+
+    useEffect(()=>{
+        handleAssy();
+        handleBody();
+    },[body,assy])
+
     const handleBody = () => {
         dispatch(searchBody(body));
+    }
+
+    const handleAssy = () => {
+        dispatch(searchAssy(assy))
     }
 
   return (
@@ -29,9 +41,9 @@ function BottomBar() {
                         <Grid item lg={8} md={8} sm={8} xs={8}>
                             <Grid container>
                                 <Grid item lg={8} md={8} sm={8} xs={8}>
-                                    <TextField size='small' sx={{width:'95%'}} />
+                                    <TextField size='small' sx={{width:'95%'}} onChange={(e)=>setAssy(e.target.value)} />
                                 </Grid>
-                                <Grid item lg={4} md={4} sm={4} xs={4}>
+                                <Grid item lg={4} md={4} sm={4} xs={4} onClick={()=>handleAssy()}>
                                     <Button sx={{width:'100%',color:'black',backgroundColor:'white',border:'1px solid black',fontWeight:'bold'}} variant='contained'>{t('ara')}</Button>
                                 </Grid>
                             </Grid>                            

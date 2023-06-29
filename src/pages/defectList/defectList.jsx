@@ -6,10 +6,6 @@ import {getDefectDataList} from '../../redux/slices/defectList';
 import TableMain from './table/TableMain';
 import {useTime} from '../../hooks/useTime';
 import {useParams,useNavigate} from 'react-router-dom';
-import TestTable from './table/TableMain';
-
-
-
 
 function DefectList() {
 
