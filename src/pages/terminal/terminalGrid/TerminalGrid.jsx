@@ -10,7 +10,7 @@ import {useTheme} from '@mui/material';
 function TerminalGrid({terminalList}) {
     //navigate and mulit language
     const navigate = useNavigate();
-    const {t} = useTranslation();
+    const {t,i18n} = useTranslation();
     //mui theme
     const theme = useTheme();
 
@@ -23,7 +23,7 @@ function TerminalGrid({terminalList}) {
          </Box>
        </Grid>
        <Grid item lg={12} md={12} sm={12} xs={12}>
-           <Grid container sx={{marginTop:'0.2px'}}>
+           <Grid container sx={{marginTop:'0.2px',display:'flex',flexDirection:i18n.language === "ae" ? 'row-reverse':'row'}}>
              <Grid item lg={2} md={2} sm={4} xs={4} sx={{border:`1px solid ${theme.palette.custom.borderColor}`,padding:0.5}}>
                <Box sx={{display:'flex',justifyContent:'center'}}>
                    <Typography sx={{color:'#d23d42',fontSize:{lg:'15px'}}}>{t('bolumbazinda')}</Typography>
@@ -38,7 +38,7 @@ function TerminalGrid({terminalList}) {
        </Grid>
        {terminalList?.map((terminal,index)=>(
             <Grid key={index} item lg={12} md={12} sm={12} xs={12} sx={{cursor:'pointer'}}>
-                <Grid container sx={{marginTop:'0.2px'}}>
+                <Grid container sx={{marginTop:'0.2px',display:'flex',flexDirection:i18n.language === "ae" ? 'row-reverse':'row'}}>
                     <Grid item lg={2} md={2} sm={12} xs={12} sx={{border:`1px solid ${theme.palette.custom.borderColor}`}} className='terminal'
                     >
                     <Box sx={{display:'flex',justifyContent:'center'}}>

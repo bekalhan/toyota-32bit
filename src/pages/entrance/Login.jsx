@@ -111,68 +111,68 @@ function Login() {
                             <ValidationMessages name="invalid_credentials" />
                         ):null}
                         </Box>
-                    <form onSubmit={formik.handleSubmit}>
-                        {/* terminal List */}
-                        <TerminalList />
-                        {/* ASSY */}
-                        <Grid container sx={{marginTop:'0.5rem',width:'100%'}}>
-                                   <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.5}></Grid>
-                                    <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
-                                        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('sicilno')}</div>
-                                    </Grid>
-                                    <Grid item lg={7.5} md={7.5} sm={7.5} xs={7.5}>
-                                         <TextFieldFormatter formik={formik} name={"s_no"} setInputName={setInputName} onChangeInput={onChangeInput} />
-                                    </Grid>
-                       </Grid>
-                       <ValidationMessages formik={formik} name="s_no" />
-                       {/* PASSWORD */}
-                        <Grid container sx={{marginTop:'0.5rem'}}>
-                            <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.5}></Grid>
-                            <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
-                                        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('sifre')}</div>
+                        <form onSubmit={formik.handleSubmit}>
+                            {/* terminal List */}
+                            <TerminalList />
+                            {/* ASSY */}
+                            <Grid container sx={{marginTop:'0.5rem',width:'100%'}}>
+                                    <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.5}></Grid>
+                                        <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
+                                            <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('sicilno')}</div>
+                                        </Grid>
+                                        <Grid item lg={7.5} md={7.5} sm={7.5} xs={7.5}>
+                                            <TextFieldFormatter formik={formik} name={"s_no"} setInputName={setInputName} onChangeInput={onChangeInput} />
+                                        </Grid>
                             </Grid>
-                            <Grid item lg={7.5} md={7.5} sm={7.5} xs={7.5}>
-                                <TextFieldFormatter formik={formik} name={"password"} setInputName={setInputName} onChangeInput={onChangeInput} />
-                            </Grid>
-                        </Grid>
-                        {/* M-No */}
-                       <ValidationMessages formik={formik} name="password" />
-                        <Grid container sx={{marginTop:'0.5rem'}}>
+                              <ValidationMessages formik={formik} name="s_no" />
+                           {/* PASSWORD */}
+                            <Grid container sx={{marginTop:'0.5rem'}}>
                                 <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.5}></Grid>
                                 <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
-                                        <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('montajno')}</div>
+                                            <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('sifre')}</div>
                                 </Grid>
                                 <Grid item lg={7.5} md={7.5} sm={7.5} xs={7.5}>
-                                    <TextFieldFormatter formik={formik} name={"m_no"} setInputName={setInputName} onChangeInput={onChangeInput} />
+                                    <TextFieldFormatter formik={formik} name={"password"} setInputName={setInputName} onChangeInput={onChangeInput} />
                                 </Grid>
-                        </Grid>
-                        <ValidationMessages formik={formik} name="m_no" />
-                        {/* Date and Shift */}
-                        <DateShift formik={formik} />
-                        {/* Buttons */}
-                        <Grid container sx={{marginTop:'0.6em',height:{lg:'60px',md:'60px'}}}>
-                                {loading?(
-                                <Grid item lg={5.8} md={5.8} sm={5.8} xs={5.8}>
-                                    <Button variant="contained" disabled sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:`${theme.palette.custom.dark}`,marginLeft:{lg:'0.5em'}}}>loading...</Button>
-                                 </Grid>
-                                ):(
-                                <Grid item lg={5.8} md={5.8} sm={5.8} xs={5.8}>
-                                    <Button variant="contained" type='submit' sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:`${theme.palette.custom.dark}`,marginLeft:{lg:'0.5em'}}}>{t('girisyap')}</Button>
-                                  </Grid>
-                                )}
+                            </Grid>
+                            {/* M-No */}
+                        <ValidationMessages formik={formik} name="password" />
+                            <Grid container sx={{marginTop:'0.5rem'}}>
+                                    <Grid item lg={0.1} md={0.3} sm={0.5} xs={0.5}></Grid>
+                                    <Grid item lg={2.3} md={2.3} sm={2.6} xs={3}>
+                                            <div sx={{fontWeight:'bold',marginTop:'0.6rem'}} className='txt'>{t('montajno')}</div>
+                                    </Grid>
+                                    <Grid item lg={7.5} md={7.5} sm={7.5} xs={7.5}>
+                                        <TextFieldFormatter formik={formik} name={"m_no"} setInputName={setInputName} onChangeInput={onChangeInput} />
+                                    </Grid>
+                            </Grid>
+                            <ValidationMessages formik={formik} name="m_no" />
+                            {/* Date and Shift */}
+                            <DateShift formik={formik} />
+                            {/* Buttons */}
+                            <Grid container sx={{marginTop:'0.6em',height:{lg:'60px',md:'60px'}}}>
+                                    {loading?(
+                                    <Grid item lg={5.8} md={5.8} sm={5.8} xs={5.8}>
+                                        <Button variant="contained" disabled sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:`${theme.palette.custom.dark}`,marginLeft:{lg:'0.5em'}}}>loading...</Button>
+                                    </Grid>
+                                    ):(
+                                    <Grid item lg={5.8} md={5.8} sm={5.8} xs={5.8}>
+                                        <Button variant="contained" type='submit' sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:`${theme.palette.custom.dark}`,marginLeft:{lg:'0.5em'}}}>{t('girisyap')}</Button>
+                                    </Grid>
+                                    )}
 
-                                <Grid item lg={0.4} md={0.4} sm={0.4} xs={0.4}></Grid>
-                                <Grid item lg={5.8} md={5.8} sm={5.8} xs={5.8}>
-                                  <Button
-                                   variant="contained"
-                                    sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:`${theme.palette.custom.red}`}}
-                                    onClick={()=> navigate(`/cvqsterminal/terminals`)}
-                                    >
-                                    {t('kapat')}
-                                </Button>
-                                </Grid>
-                        </Grid>
-                    </form>
+                                    <Grid item lg={0.4} md={0.4} sm={0.4} xs={0.4}></Grid>
+                                    <Grid item lg={5.8} md={5.8} sm={5.8} xs={5.8}>
+                                    <Button
+                                    variant="contained"
+                                        sx={{width:'100%',height:'100%',borderRadius:'8px',fontWeight:'bold',fontSize:'18px',backgroundColor:`${theme.palette.custom.red}`}}
+                                        onClick={()=> navigate(`/cvqsterminal/terminals`)}
+                                        >
+                                        {t('kapat')}
+                                    </Button>
+                                    </Grid>
+                            </Grid>
+                        </form>
                         </Stack>
                     </Box>
                     {/* KEYBOARD */}
@@ -182,7 +182,7 @@ function Login() {
                             ) : (
                                 <NumericKeyboard inputName={inputName} formik={formik} setInputs={setInputs} inputs={inputs} keyboard={keyboard}  />
                             )}
-                  </Box>
+                    </Box>
                   {/* TEKNİK DESTEK */}
                   <Grid container sx={{marginTop:'6em'}}>
                             <Grid item lg={12} md={12} sm={12} xs={12} sx={{display:'flex',justifyContent:'flex-end'}}>

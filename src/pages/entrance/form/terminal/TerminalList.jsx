@@ -15,7 +15,7 @@ function TerminalList() {
     const params = useParams();
 
     //mulit language
-    const {t} = useTranslation();
+    const {t,i18n} = useTranslation();
 
     //custom redux,select hook
     let terminal = useRedux({name:"terminals",data:"terminal",slice:getSpeTerminal(params)});

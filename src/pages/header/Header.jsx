@@ -14,14 +14,16 @@ function Header() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  console.log("i18n : ",i18n);
+
   return (
     <>
       <ChangeLanguage open={open} handleClose={handleClose} />
         <AppBar position='relative'>
-          <Toolbar sx={{display:'flex',justifyContent:{lg:'space-between',md:'space-between',sm:'space-between',xs:'center'},backgroundColor:'#c6ffc7',alignItems:'center'}}>
+          <Toolbar sx={{display:'flex',flexDirection:i18n.language === "ae" ? 'row-reverse':'row',justifyContent:{lg:'space-between',md:'space-between',sm:'space-between',xs:'center'},backgroundColor:'#c6ffc7',alignItems:'center'}}>
               <Stack direction='column' sx={{justifyContent:'center'}}>
-                <Typography sx={{color:'black',fontSize:{lg:'22px',md:'20px',sm:'18px',xs:'22px'},marginTop:{xs:'0.3em'}}}>
-                  Complete Vehicle Quality
+                <Typography sx={{color:'black',fontSize:{lg:'20px',md:'20px',sm:'18px',xs:'22px'},marginTop:{xs:'0.3em'}}}>
+                {t('headertitle')}
                 </Typography>
                 <Box sx={{display:'flex',justifyContent:'center',marginTop:'0.3em',marginBottom:'0.3em'}}>
                   <DrawerMenu />

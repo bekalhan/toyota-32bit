@@ -57,7 +57,8 @@
     "araclistesi":"VEHICLE LIST",
     "manuelhata":"MANUAL ERROR",
     "cokluhata":"MULTIPLE ERROR",
-    "hatakopya":"ERROR COPY"
+    "hatakopya":"ERROR COPY",
+    "headertitle":"COMPLETE VEHICLE QUALITY"
 
 
 }

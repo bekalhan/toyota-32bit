@@ -14,8 +14,6 @@ function BottomBar() {
     const {t} = useTranslation();
     const dispatch = useDispatch();
 
-    //data[0]?.data[0]?.defectList,body
-
     useEffect(()=>{
         handleAssy();
         handleBody();

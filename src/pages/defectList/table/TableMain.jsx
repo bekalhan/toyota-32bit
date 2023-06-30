@@ -363,6 +363,18 @@ const TableMain = () => {
               fontWeight:'bold',
               height:'5px'
             },
+            '& .super-app-theme--header>div>div': {
+              textAlign:'center',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontWeight:'bold',
+            },
+            '& .super-app-theme--header>div>div>div>div': {
+              fontWeight:'bold',
+              justifyContent:'center',
+              marginRight:'7px'
+            },
         }}
         rows={row}
         columns={columns}
