@@ -46,7 +46,7 @@ function TerminalGrid({terminalList}) {
                     </Box>
                     </Grid>
                     <Grid item lg={10} md={10} sm={12} xs={12} sx={{border:`1px solid ${theme.palette.custom.borderColor}`,padding:0.4,display:'flex'}} >
-                        <Grid container sx={{justifyContent:{lg:'flex-start',md:'flex-start',sm:'center',xs:'center'}}}>
+                        <Grid container sx={{justifyContent:{lg:i18n.language === "ae" ? 'flex-end':'flex-start',md:'flex-start',sm:'center',xs:'center'}}}>
                         {terminal?.filterBaseds?.map((e,index)=>(
                         <Grid item lg={1.6} md={2} sm={3} xs={3} key={index} sx={{borderRadius:'10px',border:`1px solid ${theme.palette.custom.borderColor}`,height:'50px',marginTop:'0.4em',marginLeft:'0.7em'}} className='terminal'
                         onClick={()=> navigate(`/cvqsterminal/terminal/${terminal?.depCode}/${e?.filterCode}`)}
@@ -54,7 +54,7 @@ function TerminalGrid({terminalList}) {
                             <Stack direction='column'>
                                 <Box sx={{height:'15px'}}>
                                     {e?.linkCount > 1 ? (
-                                        <Box sx={{backgroundColor:'#d41921',width:{lg:'20px',md:'18px',sm:'18px',xs:'20px'},marginLeft:'auto',borderRadius:'8px',display:'flex',justifyContent:'center',height:{lg:'15px',md:'15px',sm:'17px',xs:'19px'},position:'relative',paddingBottom:{lg:'0.2em',md:'0.2em'}}}><Typography sx={{color:'white',marginBottom:{lg:'1em',md:'1em'},fontSize:'13px',fontWeight:'bold'}}>{e?.linkCount}</Typography></Box>
+                                        <Box sx={{backgroundColor:'#d41921',width:{lg:'20px',md:'18px',sm:'18px',xs:'20px'},marginLeft:i18n.language === "ae" ? '0':'auto',borderRadius:'8px',display:'flex',justifyContent:'center',height:{lg:'15px',md:'15px',sm:'17px',xs:'19px'},position:'relative',paddingBottom:{lg:'0.2em',md:'0.2em'}}}><Typography sx={{color:'white',marginBottom:{lg:'1em',md:'1em'},fontSize:'13px',fontWeight:'bold'}}>{e?.linkCount}</Typography></Box>
                                     ):(
                                         null
                                     )}

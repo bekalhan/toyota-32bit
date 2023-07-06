@@ -14,11 +14,6 @@ function BottomBar() {
     const {t} = useTranslation();
     const dispatch = useDispatch();
 
-    useEffect(()=>{
-        handleAssy();
-        handleBody();
-    },[body,assy])
-
     const handleBody = () => {
         dispatch(searchBody(body));
     }

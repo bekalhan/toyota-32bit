@@ -59,7 +59,6 @@ const loginSlice = createSlice({
         state.loading = true;
       });
       builder.addCase(getShifts.fulfilled, (state, action) => {
-        console.log("action : ",action.payload);
         state.shifts = action?.payload?.data;
         state.loading = false;
         state.appErr = undefined;

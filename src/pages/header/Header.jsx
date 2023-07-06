@@ -14,8 +14,6 @@ function Header() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log("i18n : ",i18n);
-
   return (
     <>
       <ChangeLanguage open={open} handleClose={handleClose} />

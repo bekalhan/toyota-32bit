@@ -63,8 +63,6 @@ const Test = ({defect,defects}) => {
     const changeIndication = (x,y) => {
         setIndicate({x:x+130,y:y+20})
     }
-
-    console.log("defect : ",defect);
     
   return (
     <>

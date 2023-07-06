@@ -11,6 +11,7 @@ export const getDefectDataList = createAsyncThunk("/defect-list",async () =>{
     }
 });
 
+
 const defectList = createSlice({
     name:'defectList',
     initialState:{

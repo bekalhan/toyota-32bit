@@ -45,7 +45,6 @@ const terminalSlice = createSlice({
         state.loading = true;
       });
       builder.addCase(getSpeTerminal.fulfilled, (state, action) => {
-        console.log("speee : ",action.payload)
         state.terminal = action?.payload?.data;
         state.loading = false;
         state.appErr = undefined;
