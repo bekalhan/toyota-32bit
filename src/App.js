@@ -5,9 +5,7 @@ import NotFound from "./utils/notfound/NotFound";
 import ErrorList from "./pages/defectList/defectList";
 import PrivateRoute from "./pages/routes/PrivateRoute";
 import {Routes,Route} from 'react-router-dom';
-import {
-  Box
-} from '@mui/material';
+import {Box} from '@mui/material';
 import { HashRouter } from "react-router-dom";
 //toast
 import {ToastContainer} from 'react-toastify';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { getTerminalList } from "../../redux/slices/terminalSlices";
 import TerminalGrid from './terminalGrid/TerminalGrid';
-import Header from '../header/Header';
+import Header from './header/Header';
 import {useRedux} from '../../hooks/useRedux';
 import ScrollTop from '../../components/scrollTop/ScrollTop';
 

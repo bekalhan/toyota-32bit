@@ -2,11 +2,11 @@ import React from 'react';
 import {
     AppBar,Toolbar,Stack, Box, Typography
   } from '@mui/material';
-  import DrawerMenu from '../../utils/DrawerMenu';
+  import DrawerMenu from '../../../utils/DrawerMenu';
   import {Outlet} from 'react-router-dom';
   import {useTranslation} from 'react-i18next';
   import LanguageIcon from '@mui/icons-material/Language';
-  import ChangeLanguage from '.././../utils/changeLanguage/ChangeLanguage';
+  import ChangeLanguage from '../../../utils/changeLanguage/ChangeLanguage';
 
 function Header() {
   const {t,i18n} = useTranslation();
