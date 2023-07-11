@@ -88,7 +88,7 @@ const Test = ({defect,defects}) => {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                         >
-                    <Typography sx={{maxWidth:'100%',backgroundColor:'white',color:'red',fontSize:'11px',display:'flex',justifyContent:'center'}}>{defect.labelText}</Typography>
+                    <Typography sx={{maxWidth:'100%',backgroundColor:'white',color:'red',fontSize:'11px',display:'flex',justifyContent:'center'}}>{el.name}</Typography>
                     </Box>
                     {/* PRİNT THE LİNE */}
                     {/* for screen lg */}
